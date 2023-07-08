@@ -1,0 +1,12 @@
+{
+  "appName": "SoodBoard",
+  "@appName": {
+    "type": "text",
+    "description": "Apps name"
+  },
+  "slogan": "Everyone benefits here",
+    "@slogan": {
+      "type": "text",
+      "description": "Apps slogan"
+    }
+}
