@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
 import 'package:vrouter/vrouter.dart';
 
+import '../modules/favorite/pages/favorite_products_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
 import 'localization.dart';
@@ -55,6 +56,10 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/login',
         widget: const LoginPage(),
+      ),
+      VWidget(
+        path: '/favorite_products',
+        widget: const FavoriteProductsPage(),
       ),
     ];
   }

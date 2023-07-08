@@ -13,6 +13,7 @@ mixin SoodBoardTheme {
         disabledColor: const Color(0xFF9B9B9B),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
         ),
         iconTheme: const IconThemeData(
           color: Color(0xFF9098B1),

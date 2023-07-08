@@ -8,5 +8,10 @@
     "@slogan": {
       "type": "text",
       "description": "Apps slogan"
-    }
+  },
+  "favoriteProductsAppBar": "Favorite Products",
+      "@favoriteProductsAppBar": {
+        "type": "text",
+        "description": "Favorite Products"
+  }
 }

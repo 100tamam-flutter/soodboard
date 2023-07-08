@@ -19,8 +19,7 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> checkTokens() async {
     // Mock Entry Check:
     await Future.delayed(const Duration(seconds: 2));
-
-    context.vRouter.to('/login', isReplacement: true);
+    context.vRouter.to('/favorite_products', isReplacement: true);
   }
 
   @override
