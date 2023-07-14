@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/favorite/pages/favorite_products_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
+import '../modules/home_screen/pages/home_screen_page.dart';
 import 'localization.dart';
 
 class SoodBoard extends StatelessWidget {
@@ -60,6 +62,10 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/favorite_products',
         widget: const FavoriteProductsPage(),
+      ),
+      VWidget(
+          path: '/home_screen',
+          widget: const HomeScreen(),
       ),
     ];
   }
