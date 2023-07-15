@@ -79,6 +79,7 @@ flutter:
     - assets/products/dress.png
     - assets/products/woman_bag.png
     - assets/products/man_bag.png
+    - assets/products/shoes.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
