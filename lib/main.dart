@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:soodboard/src/core/app.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('SoodBoard'),
-        ),
-      ),
-    ),
+    const SoodBoard(),
   );
 }
