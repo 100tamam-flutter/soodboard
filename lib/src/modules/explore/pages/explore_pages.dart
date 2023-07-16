@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:soodboard/src/models/product_model.dart';
+import 'package:soodboard/src/modules/explore/provider/explore_provider.dart';
 
 class ExplorePage extends StatelessWidget {
   const ExplorePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ChangeNotifierProvider(
+      create: (context) => ExploreProvider(context),
+      child: const _ExplorePage(),
+    );
   }
 }
 
