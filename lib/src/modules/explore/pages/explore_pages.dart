@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soodboard/src/models/product_model.dart';
 import 'package:soodboard/src/modules/explore/provider/explore_provider.dart';
 
 class ExplorePage extends StatelessWidget {
@@ -23,7 +22,7 @@ class _ExplorePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const  SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextField(
@@ -32,7 +31,7 @@ class _ExplorePage extends StatelessWidget {
             decoration: const InputDecoration(
                 labelText: "search", suffixIcon: Icon(Icons.search)),
           ),
-          const  SizedBox(
+          const SizedBox(
             height: 20,
           ),
           // Expanded(
@@ -58,7 +57,7 @@ class _ExplorePage extends StatelessWidget {
           //         ),
           //       ),
           //     )),
-          const  Text(
+          const Text(
             "ManFashion",
             style: TextStyle(
               color: Colors.black,
@@ -67,261 +66,47 @@ class _ExplorePage extends StatelessWidget {
           ),
           Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("ManShirt"),
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: const CircleBorder(),
+                        fixedSize: const Size(70, 70),
+                      ),
+                      onPressed: () {},
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      'Man Shirt',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: const Color(0xFF9098B1),
+                          ),
+                    )
+                  ],
                 ),
               ),
-
-              Container(
-                padding:const  EdgeInsets.all(8.0),
-                child:ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("ManWorkEquipMent"),
-                  ),
-                ),
-              ),
-
-
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child:  ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("ManT_Shirt"),
-                  ),
-                ),
-              ),
-
-              Container(
-                padding: const  EdgeInsets.all(8.0),
-                child:ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("ManShoes"),
-                  ),
-                ),
-              ),
-
-
-            ],
-          ),
-          Row(
-            children: [
-              Container(
-                padding: const  EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("ManPants"),
-                  ),
-                ),
-              ),
-
-              Container(
-                padding: const  EdgeInsets.all(8.0),
-                child:
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("ManUnderWare"),
-                  ),
-                ),
-              ),
-
             ],
           ),
 
-          const  Text(
+          const Text(
             "WomanFashion",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label:const Text("Dress"),
-                  ),
-                ),
-              ),
-
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child:
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape:const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("WomanT_Shirt"),
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("WomanPants"),
-                  ),
-                ),
-              ),
-
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("Skirt"),
-                  ),
-                ),
-              ),
-
-
-            ],
-          ),
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child:ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("WomanBag"),
-                  ),
-                ),
-              ),
-
-
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child:  ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("HighHeels"),
-                  ),
-                ),
-              ),
-
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:Colors.white,
-                    shape: const CircleBorder(),
-                  ),
-
-                  onPressed:(){},
-                  child: ElevatedButton.icon(
-                    onPressed:(){},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("Bikini"),
-                  ),
-                ),
-              ),
-
-
-            ],
-          ),
-
         ],
       ),
     );
   }
 }
-
