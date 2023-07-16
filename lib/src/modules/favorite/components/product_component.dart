@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:soodboard/src/models/product_model.dart';
+
+import '../../../models/product_model.dart';
 
 class ProductComponent extends StatelessWidget {
   const ProductComponent({Key? key, required this.productModel})
