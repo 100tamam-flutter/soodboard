@@ -39,9 +39,13 @@ class CartPage extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                const Text('Nike Air Zoom Pegasus 36 Miami'),
-                IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.favorite)),
+                const Expanded(
+                  child: Text(
+                    'Nike Air Zoom Pegasus 36 Miami',
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
                 IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
               ],
             ),
