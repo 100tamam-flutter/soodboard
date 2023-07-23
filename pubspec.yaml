@@ -70,6 +70,7 @@ flutter:
   assets:
     - assets/mock-data/
     - assets/mock-files/
+    - assets/images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -104,6 +105,7 @@ flutter:
         - asset: fonts/poppins/Poppins-SemiBoldItalic.ttf
         - asset: fonts/poppins/Poppins-Thin.ttf
         - asset: fonts/poppins/Poppins-ThinItalic.ttf
+
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
