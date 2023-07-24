@@ -20,11 +20,13 @@ class SearchFieldComponent extends StatelessWidget {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(
-                    color: Colors.grey,
+                    color: Color(0xFFEBF0FF),
                   ),
                 ),
-                prefixIcon: Icon(Icons.search),
-                hintText: "SearchProduct",
+                prefixIcon: Icon(Icons.search,
+                color: Color(0xFF40BFFF),
+                ),
+                hintText: "Search Product",
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.w400,
                   letterSpacing: 0.5,

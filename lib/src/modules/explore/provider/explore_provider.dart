@@ -12,7 +12,7 @@ class ExploreProvider extends SafeProvider with ErrorHandler {
     initProducts();
   }
 
-  List<ProductModel> products = [];
+ late List<ProductModel> products = [];
   final ExploreAPI _exploreApi = ExploreAPIMock();
 
   bool loadingProducts = true;

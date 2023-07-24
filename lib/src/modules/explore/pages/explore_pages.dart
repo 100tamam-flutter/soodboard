@@ -26,28 +26,39 @@ class _ExplorePage extends StatelessWidget {
       body: ListView(
         children: const [
           SizedBox(
-            height: 20,
+            height: 16,
           ),
           SearchFieldComponent(),
           SizedBox(
-            height: 20,
+            height: 16,
           ),
-          CategoryTableComponent(
-            title: "Man Fashion",
-            categories: [
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-            ],
-          ),
+            Divider(
+              color: Color(0xFFEBF0FF),
+             height: 1,
+            ),
+              CategoryTableComponent(
+              title: "Man Fashion",
+              categories: [
+                CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
+                CategoryModel(title: "Man Work Equipment", icon: "assets/icons/man_bag.svg"),
+                CategoryModel(title: "Man T-Shirt", icon: "assets/icons/T-shirt.svg"),
+                CategoryModel(title: "Man Shoes", icon: "assets/icons/man_shoes.svg"),
+                CategoryModel(title: "Man Pants", icon: "assets/icons/man_pants.svg"),
+                CategoryModel(title: "Man Underwear", icon: "assets/icons/man_underwear.svg"),
+              ],
+            ),
+
+
           CategoryTableComponent(
             title: "Woman Fashion",
             categories: [
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
-              CategoryModel(title: "Man Shirt", icon: "assets/icons/shirt.svg"),
+              CategoryModel(title: "Dress", icon: "assets/icons/dress.svg"),
+              CategoryModel(title: "Woman T-Shirt", icon: "assets/icons/woman_T-shirt.svg"),
+              CategoryModel(title: "Woman Pants", icon: "assets/icons/woman_pants.svg"),
+              CategoryModel(title: "Skirt", icon: "assets/icons/skirt.svg"),
+              CategoryModel(title: "Woman Bag", icon: "assets/icons/woman_bag.svg"),
+              CategoryModel(title: "High Heels", icon: "assets/icons/woman_shoes.svg"),
+              CategoryModel(title: "Bikini", icon: "assets/icons/bikini.svg"),
             ],
           ),
         ],

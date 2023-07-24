@@ -21,10 +21,8 @@ class CategoryTableComponent extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.5,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                 color: const Color(0xFF223263),
                 ),
               ),
             ],
