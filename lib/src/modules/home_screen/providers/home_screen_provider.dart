@@ -13,7 +13,7 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
     initbanners();
   }
 
-  List<BannerModel> banners = [];
+  late List<BannerModel> banners;
   final HomeScreenProductsAPI _homeScreenProductsAPI = HomeScreenProductsAPIMock();
 
   bool loadingbanners = true;
