@@ -1,8 +1,7 @@
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:soodboard/src/models/banner_model.dart';
-import 'package:soodboard/src/models/banner_model.dart';
-import 'package:soodboard/src/models/product_model.dart';
 
 abstract class HomeScreenProductsAPI {
   Future<List<BannerModel>> getBanners() async {
@@ -21,7 +20,7 @@ class HomeScreenProductsAPIMock implements HomeScreenProductsAPI {
     );
 
     final response =
-    await rootBundle.loadString('assets/mock-data/banners.json');
+        await rootBundle.loadString('assets/mock-data/banners.json');
     final responseBody = jsonDecode(response) as Map<String, dynamic>;
     final data = responseBody['data'] as Map<String, dynamic>;
     final bannersList = data['banners'] as List;

@@ -14,20 +14,21 @@ class SlideBarComponent extends StatelessWidget {
       indicatorColor: Colors.blue,
       autoPlayInterval: 3000,
       isLoop: true,
-      onPageChanged: (value) {
-      },
+      onPageChanged: (value) {},
       width: 343,
       height: 270,
       children: bannerModels
           .map(
             (e) => SizedBox(
-          width: 343,
-          height: 270,
-          child: Image.asset(e.image, fit: BoxFit.cover,),
-        ),
-      )
+              width: 343,
+              height: 270,
+              child: Image.asset(
+                e.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+          )
           .toList(),
     );
-
   }
 }
