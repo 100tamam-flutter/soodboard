@@ -7,7 +7,6 @@ import 'package:vrouter/vrouter.dart';
 import '../modules/favorite/pages/favorite_products_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
-import '../modules/home_screen/pages/home_screen_page.dart';
 import 'localization.dart';
 
 class SoodBoard extends StatelessWidget {
