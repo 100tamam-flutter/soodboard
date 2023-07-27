@@ -28,6 +28,7 @@ class CategoryTableComponent extends StatelessWidget {
             ],
           ),
           Wrap(
+            alignment: WrapAlignment.start,
               children: categories
                   .map((e) => CategoryComponent(
                         categoryModel: e,
