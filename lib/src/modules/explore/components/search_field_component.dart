@@ -23,6 +23,30 @@ class SearchFieldComponent extends StatelessWidget {
                     color: Color(0xFFEBF0FF),
                   ),
                 ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    color: Color(0xFFEBF0FF),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    color: Color(0xFFEBF0FF),
+                  ),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    color: Color(0xFFEBF0FF),
+                  ),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(
+                    color: Color(0xFFEBF0FF),
+                  ),
+                ),
                 prefixIcon: Icon(Icons.search,
                 color: Color(0xFF40BFFF),
                 ),
