@@ -1,17 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:soodboard/src/models/product_model.dart';
+import 'package:soodboard/src/modules/explore/models/category_model.dart';
+
 
 abstract class ExploreAPI {
-  Future<List<ProductModel>> searchProducts() async {
+  Future<List<CategoryModel>> getcategories() async {
     throw UnimplementedError();
   }
 }
 
 class ExploreAPIMock implements ExploreAPI {
   @override
-  Future<List<ProductModel>> searchProducts() async {
+  Future<List<CategoryModel>> getcategories() async {
     // Simulate API request delay
     await Future.delayed(
       const Duration(
@@ -20,12 +21,12 @@ class ExploreAPIMock implements ExploreAPI {
     );
 
     final response =
-    await rootBundle.loadString('assets/mock-data/products.json');
+    await rootBundle.loadString('assets/mock-data/categories.json');
     final responseBody = jsonDecode(response) as Map<String, dynamic>;
     final data = responseBody['data'] as Map<String, dynamic>;
-    final productsList = data['products'] as List;
-    return productsList
-        .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+    final categoriesList = data['categories'] as List;
+    return categoriesList
+        .map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
         .toList();
   }
 }

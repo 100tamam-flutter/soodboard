@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:soodboard/src/models/product_model.dart';
+import 'package:soodboard/src/modules/explore/models/category_model.dart';
+import 'package:soodboard/src/modules/explore/api/explore_api.dart';
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
-import '../api/explore_api.dart';
+
 
 class ExploreProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
   ExploreProvider(this.context) {
-    initProducts();
+    initcategories();
   }
 
- late List<ProductModel> products = [];
+ late List<CategoryModel> categories = [];
   final ExploreAPI _exploreApi = ExploreAPIMock();
 
-  bool loadingProducts = true;
+  bool loadingcategories = true;
 
-  Future<void> initProducts() async {
-    getProducts();
+  Future<void> initcategories() async {
+    getcategories();
   }
 
-  Future<void> getProducts() async {
-    loadingProducts = true;
+  Future<void> getcategories() async {
+    loadingcategories = true;
     notifyListeners();
     try {
-      products = await _exploreApi.searchProducts();
+     categories = await _exploreApi.getcategories();
     } on ApiError catch (e) {
       showError(context, e);
     }
-    loadingProducts = false;
+    loadingcategories = false;
     notifyListeners();
   }
 }
