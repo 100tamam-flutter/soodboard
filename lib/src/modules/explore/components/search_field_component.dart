@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_icons/flutter_svg_icons.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SearchFieldComponent extends StatelessWidget {
   const SearchFieldComponent({Key? key}) : super(key: key);
@@ -68,15 +68,11 @@ class SearchFieldComponent extends StatelessWidget {
             ),
           ),
         ),
-        const SvgIcon(
-          icon: SvgIconData('assets/icons/love.svg'),
-        ),
+        SvgPicture.asset('assets/icons/love.svg'),
         const SizedBox(
           width: 16,
         ),
-        const SvgIcon(
-          icon: SvgIconData('assets/icons/Notification.svg'),
-        ),
+        SvgPicture.asset('assets/icons/Notification.svg'),
         const SizedBox(
           width: 16,
         ),
