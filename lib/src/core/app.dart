@@ -4,6 +4,7 @@ import 'package:soodboard/src/modules/login/pages/login_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/favorite/pages/favorite_products_page.dart';
+import '../modules/product-details/pages/product-details.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
 import 'localization.dart';
@@ -37,7 +38,7 @@ class _SoodBoard extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       mode: VRouterMode.history,
-      initialUrl: '/splash',
+      initialUrl: '/product_detail',
       routes: routes,
       buildTransition: (animation, _, child) => FadeTransition(
         opacity: animation,
@@ -60,6 +61,10 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/favorite_products',
         widget: const FavoriteProductsPage(),
+      ),
+      VWidget(
+        path: '/product_detail',
+        widget: const ProductDetails(),
       ),
     ];
   }

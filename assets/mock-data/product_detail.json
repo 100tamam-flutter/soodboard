@@ -1,0 +1,31 @@
+{
+  "title" : "Nike Air Zoom Pegasus 36 Miami",
+  "image1" : "assets/mock-files/image1.png",
+  "image2" : "assets/mock-files/image1.png",
+  "image3" : "assets/mock-files/image1.png",
+  "rate" : 0.5,
+  "price": 299.43,
+  "related_products" : [
+    {
+      "id": "1",
+      "title": "First Product",
+      "image": "assets/mock-files/product1.png",
+      "price": 534.33,
+      "discount": 24
+    },
+    {
+      "id": "2",
+      "title": "Second Product",
+      "image": "assets/mock-files/product2.png",
+      "price": 422.33,
+      "discount": 24
+    },
+    {
+      "id": "3",
+      "title": "Third Product",
+      "image": "assets/mock-files/product3.png",
+      "price": 410.33,
+      "discount": 24
+    }
+  ]
+}

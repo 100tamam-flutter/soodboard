@@ -22,4 +22,5 @@ class ProductModel {
       discount: json['discount'] as int,
     );
   }
+
 }
