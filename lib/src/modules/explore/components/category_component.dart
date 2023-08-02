@@ -14,33 +14,39 @@ class CategoryComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(21),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              shape: const CircleBorder(),
-              fixedSize: const Size(70, 70),
+      child: SizedBox(
+        width: 70,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                shape: const CircleBorder(),
+                fixedSize: const Size(70, 70),
+              ),
+              onPressed: () {},
+              child: SvgPicture.asset(
+                categoryModel.icon,
+                width: 24,
+                height: 24,
+              ),
             ),
-            onPressed: () {},
-            child: SvgPicture.asset(
-              categoryModel.icon,
-              width: 24,
-              height: 24,
+            const SizedBox(
+              height: 8,
             ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            categoryModel.title,
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  color: const Color(0xFF9098B1),
-                  letterSpacing: 0.5,
-                ),
-          ),
-        ],
+            Text(
+              categoryModel.title,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: const Color(0xFF9098B1),
+                letterSpacing: 0.5,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

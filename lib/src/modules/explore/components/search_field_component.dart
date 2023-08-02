@@ -72,7 +72,7 @@ class SearchFieldComponent extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        SvgPicture.asset('assets/icons/Notification.svg'),
+        SvgPicture.asset('assets/icons/notification.svg'),
         const SizedBox(
           width: 16,
         ),
