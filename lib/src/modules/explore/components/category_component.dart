@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_icons/flutter_svg_icons.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:soodboard/src/modules/explore/models/category_model.dart';
 
 class CategoryComponent extends StatelessWidget {
@@ -24,10 +24,10 @@ class CategoryComponent extends StatelessWidget {
               fixedSize: const Size(70, 70),
             ),
             onPressed: () {},
-            child: SvgIcon(
-              icon: SvgIconData(categoryModel.icon),
-              size: 24,
-              color: Theme.of(context).primaryColor,
+            child: SvgPicture.asset(
+              categoryModel.icon,
+              width: 24,
+              height: 24,
             ),
           ),
           const SizedBox(
