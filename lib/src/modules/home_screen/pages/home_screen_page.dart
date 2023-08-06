@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/home_screen/components/category_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/slidebar_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
-import '../../../models/banner_model.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeScreen extends StatelessWidget {
-  _HomeScreen({Key? key}) : super(key: key);
+  const _HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(5)),
                               hintText: "Search Product",
                               prefixIcon: Padding(
-                                padding: EdgeInsets.all(16),
+                                padding: const EdgeInsets.all(16),
                                 child: SvgPicture.asset(
                                   'assets/icons/search.svg',
                                 ),
@@ -75,7 +76,56 @@ class _HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 SlideBarComponent(bannerModels: provider.banners),
+                const SizedBox(height: 48,),
+                Row(
+                  children: [
+                    Container(
+                      margin:const EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Category",
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
 
+                    ),
+                    const Expanded(child: SizedBox()),
+                    Container(
+                      margin: const EdgeInsets.only(right: 16),
+                      child: Text(
+                          "More Category",
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: const Color(0xFF40BFFF),
+                        )
+
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 12),
+                const CategoryComponent(),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Container(
+                      margin:const EdgeInsets.only(left: 16),
+                      child: Text(
+                        "Flash Sale",
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+
+                    ),
+                    const Expanded(child: SizedBox()),
+                    Container(
+                      margin: const EdgeInsets.only(right: 16),
+                      child: Text(
+                          "See More",
+                          style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: const Color(0xFF40BFFF),
+                          )
+
+                      ),
+                    )
+                  ],
+                ),
 
               ],
             ),

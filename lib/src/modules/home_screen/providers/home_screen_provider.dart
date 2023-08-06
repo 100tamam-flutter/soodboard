@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soodboard/src/modules/home_screen/api/home_screen_api.dart';
 import 'package:soodboard/src/models/banner_model.dart';
-import '../../home_screen/components/slidebar_component.dart';
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
@@ -36,4 +35,6 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
     loadingbanners = false;
     notifyListeners();
   }
+
+
 }
