@@ -75,6 +75,7 @@ flutter:
   assets:
     - assets/mock-data/
     - assets/mock-files/
+    - assets/icons/
     - assets/products/
     - assets/icons/
   #   - images/a_dot_burr.jpeg
