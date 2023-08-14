@@ -94,13 +94,13 @@ class LoginPage extends StatelessWidget {
              height: 16,
            ),
            const LogInButtonComponent(
-             icon:Icon(Icons.add),
+             icon: 'assets/icons/google.svg',
                title:'Login with Google',),
             const SizedBox(
               height:8,
             ),
              const LogInButtonComponent(
-               icon: Icon(Icons.add),
+                 icon: 'assets/icons/google.svg',
                 title:'Login with facebook'),
             const SizedBox(
               height: 16,

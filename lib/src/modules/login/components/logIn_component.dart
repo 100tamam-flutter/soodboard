@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LogInButtonComponent extends StatelessWidget {
   const LogInButtonComponent({Key? key, required this.icon, required this.title}) : super(key: key);
   final String title;
-  final Icon icon;
+  final String icon;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -19,7 +20,7 @@ class LogInButtonComponent extends StatelessWidget {
        width: 343,
        child: Row(
          children: [
-           icon,
+           SvgPicture.asset(icon),
            const SizedBox(width: 10),
            SizedBox(
              width:227,
