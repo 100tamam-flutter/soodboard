@@ -45,17 +45,20 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 28,
           ),
-          const  TextFieldComponent(title:'Your Email',
-               icon: Icon(Icons.add),
-            ),
+
+             const TextFieldComponent(title:'Your Email',
+              icon: 'assets/icons/message.svg',
+              ),
+
 
            const SizedBox(
              height: 8,
            ),
 
-           const TextFieldComponent(title:'Password',
-              icon: Icon(Icons.add),
-            ),
+              const TextFieldComponent(title:'Password',
+               icon: 'assets/icons/password.svg',
+              ),
+
 
            const SizedBox(
              height: 16,
@@ -95,13 +98,16 @@ class LoginPage extends StatelessWidget {
            ),
            const LogInButtonComponent(
              icon: 'assets/icons/google.svg',
-               title:'Login with Google',),
+               title:'Login with Google',
+           ),
             const SizedBox(
               height:8,
             ),
-             const LogInButtonComponent(
-                 icon: 'assets/icons/google.svg',
-                title:'Login with facebook'),
+        const LogInButtonComponent(
+                   icon: 'assets/icons/facebook.svg',
+                  title:'Login with facebook'
+        ),
+
             const SizedBox(
               height: 16,
             ),

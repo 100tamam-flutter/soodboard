@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 class TextFieldComponent extends StatelessWidget {
   const TextFieldComponent({Key? key, required this.title,required this.icon}) : super(key: key);
   final String title;
-  final Icon icon;
+  final String icon;
   @override
   Widget build(BuildContext context) {
     return  TextField(
@@ -43,7 +44,7 @@ class TextFieldComponent extends StatelessWidget {
                     color: Color(0xFFEBF0FF),
                   ),
                 ),
-                prefixIcon: icon,
+                prefixIcon:  Padding(padding: EdgeInsets.all(8), child: SvgPicture.asset(icon),),
                 hintText: title,
                 hintStyle: const TextStyle(
                   fontWeight: FontWeight.w400,

@@ -19,12 +19,11 @@ class LogInButtonComponent extends StatelessWidget {
         height: 57,
        width: 343,
        child: Row(
+    //     mainAxisAlignment:MainAxisAlignment.center,
          children: [
-           SvgPicture.asset(icon),
+           Padding(padding: const EdgeInsets.all(16), child: SvgPicture.asset(icon),),
            const SizedBox(width: 10),
-           SizedBox(
-             width:227,
-             height: 25,
+           Expanded(
              child:Text(title,
                textAlign: TextAlign.center,
                style:  Theme.of(context).textTheme. titleSmall!.copyWith(
