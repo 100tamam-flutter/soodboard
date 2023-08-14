@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
 import 'package:vrouter/vrouter.dart';
 
+import '../modules/explore/pages/explore_pages.dart';
 import '../modules/favorite/pages/favorite_products_page.dart';
 import '../modules/product-details/pages/product-details.dart';
 import '../modules/splash/pages/splash_page.dart';
@@ -65,6 +67,14 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/product_detail',
         widget: const ProductDetails(),
+      ),
+      VWidget(
+          path: '/home_screen',
+          widget: const HomeScreen(),
+      ),
+      VWidget(
+        path: '/explore',
+        widget: const ExplorePage(),
       ),
     ];
   }
