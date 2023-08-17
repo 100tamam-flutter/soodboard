@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:soodboard/src/models/product_model.dart';
 
 class ProductHomeComponent extends StatelessWidget {
-  const ProductHomeComponent ({Key? key, required this.productModel})
-      : super(key: key);
+  const ProductHomeComponent ({Key? key, required this.productModel}) : super(key: key);
   final ProductModel productModel;
 
   @override

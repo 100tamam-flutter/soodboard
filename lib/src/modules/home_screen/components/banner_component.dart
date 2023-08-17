@@ -9,7 +9,10 @@ class BannerComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Duration duration = bannerModel.endTime.difference(DateTime.now());
+      DateTime now = DateTime.now();
+      DateTime endTime = bannerModel.endTime;
+     Duration duration = endTime.difference(now);
+
 
     return Stack(
       alignment: Alignment.topLeft,
@@ -27,16 +30,16 @@ class BannerComponent extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(bottom: 32, left: 32),
+            margin: const EdgeInsets.only(bottom: 32, left: 32),
             child: SlideCountdownSeparated(
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(5),
                 ),
-                duration: Duration(hours: 08, minutes: 34, seconds: 52),
+                duration: const Duration(hours:8, minutes: 54, seconds: 37),
                 height: 41,
                 width: 42,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                     fontFamily: "Poppins",
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.normal,
@@ -53,15 +56,24 @@ class BannerComponent extends StatelessWidget {
 
 
         ]),
-        Text(
-            "Super Flash Sale"
-            "50% Off",
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: Colors.white,
-            fontSize: 24,
-          )
+       Container(
+         margin: const EdgeInsets.only(top: 32, left: 24),
+         child :
+                 Text(
+                     "Super Flash Sale                                                                            "
+                         "50% Off",
+                     textAlign: TextAlign.start,
 
-        )
+                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                       color: Colors.white,
+                       fontSize: 30,
+                     )
+                 ),
+
+       )
+
+
+
       ]
     );
     

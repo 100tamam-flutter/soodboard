@@ -100,7 +100,7 @@ class _HomeScreen extends StatelessWidget {
                         ),
 
                     ),
-                    const Expanded(child: SizedBox()),
+                    Expanded(child: Container()),
                     Container(
                       margin: const EdgeInsets.only(right: 16),
                       child: Text(
@@ -108,7 +108,6 @@ class _HomeScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           color: const Color(0xFF40BFFF),
                         )
-
                       ),
                     )
                   ],
@@ -126,7 +125,7 @@ class _HomeScreen extends StatelessWidget {
                       ),
 
                     ),
-                    const Expanded(child: SizedBox()),
+                    Expanded(child: Container()),
                     Container(
                       margin: const EdgeInsets.only(right: 16),
                       child: Text(
@@ -134,9 +133,13 @@ class _HomeScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             color: const Color(0xFF40BFFF),
                           )
-
                       ),
-                    )
+                    ),
+
+
+
+
+
                   ],
                 ),
 
