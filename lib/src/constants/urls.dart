@@ -4,5 +4,6 @@ class Urls {
 
   /// Products:
   static const getProducts = '$mainUri/products/';
-
+/// categories:
+  static const getcategories = '$mainUri/products/categories/' ;
 }

@@ -4,90 +4,90 @@
       {
         "id": "1",
         "title": "Man Shirt",
-        "icon": "assets/icons/shirt.svg",
+        "icon": "icons/shirt.svg",
         "gender" : "male"
 
       },
       {
         "id": "2",
         "title": "Man Work Equipment",
-        "icon": "assets/icons/man_bag.svg",
+        "icon": "icons/man_bag.svg",
         "gender" : "male"
 
       },
       {
         "id": "3",
         "title": "Man T-Shirt",
-        "icon": "assets/icons/T-shirt.svg",
+        "icon": "icons/man_T-shirt.svg",
         "gender" : "male"
 
       },
       {
         "id": "4",
         "title": "Man Shoes",
-        "icon": "assets/icons/man_shoes.svg",
+        "icon": "icons/man_shoes.svg",
         "gender" : "male"
 
       },
       {
         "id": "5",
         "title": "Man Pants",
-        "icon": "assets/icons/man_pants.svg",
+        "icon": "icons/man_pants.svg",
         "gender" : "male"
 
       },
       {
         "id": "6",
         "title": "Man Underwear",
-        "icon": "assets/icons/man_underwear.svg",
+        "icon": "icons/man_underwear.svg",
         "gender" : "male"
 
       },
       {
         "id": "7",
         "title": "Dress",
-        "icon": "assets/icons/dress.svg",
+        "icon": "icons/dress.svg",
         "gender" : "female"
       },
       {
         "id": "8",
         "title": "Woman T-Shirt",
-        "icon": "assets/icons/woman_T-shirt.svg",
+        "icon": "icons/woman_T-shirt.svg",
         "gender" : "female"
 
       },
       {
         "id": "9",
         "title": "Woman Pants",
-        "icon": "assets/icons/woman_pants.svg",
+        "icon": "icons/woman_pants.svg",
         "gender" : "female"
 
       },
       {
         "id": "10",
         "title": "Skirt",
-        "icon": "assets/icons/skirt.svg",
+        "icon": "icons/skirt.svg",
         "gender" : "female"
 
       },
       {
         "id": "11",
         "title": "Woman Bag",
-        "icon": "assets/icons/woman_bag.svg",
+        "icon": "icons/woman_bag.svg",
         "gender" : "female"
 
       },
       {
         "id": "12",
         "title": "High Heels",
-        "icon": "assets/icons/woman_shoes.svg",
+        "icon": "icons/woman_shoes.svg",
         "gender" : "female"
 
       },
       {
         "id": "13",
         "title": "Bikini",
-        "icon": "assets/icons/bikini.svg",
+        "icon": "icons/bikini.svg",
         "gender" : "female"
 
       }
