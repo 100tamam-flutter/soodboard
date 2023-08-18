@@ -39,7 +39,7 @@ class _SoodBoard extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       mode: VRouterMode.history,
-      initialUrl: '/explore',
+      initialUrl: '/favorite_products',
       routes: routes,
       buildTransition: (animation, _, child) => FadeTransition(
         opacity: animation,
