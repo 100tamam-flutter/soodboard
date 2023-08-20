@@ -36,7 +36,7 @@ class BannerComponent extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(5),
                 ),
-                duration: const Duration(hours:8, minutes: 54, seconds: 37),
+                duration: duration,
                 height: 41,
                 width: 42,
                 textStyle: const TextStyle(
