@@ -29,7 +29,7 @@ class ExploreAPIMock implements ExploreAPI {
     final data = responseBody['data'] as Map<String, dynamic>;
     final categoriesList = data['categories'] as List;
     return categoriesList
-        .map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
+        .map((e) => CategoryModel.fromJson(e as String))
         .toList();
   }
 }

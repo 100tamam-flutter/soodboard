@@ -14,7 +14,7 @@ class ExploreProvider extends SafeProvider with ErrorHandler {
   }
 
  late List<CategoryModel> categories = [];
-  final ExploreAPI _exploreApi = ExploreAPIMock();
+  final ExploreAPI _exploreApi = ExploreApiImp();
 
   bool loadingcategories = true;
 

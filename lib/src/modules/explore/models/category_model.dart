@@ -11,12 +11,12 @@ class CategoryModel {
     required this.gender,
   });
 
-  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+  factory CategoryModel.fromJson(String category) {
     return CategoryModel(
-        id: json['id'] as String,
-        title: json['title'] as String,
-        icon: json['icon'] as String,
-        gender: json['gender'] as String,
+        id: '0',
+        title: category,
+        icon: '',
+        gender: 'male',
     );
   }
 }
