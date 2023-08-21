@@ -27,72 +27,78 @@ class CartProductComponent extends StatelessWidget {
           ),
           Expanded(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  cartProductModel.productName,
+                Row(
+                  children: [
+                    Text(
+                      cartProductModel.productName,
+
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.favorite,
+                            size: 24,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.delete,
+                            size: 24,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 4,
+                        color: Colors.grey[300],
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              child: Container(
+                                height: 24,
+                                width: 32,
+                                color: Colors.blue,
+                                child: Icon(Icons.add),
+                              ),
+                            ),
+                            SizedBox(
+                              child: Container(
+                                height: 24,
+                                width: 32,
+                                color: Colors.blue,
+                                child: Text('1'),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: double.infinity,
+                                color: Colors.blue,
+                                child: Icon(Icons.remove),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Text('1'),
+                  ],
                 ),
               ],
-            ),
+            )
           ),
-          Column(
-            children: [
-              InkWell(
-                onTap: () {},
-                child: const Icon(
-                  Icons.favorite,
-                  size: 24,
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: const Icon(
-                  Icons.delete,
-                  size: 24,
-                ),
-              ),
-            ],
-          ),
-          Row(
-          children: [
-          Expanded(
-          child: Container(
-    height: 4,
-    color: Colors.grey[300],
-    child: Row(
-    children: [
-    Expanded(
-    child: Container(
-    height: double.infinity,
-    color: Colors.blue ,
-      child: Icon(Icons.add),
-    ),
-    ),
-    Expanded(
-    child: Container(
-    height: double.infinity,
-    color: Colors.blue,
-      child: Text('1'),
-    ),
-    ),
-    Expanded(
-    child: Container(
-    height: double.infinity,
-    color:  Colors.blue,
-      child: Icon(Icons.remove),
-    ),
-    ),
-    ],
-    ),
-    ),
-    ),
-    SizedBox(width: 8),
-    Text('1'),
-    ],)
+
         ],
       ),
     );
   }
 }
-

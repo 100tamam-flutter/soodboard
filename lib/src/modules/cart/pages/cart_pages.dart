@@ -44,7 +44,8 @@ class _CartPage extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Container( padding: EdgeInsets.all(16),
+                    child: Container(
+                      padding: EdgeInsets.all(16),
                       height: 56,
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
@@ -65,27 +66,31 @@ class _CartPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container( padding: EdgeInsets.all(16),
-                      width: 87,
-                      height: 56,
-                      decoration: const BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(5),
-                          topRight: Radius.circular(5),
-                        ),
+                  Container(
+                    padding: EdgeInsets.all(16),
+                    width: 87,
+                    height: 56,
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(5),
+                        topRight: Radius.circular(5),
                       ),
-                      child: const Center(
-                        child: Text('Apply',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold)),
-                      )),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Apply',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],
           ),
-          Container(padding: EdgeInsets.all(16),
+          Container(
+            padding: EdgeInsets.all(16),
             width: 343,
             height: 164,
             decoration: BoxDecoration(
@@ -142,7 +147,8 @@ class _CartPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(padding: EdgeInsets.all(16),
+                Container(
+                    padding: EdgeInsets.all(16),
                     width: 343,
                     height: 57,
                     decoration: BoxDecoration(
