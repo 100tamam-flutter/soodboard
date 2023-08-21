@@ -9,7 +9,6 @@ class CartProductComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 104,
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -30,73 +29,75 @@ class CartProductComponent extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(
-                      cartProductModel.productName,
-
+                    Expanded(
+                      child: Text(
+                        cartProductModel.productName,
+                      ),
                     ),
-                    Column(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: const Icon(
-                            Icons.favorite,
-                            size: 24,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: const Icon(
-                            Icons.delete,
-                            size: 24,
-                          ),
-                        ),
-                      ],
+                    InkWell(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.favorite,
+                        size: 24,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.delete,
+                        size: 24,
+                      ),
                     ),
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Container(
-                        height: 4,
-                        color: Colors.grey[300],
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              child: Container(
-                                height: 24,
-                                width: 32,
-                                color: Colors.blue,
-                                child: Icon(Icons.add),
+                    Text('\$299,43'),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          height: 24,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                          ),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Color(0xFFEBF0FF),
                               ),
-                            ),
-                            SizedBox(
-                              child: Container(
-                                height: 24,
-                                width: 32,
-                                color: Colors.blue,
-                                child: Text('1'),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                height: double.infinity,
-                                color: Colors.blue,
-                                child: Icon(Icons.remove),
-                              ),
-                            ),
-                          ],
+                              borderRadius: BorderRadius.horizontal(
+                                  left: Radius.circular(8))),
+                          child: Icon(Icons.remove),
                         ),
-                      ),
+                        Container(
+                          height: 24,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 18,
+                          ),
+                          decoration: BoxDecoration(color: Color(0xFFEBF0FF)),
+                          child: Text('1'),
+                        ),
+                        Container(
+                          height: 24,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                          ),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Color(0xFFEBF0FF),
+                              ),
+                              borderRadius: BorderRadius.horizontal(
+                                  right: Radius.circular(8))),
+                          child: Icon(Icons.add),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 8),
-                    Text('1'),
                   ],
-                ),
+                )
               ],
-            )
+            ),
           ),
-
         ],
       ),
     );

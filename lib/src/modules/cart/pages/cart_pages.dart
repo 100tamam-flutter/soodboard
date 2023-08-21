@@ -89,6 +89,7 @@ class _CartPage extends StatelessWidget {
               )
             ],
           ),
+          SizedBox(height: 8,),
           Container(
             padding: EdgeInsets.all(16),
             width: 343,
@@ -106,8 +107,12 @@ class _CartPage extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Text('Items',
-                            style: TextStyle(color: Color(0xFF9B9B9B))),
+                        child: Text(
+                          'Items',
+                          style: TextStyle(
+                            color: Color(0xFF9B9B9B),
+                          ),
+                        ),
                       ),
                     ],
                   ),
