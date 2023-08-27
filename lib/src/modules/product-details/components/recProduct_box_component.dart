@@ -1,7 +1,6 @@
-import 'package:gap/gap.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../../models/product_model.dart';
 import '../models/product_detail_model.dart';
 
 class RecProductComponent extends StatelessWidget {
@@ -27,7 +26,7 @@ class RecProductComponent extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.asset(
+          Image.network(
             productDetailModel.image,
             width: 109,
             height: 109,
