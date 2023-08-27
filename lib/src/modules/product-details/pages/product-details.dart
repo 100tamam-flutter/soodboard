@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/product-details/components/circleColor_component.dart';
 import 'package:soodboard/src/modules/product-details/components/circleSize.dart';
-
 import '../providers/product_detail_provider.dart';
 
 class ProductDetails extends StatelessWidget {
