@@ -5,11 +5,14 @@ import 'package:soodboard/src/models/product_model.dart';
 class RecProductComponent extends StatelessWidget {
 
 
-  const RecProductComponent({Key? key, required this.product, required this.offer, required this.before})
+  const RecProductComponent({Key? key, required this.image, required this.name, required this.price, required this.offer, required this.before})
       : super(key: key);
-  final ProductModel product;
+
   final String before;
   final String offer;
+  final String image;
+  final String name;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +27,14 @@ class RecProductComponent extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.network(
-            product.image,
+          Image.asset( image,
             width: 109,
             height: 109,
           ),
           const SizedBox(
             height: 8,
           ),
-          Text(
-           product.title,
+          Text(name,
             style: Theme
                 .of(context)
                 .textTheme
@@ -47,7 +48,7 @@ class RecProductComponent extends StatelessWidget {
           Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(product.price as String,
+                Text(price,
                     style: Theme
                         .of(context)
                         .textTheme

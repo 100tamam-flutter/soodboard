@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/product-details/components/circleColor_component.dart';
 import 'package:soodboard/src/modules/product-details/components/circleSize.dart';
+import 'package:soodboard/src/modules/product-details/components/recProduct_box_component.dart';
 import '../providers/product_detail_provider.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -35,7 +36,9 @@ class _ProductDetails extends StatelessWidget {
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
         title: Text(
-          provider.loadingProductDetail ? 'Loading Data' :provider.productDetail.title,
+          provider.loadingProductDetail
+              ? 'Loading Data'
+              : provider.productDetail.title,
           style: Theme.of(context)
               .textTheme
               .bodyLarge
@@ -80,24 +83,24 @@ class _ProductDetails extends StatelessWidget {
                             ],
                           ),
                         ),
-                        // Row(
-                        //   children: [
-                        //     Expanded(
-                        //       child: Text(
-                        //         provider.productlModel.title,
-                        //         style: Theme
-                        //             .of(context)
-                        //             .textTheme
-                        //             .titleLarge,
-                        //         overflow: TextOverflow.ellipsis,
-                        //
-                        //       ),
-                        //     ),
-                        //     IconButton(onPressed: () {},
-                        //       icon: SvgPicture.asset(
-                        //           'assets/icons/Add Favorite Icon.svg'),)
-                        //   ],
-                        //),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                provider.productDetail.title,
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .titleLarge,
+                                overflow: TextOverflow.ellipsis,
+
+                              ),
+                            ),
+                            IconButton(onPressed: () {},
+                              icon: SvgPicture.asset(
+                                  'assets/icons/Add Favorite Icon.svg'),)
+                          ],
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -185,28 +188,204 @@ class _ProductDetails extends StatelessWidget {
                             ],
                           ),
                         ),
-                        // const SizedBox(
-                        //   height: 20,
-                        // ),
-                        // Text(
-                        //   "You Might Also Like",
-                        //   style: Theme.of(context).textTheme.titleSmall,
-                        // ),
-                        // SizedBox(
-                        //   height: 274,
-                        //     child: ListView.builder(
-                        //       scrollDirection: Axis.horizontal,
-                        //       padding: const EdgeInsets.all(8),
-                        //       itemCount: provider.productDetail.recommendedProducts.length,
-                        //       itemBuilder: (context, index) {
-                        //         return RecProductComponent(
-                        //           product: provider.productDetail.recommendedProducts[index], offer: '24% 0FF', before: '\$600',
-                        //         );
-                        //       },
-                        //     ),
-                        //
-                        // ),
                         const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "Specification",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                          children: [
+                            Text(
+                              "Shown:",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.w400),
+                            ),
+                            Column(
+                              children: [
+
+                                Text(
+                                  "Laser",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(fontWeight: FontWeight.w400,
+                                    color:Colors.grey,),
+                                ),
+                                Text(
+                                  " Blue/Anthracite/Watermelon/White",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(fontWeight: FontWeight.w400,
+                                    color:Colors.grey,),
+                                ),
+                              ],
+                            ),
+
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Style",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(fontWeight: FontWeight.w400),
+                                ),
+
+                                Text(
+                                  " CD0113-400",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(fontWeight: FontWeight.w400,
+                                    color:Colors.grey,),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              " The Nike Air Max 270 React ENG combines a full-length React foam midsole with a 270 Max Air unit for unrivaled comfort and a striking visual experience.",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.w400,
+                                color:Colors.grey,),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Review Product",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.w700),
+                            ),
+                            Text(
+                              "see more",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(
+                                  color: const Color(0xFF40BFFF),
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: SizedBox(
+                                width: 96,
+                                height: 16,
+                                child: SvgPicture.asset(
+                                  'assets/icons/star_rating.svg',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.pinkAccent,
+                                  radius:30,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "James Lawson",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(fontWeight: FontWeight.w700),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              provider.productDetail.description,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.w400,
+                                color:Colors.grey,),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+
+                        Text(
+                          "You Might Also Like",
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
+                        SizedBox(
+                          height: 274,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            padding: const EdgeInsets.all(8),
+                            children: const [
+                              RecProductComponent(
+                                  image: "assets/mock-files/product1.png",
+                                  name: "First Product",
+                                  price: "\$534.33",
+                                  offer: '24% off',
+                                  before: "\$645.5"),
+                              RecProductComponent(
+                                  image: "assets/mock-files/product2.png",
+                                  name: "Second Product",
+                                  price: "\$422.33",
+                                  offer: '24% off',
+                                  before: "\$645.5"),
+                              RecProductComponent(
+                                  image: "assets/mock-files/product3.png",
+                                  name: "third Product",
+                                  price: "\$410.33",
+                                  offer: '24% off',
+                                  before: "\$645.5")
+                            ],
+                          ),
+                        ),
+
+                        SizedBox(
                           height: 60,
                         ),
                       ],
