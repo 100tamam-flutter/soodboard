@@ -4,5 +4,7 @@ class Urls {
 
   /// Products:
   static const getProducts = '$mainUri/products/';
+  static getProductDetail(String id) => '$mainUri/products/$id';
+
 
 }
