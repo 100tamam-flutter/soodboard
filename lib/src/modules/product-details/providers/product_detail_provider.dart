@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:soodboard/src/models/product_model.dart';
-import 'package:soodboard/src/modules/favorite/api/favorite_products_api.dart';
-
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
@@ -15,7 +12,8 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     initProductDetail();
   }
 
-  List<ProductDetailModel> productDetail = [];
+  late ProductDetailModel productDetail;
+
   final ProductDetailAPI _productDetailAPI = ProductDetailApiImp();
 
   bool loadingProductDetail = true;
@@ -28,7 +26,7 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     loadingProductDetail = true;
     notifyListeners();
     try {
-      productDetail = await _productDetailAPI.getProducts();
+      productDetail = await _productDetailAPI.getProductDetail("1");
     } on ApiError catch (e) {
       showError(context, e);
     }

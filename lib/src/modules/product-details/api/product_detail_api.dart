@@ -74,6 +74,7 @@ class ProductDetailApiImp implements ProductDetailAPI {
     }
     final responseBody =
     jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
+    print(responseBody);
     if (response.statusCode != 200) {
       throw ApiError(message: 'خطا');
     }
