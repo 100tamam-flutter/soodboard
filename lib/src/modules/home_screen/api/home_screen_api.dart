@@ -4,9 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:soodboard/src/models/banner_model.dart';
 import 'package:soodboard/src/models/product_model.dart';
 
-import '../../../constants/urls.dart';
-import '../../../core/api/core_api.dart';
-import '../../../models/error_template.dart';
 
 abstract class HomeScreenProductsAPI {
   Future<List<BannerModel>> getBanners() async {
@@ -56,34 +53,5 @@ class HomeScreenProductsAPIMock implements HomeScreenProductsAPI {
   }
 }
 
-class HomeScreenProductsApi implements HomeScreenProductsAPI {
-
-  final _coreApi = CoreApi();
-
-  @override
-  Future<List<ProductModel>> getProducts() async {
-    final response = await _coreApi.get(
-      Uri.parse(
-        Urls.getProducts,
-      ),
-    );
-    if (response == null) {
-      throw ApiError(message: 'مشکل در ارتباط با سرور');
-    }
-    final responseBody = jsonDecode(utf8.decode(response.bodyBytes));
-    print(responseBody);
-    if (response.statusCode != 200) {
-      throw ApiError(message: 'خطا');
-    }
-    return responseBody.map((e) => ProductModel.fromJson(e)).toList();
-  }
-
-  @override
-  Future<List<BannerModel>> getBanners() {
-    throw UnimplementedError();
-  }
-
-
-}
 
 

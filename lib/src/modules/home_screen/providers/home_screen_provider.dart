@@ -16,11 +16,11 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
 
   late List<BannerModel> banners;
   late List<ProductModel> products;
-  final HomeScreenProductsAPI _homeScreenProductsAPIMock = HomeScreenProductsApi();
-  final HomeScreenProductsAPI _homeScreenProductsAPIImp = HomeScreenProductsAPIMock();
+  final HomeScreenProductsAPI _homeScreenProductsApi = HomeScreenProductsAPIMock();
 
   bool loadingBanners = true;
   bool loadingProducts = true;
+  get loading => loadingBanners || loadingProducts;
 
   Future<void> initBanners() async {
     getBanners();
@@ -33,7 +33,7 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
     loadingBanners = true;
     notifyListeners();
     try {
-      banners = await _homeScreenProductsAPIImp.getBanners();
+      banners = await _homeScreenProductsApi.getBanners();
     } on ApiError catch (e) {
       showError(context, e);
     }
@@ -44,7 +44,7 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
     loadingProducts = true;
     notifyListeners();
     try {
-      products = await _homeScreenProductsAPIMock.getProducts();
+      products = await _homeScreenProductsApi.getProducts();
     } on ApiError catch (e) {
       showError(context, e);
     }

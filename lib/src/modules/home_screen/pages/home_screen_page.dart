@@ -26,7 +26,7 @@ class _HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<HomeScreenProvider>();
     return Scaffold(
-      body: provider.loadingBanners
+      body: provider.loading
           ? const Center(
               child: CircularProgressIndicator(),
             )
@@ -48,10 +48,13 @@ class _HomeScreen extends StatelessWidget {
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5)),
                               hintText: "Search Product",
-                              prefixIcon: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: SvgPicture.asset(
-                                  'assets/icons/search.svg',
+                              prefixIcon: InkWell(
+                                onTap: (){},
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: SvgPicture.asset(
+                                    'icons/Search.svg',
+                                  ),
                                 ),
                               ),
                               isDense: true),
@@ -65,11 +68,14 @@ class _HomeScreen extends StatelessWidget {
                         right: 8,
                         left: 16,
                       ),
-                      child: SvgPicture.asset(
-                        'assets/icons/love.svg',
-                        height: 24,
-                        width: 24,
-                      ),
+                      child: InkWell(
+                        child: SvgPicture.asset(
+                          'assets/icons/love.svg',
+                          height: 24,
+                          width: 24,
+                        ),
+                        onTap: (){},
+                      )
                     ),
                     const SizedBox(width: 10),
                     Padding(
@@ -79,11 +85,14 @@ class _HomeScreen extends StatelessWidget {
                         left: 8,
                         right: 16,
                       ),
-                      child: SvgPicture.asset(
-                        'assets/icons/notification.svg',
-                        height: 24,
-                        width: 24,
-                      ),
+                      child: InkWell(
+                        child: SvgPicture.asset(
+                          'assets/icons/notification.svg',
+                          height: 24,
+                          width: 24,
+                        ),
+                        onTap: (){},
+                      )
                     )
                   ],
                 ),
@@ -239,25 +248,6 @@ class _HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-      bottomNavigationBar: BottomNavigationBar(
-        iconSize: 24,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('icons/cart.svg'),
-            label: "home",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.search_rounded),
-            label: "Explore",
-          ),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.local_offer_outlined), label: "Offer"),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.account_box), label: "Account"),
-        ],
-      ),
     );
   }
 }
