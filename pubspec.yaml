@@ -47,6 +47,8 @@ dependencies:
   timer_count_down: ^2.2.2
   slide_countdown: ^0.6.0
   flutter_rating_bar: ^4.0.1
+  http: ^1.1.0
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   build_runner: ^2.2.0

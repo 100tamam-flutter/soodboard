@@ -14,7 +14,7 @@ class FavoriteProductsProvider extends SafeProvider with ErrorHandler {
   }
 
   List<ProductModel> products = [];
-  final FavoriteProductsAPI _favoriteProductsApi = FavoriteProductsAPIMock();
+  final FavoriteProductsAPI _favoriteProductsApi = FavoriteProductsApiImp();
 
   bool loadingProducts = true;
 
