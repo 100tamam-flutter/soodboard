@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
 import 'package:vrouter/vrouter.dart';
@@ -39,7 +40,7 @@ class _SoodBoard extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       mode: VRouterMode.history,
-      initialUrl: '/favorite_products',
+      initialUrl: '/splash',
       routes: routes,
       buildTransition: (animation, _, child) => FadeTransition(
         opacity: animation,
@@ -54,6 +55,10 @@ class _SoodBoard extends StatelessWidget {
         path: '/splash',
         widget: const SplashPage(),
         transitionDuration: Duration.zero,
+      ),
+      VWidget(
+        path: '/dashboard',
+        widget: const DashboardPage(),
       ),
       VWidget(
         path: '/login',
