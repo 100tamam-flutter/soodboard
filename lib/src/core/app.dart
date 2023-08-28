@@ -56,9 +56,21 @@ class _SoodBoard extends StatelessWidget {
         widget: const SplashPage(),
         transitionDuration: Duration.zero,
       ),
-      VWidget(
-        path: '/dashboard',
-        widget: const DashboardPage(),
+      VNester(
+        path: '/',
+        widgetBuilder: (child) => DashboardPage(
+          child: child,
+        ),
+        nestedRoutes: [
+          VWidget(
+            path: null,
+            widget: const HomeScreen(),
+          ),
+          VWidget(
+            path: 'explore',
+            widget: const ExplorePage(),
+          ),
+        ],
       ),
       VWidget(
         path: '/login',
@@ -67,14 +79,6 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/favorite_products',
         widget: const FavoriteProductsPage(),
-      ),
-      VWidget(
-          path: '/home_screen',
-          widget: const HomeScreen(),
-      ),
-      VWidget(
-        path: '/explore',
-        widget: const ExplorePage(),
       ),
     ];
   }

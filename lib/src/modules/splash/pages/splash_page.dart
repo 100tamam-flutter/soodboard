@@ -23,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void goToDashboardPage() {
-    context.vRouter.to('/dashboard', isReplacement: true);
+    context.vRouter.to('/', isReplacement: true);
   }
 
   @override
