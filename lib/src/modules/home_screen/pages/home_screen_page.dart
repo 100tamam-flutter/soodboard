@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/home_screen/components/category_component.dart';
-import 'package:soodboard/src/modules/home_screen/components/product_home_component.dart';
+import 'package:soodboard/src/components/product_home_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/recomended_product_component.dart';
-import 'package:soodboard/src/modules/home_screen/components/slidebar_component.dart';
+import 'package:soodboard/src/components/slidebar_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
 
 class HomeScreen extends StatelessWidget {
