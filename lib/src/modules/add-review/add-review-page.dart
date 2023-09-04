@@ -7,6 +7,7 @@ import '../products-review/products-review-page.dart';
 class AddReview extends StatelessWidget {
   const AddReview({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +82,9 @@ class AddReview extends StatelessWidget {
                             hintText: "Write Your Review Here"),
                       ),
                     ),
+                    SizedBox(
+                      height: 16,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -94,17 +98,30 @@ class AddReview extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
-                    FormBuilderImagePicker(
-                      name: 'Photo',
-                      decoration: const InputDecoration(
+                    SizedBox(height: 16),
+                     Container(
+                       decoration: BoxDecoration(
+                         border: Border.all(width: 1, color:const Color(0xFFCDCCDD),),
+                         borderRadius: const BorderRadius.all(Radius.circular(5)),
+                       ),
+
+                      child: Expanded(
+                        child: FormBuilderImagePicker(
+
+                          name: 'Photo',
+                          backgroundColor: Colors.transparent,
+                          icon: Icons.add,
+                          decoration: const InputDecoration(
+
+                          ),
+                          showDecoration: true,
+                          maxImages: 3,
+
+                          // initialValue: const [
+                          //   'https://images.pexels.com/photos/7078045/pexels-photo-7078045.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+                          // ],
+                        ),
                       ),
-                      showDecoration: true,
-                      maxImages: 1,
-                      previewAutoSizeWidth: true,
-                      initialValue: const [
-                        'https://images.pexels.com/photos/7078045/pexels-photo-7078045.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-                      ],
                     ),
 
                   ],
