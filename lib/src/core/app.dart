@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
+import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/explore/pages/explore_pages.dart';
@@ -39,7 +40,7 @@ class _SoodBoard extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       mode: VRouterMode.history,
-      initialUrl: '/home_screen',
+      initialUrl: '/offer_screen',
       routes: routes,
       buildTransition: (animation, _, child) => FadeTransition(
         opacity: animation,
@@ -70,6 +71,10 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/explore',
         widget: const ExplorePage(),
+      ),
+      VWidget(
+        path: '/offer_screen',
+        widget: const OfferScreen(),
       ),
     ];
   }
