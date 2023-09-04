@@ -5,9 +5,9 @@ class ProductDetailModel {
   final String image1;
   final String image3;
   final String image2;
-  final String price;
-  final String before;
-  final String offer;
+  final double price;
+  final double before;
+  final double offer;
   final String description;
 
 
@@ -29,13 +29,13 @@ class ProductDetailModel {
     return ProductDetailModel(
         id: json['id'] as String,
         title: json['title'] as String,
-        image1: json['image'] as String,
-      image2: json['image'] as String,
-      image3: json['image'] as String,
-        price: json['price'] as String,
-      before: json['price'] as String,
-      offer: json['price'] as String,
-      description: json['image'] as String,
+        image1: json['image1'] as String,
+      image2: json['image2'] as String,
+      image3: json['image3'] as String,
+        price: json['price'] as double,
+      before: json['before'] as double,
+      offer: json['offer'] as double,
+      description: json['description'] as String,
 
 
 

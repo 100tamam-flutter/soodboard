@@ -12,7 +12,6 @@ import 'package:soodboard/src/modules/product-details/components/recProduct_box_
 import '../providers/product_detail_provider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-
 class ProductDetails extends StatelessWidget {
   const ProductDetails({Key? key}) : super(key: key);
 
@@ -27,8 +26,6 @@ class ProductDetails extends StatelessWidget {
 
 class _ProductDetails extends StatelessWidget {
   const _ProductDetails({Key? key}) : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +57,11 @@ class _ProductDetails extends StatelessWidget {
             ),
           ],
         ),
-        body:provider.loadingProductDetail
+        body: provider.loadingProductDetail
             ? const Center(
-          child: CircularProgressIndicator(),
-        )
-            :Padding(
+                child: CircularProgressIndicator(),
+              )
+            : Padding(
                 padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
@@ -112,15 +109,18 @@ class _ProductDetails extends StatelessWidget {
                               )
                             ],
                           ),
-                          Row( mainAxisAlignment: MainAxisAlignment.start,
-                           children:[
-                             RatingBar.builder(
-                               minRating: 1,
-                               itemBuilder: (context,_) =>Icon(Icons.star, color: Colors.amber),
-                               onRatingUpdate: (rating){},
-                             ),
-                           ] ,
-                          ),
+                           Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                RatingBar.builder(
+                                    minRating: 1,
+                                    itemBuilder: (context, _) =>
+                                        Icon(Icons.star, color: Colors.amber),
+                                    onRatingUpdate: (rating) {},
+                                  ),
+                              ],
+                            ),
+
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.start,
                           //   children: [
@@ -136,6 +136,9 @@ class _ProductDetails extends StatelessWidget {
                           //     ),
                           //   ],
                           // ),
+                          SizedBox(
+                            height: 16,
+                          ),
                           Text(
                             "\$${provider.productDetail.price}",
                             style: Theme.of(context)
@@ -218,6 +221,9 @@ class _ProductDetails extends StatelessWidget {
                                 .bodyLarge
                                 ?.copyWith(fontWeight: FontWeight.w700),
                           ),
+                          SizedBox(
+                            height: 16,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -228,10 +234,9 @@ class _ProductDetails extends StatelessWidget {
                                     .bodyLarge
                                     ?.copyWith(fontWeight: FontWeight.w400),
                               ),
-                              Column(
-                                children: [
+
                                   Text(
-                                    "Laser",
+                                    "                          Laser",
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyLarge
@@ -239,8 +244,11 @@ class _ProductDetails extends StatelessWidget {
                                           fontWeight: FontWeight.w400,
                                           color: Colors.grey,
                                         ),
-                                  ),
-                                  Text(
+                                  ),]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children:[
+                                      Text(
                                     " Blue/Anthracite/Watermelon/White",
                                     style: Theme.of(context)
                                         .textTheme
@@ -252,8 +260,8 @@ class _ProductDetails extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
+
+
                           SizedBox(
                             height: 20,
                           ),
@@ -291,9 +299,9 @@ class _ProductDetails extends StatelessWidget {
                                     .textTheme
                                     .bodyLarge
                                     ?.copyWith(
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.grey,
-                                ),
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.grey,
+                                    ),
                               ),
                             ],
                           ),
@@ -310,7 +318,7 @@ class _ProductDetails extends StatelessWidget {
                                     .bodyLarge
                                     ?.copyWith(fontWeight: FontWeight.w700),
                               ),
-                             Text(
+                              Text(
                                 "see more",
                                 style: Theme.of(context)
                                     .textTheme
@@ -342,7 +350,8 @@ class _ProductDetails extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   CircleAvatar(
-                                    backgroundImage: AssetImage('assets/mock-files/profile-picture.svg'),
+                                    backgroundImage: AssetImage(
+                                        'assets/mock-files/profile-picture.svg'),
                                     radius: 48,
                                   ),
                                   SizedBox(
@@ -368,7 +377,6 @@ class _ProductDetails extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-
                                     ],
                                   ),
                                 ],
@@ -386,20 +394,19 @@ class _ProductDetails extends StatelessWidget {
                                       color: Colors.grey,
                                     ),
                               ),
-
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                 SizedBox(
-
-                                   height:72,
-                                     width:72 ,
-                                     child: Image.asset('assets/mock-files/product1.png')),
                                   SizedBox(
-                                      height:72,
-                                      width:72 ,
-                                      child: Image.asset('assets/mock-files/product1-2.png')),
-
+                                      height: 72,
+                                      width: 72,
+                                      child: Image.asset(
+                                          'assets/mock-files/product1.png')),
+                                  SizedBox(
+                                      height: 72,
+                                      width: 72,
+                                      child: Image.asset(
+                                          'assets/mock-files/product1-2.png')),
                                 ],
                               ),
                               Text(
@@ -408,9 +415,9 @@ class _ProductDetails extends StatelessWidget {
                                     .textTheme
                                     .bodyLarge
                                     ?.copyWith(
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.grey,
-                                ),
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.grey,
+                                    ),
                               ),
                             ],
                           ),
@@ -476,8 +483,6 @@ class _ProductDetails extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
-
-    );
+              ));
   }
 }
