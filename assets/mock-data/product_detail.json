@@ -1,10 +1,10 @@
-{
+{  "id" : "4",
   "title" : "Nike Air Zoom Pegasus 36 Miami",
   "image1" : "assets/mock-files/image1.png",
   "image2" : "assets/mock-files/image1.png",
   "image3" : "assets/mock-files/image1.png",
-  "rate" : 0.5,
   "price": 299.43,
+  "description" : "The Nike Air Max 270 React ENG combines a full-length React foam midsole with a 270 Max Air unit for unrivaled comfort and a striking visual experience.",
   "related_products" : [
     {
       "id": "1",

@@ -8,18 +8,35 @@ class CircleColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 65,
-      child: InkWell(
-        child: CircleAvatar(
-          radius:49,
-          backgroundColor:Colors.indigo,
+      width: 50,
+      child: ElevatedButton(
+        onPressed: () {},
+        style:
+        ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),).merge(ButtonStyle(
+          foregroundColor: getColor(Color(customColor as int), Colors.white),
+          backgroundColor: getColor(Color(customColor as int), Color(customColor as int)),
 
-          child: CircleAvatar(
-            radius: 48,
-            backgroundColor: customColor,
-          ),
+
+        ),),
+        child: CircleAvatar(
+          radius: 16,
         ),
       ),
     );
   }
+
+
+  MaterialStateProperty<Color> getColor(Color color, Color colorPressed) {
+    final getColor = (Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) {
+        return colorPressed;
+      } else {
+        return color;
+      }
+    };
+
+    return MaterialStateProperty.resolveWith(getColor);
+  }
+
+
 }

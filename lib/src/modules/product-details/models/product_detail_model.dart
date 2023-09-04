@@ -1,46 +1,49 @@
 
 class ProductDetailModel {
-  final int id;
+  final String id;
   final String title;
+  final String image1;
+  final String image3;
+  final String image2;
+  final String price;
+  final String before;
+  final String offer;
   final String description;
-  final String category;
-  final String image;
-  final double price;
-  final RatingModel ratingModel;
+
 
   const ProductDetailModel({
     required this.title,
     required this.price,
-    required this.ratingModel,
-    required this.category,
-    required this.description,
-    required this.image,
+    required this.image1,
     required this.id,
+    required this.image2,
+    required this.image3,
+    required this.before,
+    required this.offer,
+    required this.description,
+
+
   });
 
   factory ProductDetailModel.fromJson(Map<String, dynamic> json) {
     return ProductDetailModel(
-        id: json['id'] as int,
+        id: json['id'] as String,
         title: json['title'] as String,
-        image: json['image'] as String,
-        description: json['description'] as String,
-        category: json['category'] as String,
-        price: json['price'] as double,
-        ratingModel: RatingModel.fromJson(json['rating']),
+        image1: json['image'] as String,
+      image2: json['image'] as String,
+      image3: json['image'] as String,
+        price: json['price'] as String,
+      before: json['price'] as String,
+      offer: json['price'] as String,
+      description: json['image'] as String,
+
+
+
+
     );
   }
+
+  get isEmpty => null;
+
 }
 
-class RatingModel {
-  final double rate;
-  final int count;
-
-  const RatingModel({required this.count, required this.rate});
-
-  factory RatingModel.fromJson(Map<String, dynamic> json) {
-    return RatingModel(
-      count: json['count'] as int,
-      rate: json['rate'] as double,
-    );
-  }
-}

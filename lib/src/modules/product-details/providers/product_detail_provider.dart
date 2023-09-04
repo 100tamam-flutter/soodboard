@@ -11,10 +11,11 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
   ProductDetailProvider(this.context) {
     initProductDetail();
   }
-
   late ProductDetailModel productDetail;
+  final ProductDetailAPI _productDetailAPI = ProductDetailAPIMock();
 
-  final ProductDetailAPI _productDetailAPI = ProductDetailApiImp();
+
+
 
   bool loadingProductDetail = true;
 
@@ -26,12 +27,13 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     loadingProductDetail = true;
     notifyListeners();
     try {
-      productDetail = await _productDetailAPI.getProductDetail("1");
+      productDetail = await _productDetailAPI.getProductDetail();
     } on ApiError catch (e) {
       showError(context, e);
     }
     loadingProductDetail = false;
     notifyListeners();
   }
+
 }
 
