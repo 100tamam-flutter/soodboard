@@ -43,7 +43,7 @@ class _CartPage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Expanded(
+                  SizedBox(
                     child: Container(
                       padding: EdgeInsets.all(16),
                       height: 56,
@@ -89,7 +89,9 @@ class _CartPage extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           Container(
             padding: EdgeInsets.all(16),
             width: 343,

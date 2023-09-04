@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:soodboard/src/models/product_model.dart';
 import 'package:soodboard/src/modules/cart/models/cart_product_model.dart';
-import 'package:soodboard/src/modules/favorite/api/favorite_products_api.dart';
-
 import '../../../core/providers/safe_provider.dart';
-import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
 
 class CartProvider extends SafeProvider with ErrorHandler {
@@ -23,6 +19,7 @@ class CartProvider extends SafeProvider with ErrorHandler {
           quantity: 1,
           price: 29943, )
     ];
+    notifyListeners();
   }
 
   int getTotalPrice() {
