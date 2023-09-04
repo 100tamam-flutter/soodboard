@@ -7,23 +7,22 @@ class CircleColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 50,
-      child: InkWell(
+    return InkWell(
+      child: SizedBox(
+        height: 48,
+        width: 48,
         child: CircleAvatar(
           backgroundColor: Colors.black26,
-          radius: 50,
-          child: CircleAvatar(
-            backgroundColor: customColor,
-            radius: 60,
-      ),
+          child: SizedBox(
+            height: 44,
+            width: 44,
+            child: CircleAvatar(
+              backgroundColor: customColor,
+
+            ),
           ),
-      )
-        );
-
-
+        ),
+      ),
+    );
   }
-
-
-
 }

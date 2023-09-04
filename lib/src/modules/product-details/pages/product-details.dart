@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,6 +7,7 @@ import 'package:soodboard/src/components/empty_state.dart';
 import 'package:soodboard/src/modules/product-details/components/circleColor_component.dart';
 import 'package:soodboard/src/modules/product-details/components/circleSize.dart';
 import 'package:soodboard/src/modules/product-details/components/recProduct_box_component.dart';
+import '../../products-review/products-review-page.dart';
 import '../providers/product_detail_provider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -109,17 +108,17 @@ class _ProductDetails extends StatelessWidget {
                               )
                             ],
                           ),
-                           Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                RatingBar.builder(
-                                    minRating: 1,
-                                    itemBuilder: (context, _) =>
-                                        Icon(Icons.star, color: Colors.amber),
-                                    onRatingUpdate: (rating) {},
-                                  ),
-                              ],
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              RatingBar.builder(
+                                minRating: 1,
+                                itemBuilder: (context, _) =>
+                                    Icon(Icons.star, color: Colors.amber),
+                                onRatingUpdate: (rating) {},
+                              ),
+                            ],
+                          ),
 
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.start,
@@ -225,42 +224,41 @@ class _ProductDetails extends StatelessWidget {
                             height: 16,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Shown:",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  "                          Laser",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.grey,
+                                      ),
+                                ),
+                              ]),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Shown:",
+                                " Blue/Anthracite/Watermelon/White",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
-                                    ?.copyWith(fontWeight: FontWeight.w400),
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.grey,
+                                    ),
                               ),
-
-                                  Text(
-                                    "                          Laser",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.grey,
-                                        ),
-                                  ),]),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children:[
-                                      Text(
-                                    " Blue/Anthracite/Watermelon/White",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.grey,
-                                        ),
-                                  ),
-                                ],
-                              ),
-
+                            ],
+                          ),
 
                           SizedBox(
                             height: 20,
@@ -318,41 +316,49 @@ class _ProductDetails extends StatelessWidget {
                                     .bodyLarge
                                     ?.copyWith(fontWeight: FontWeight.w700),
                               ),
-                              Text(
-                                "see more",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                        color: const Color(0xFF40BFFF),
-                                        fontWeight: FontWeight.w700),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context , MaterialPageRoute(builder:(context) => ProductsReview() ));
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white, // Background color
+                                ),
+                                child: Text(
+                                  "see more",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(
+                                          color: const Color(0xFF40BFFF),
+                                          fontWeight: FontWeight.w700),
+                                ),
                               ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: SizedBox(
-                                  width: 96,
-                                  height: 16,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/star_rating.svg',
-                                  ),
-                                ),
+                              SvgPicture.asset(
+                                'assets/icons/star_rating.svg',
                               ),
                             ],
+                          ),
+                          SizedBox(
+                            height: 16,
                           ),
                           Column(
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  CircleAvatar(
-                                    backgroundImage: AssetImage(
-                                        'assets/mock-files/profile-picture.svg'),
-                                    radius: 48,
+                                  SizedBox(
+                                    height: 48,
+                                    width: 48,
+                                    child: CircleAvatar(
+                                      backgroundImage: AssetImage(
+                                          'assets/mock-files/Jamesp.png'),
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 10,
@@ -367,15 +373,8 @@ class _ProductDetails extends StatelessWidget {
                                             ?.copyWith(
                                                 fontWeight: FontWeight.w700),
                                       ),
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: SizedBox(
-                                          width: 96,
-                                          height: 16,
-                                          child: SvgPicture.asset(
-                                            'assets/icons/star_rating.svg',
-                                          ),
-                                        ),
+                                      SvgPicture.asset(
+                                        'assets/icons/star_rating.svg',
                                       ),
                                     ],
                                   ),
@@ -394,6 +393,9 @@ class _ProductDetails extends StatelessWidget {
                                       color: Colors.grey,
                                     ),
                               ),
+                              SizedBox(
+                                height: 16,
+                              ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -403,21 +405,33 @@ class _ProductDetails extends StatelessWidget {
                                       child: Image.asset(
                                           'assets/mock-files/product1.png')),
                                   SizedBox(
+                                    width: 16,
+                                  ),
+                                  SizedBox(
                                       height: 72,
                                       width: 72,
                                       child: Image.asset(
                                           'assets/mock-files/product1-2.png')),
                                 ],
                               ),
-                              Text(
-                                "December 10, 2016",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey,
-                                    ),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "December 10, 2016",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10,
+                                          color: Colors.grey,
+                                        ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

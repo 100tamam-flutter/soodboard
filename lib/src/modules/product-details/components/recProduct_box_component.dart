@@ -22,7 +22,7 @@ class RecProductComponent extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color:const Color(0xFFCDCDCD),),
+        border: Border.all(width: 1, color:const Color(0xFFCDCCDD),),
         borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       child: Column(
