@@ -26,7 +26,7 @@ class ExploreProvider extends SafeProvider with ErrorHandler {
     loadingcategories = true;
     notifyListeners();
     try {
-     categories = await _exploreApi.getcategories();
+     categories = await _exploreApi.getCategories();
     } on ApiError catch (e) {
       showError(context, e);
     }
