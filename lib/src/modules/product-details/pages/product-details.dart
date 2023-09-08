@@ -476,7 +476,10 @@ class _ProductDetails extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context , MaterialPageRoute(builder:(context) => ProductsReview() ));
+                      },
                       child: Container(
                         height: 57,
                         decoration: BoxDecoration(
