@@ -1,31 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
-import 'package:soodboard/src/modules/explore/api/explore_api.dart';
-import 'package:soodboard/src/models/product_model.dart';
-import 'package:soodboard/src/modules/explore/pages/search_page.dart';
-import 'package:soodboard/src/modules/explore/provider/search_provider.dart';
+
+
 
 class SearchFieldComponent extends StatelessWidget {
-  const SearchFieldComponent({Key? key}) : super(key: key);
+  const SearchFieldComponent({Key? key, required this.searchProducts}) : super(key: key);
+  final Function(String) searchProducts;
 
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(create: (context) => SearchProvider(context),
-    child: const _SearchFieldComponents(),
-
-    );
-  }
-}
-
-class _SearchFieldComponents extends StatefulWidget {
-  const _SearchFieldComponents({Key? key}) : super(key: key);
-
-  @override
-  State<_SearchFieldComponents> createState() => _SearchFieldComponentsState();
-}
-
-class _SearchFieldComponentsState extends State<_SearchFieldComponents> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -36,9 +17,7 @@ class _SearchFieldComponentsState extends State<_SearchFieldComponents> {
             child: Column(
               children: [
                 TextField(
-                  onChanged: (query){
-                    Provider.of<SearchProvider>(context, listen:false). searchProducts(query);
-                  },
+                  onChanged: searchProducts,
                   decoration: const InputDecoration(
                     contentPadding:
                     EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -87,12 +66,15 @@ class _SearchFieldComponentsState extends State<_SearchFieldComponents> {
                   cursorColor: Colors.blue,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
+                    fontSize: 12,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.5,
                     color: Color(0xFF223263),
                   ),
-
                 ),
+
+                // SearchPage(),
+
                 const SizedBox(
                   height: 20,
                 ),
@@ -117,3 +99,4 @@ class _SearchFieldComponentsState extends State<_SearchFieldComponents> {
     );
   }
 }
+

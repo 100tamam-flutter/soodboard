@@ -37,7 +37,7 @@ class _ExplorePage extends StatelessWidget {
                         const SizedBox(
                           height: 16,
                         ),
-                        SearchFieldComponent(),
+                        SearchFieldComponent(searchProducts: provider.searchProducts),
                         const SizedBox(
                           height: 16,
                         ),

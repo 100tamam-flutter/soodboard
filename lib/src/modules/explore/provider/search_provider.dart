@@ -9,8 +9,9 @@ import '../../../utils/error_handler.dart';
 class SearchProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  SearchProvider(this.context) {
-    initProducts();
+
+  SearchProvider(this.context, String searchText) {
+    initProducts(searchText);
   }
 
   late List<ProductModel> products = [];
@@ -18,15 +19,15 @@ class SearchProvider extends SafeProvider with ErrorHandler {
 
   bool loadingProducts = true;
 
-  Future<void> initProducts() async {
-    getProducts();
+  Future<void> initProducts(String searchText) async {
+    getProducts(searchText);
   }
 
-  Future<void> getProducts() async {
+  Future<void> getProducts(String searchText) async {
     loadingProducts = true;
     notifyListeners();
     try {
-      products = await _exploreApi.searchProducts('');
+      products = await _exploreApi.searchProducts(searchText);
     } on ApiError catch (e) {
       showError(context, e);
     }
@@ -46,4 +47,8 @@ class SearchProvider extends SafeProvider with ErrorHandler {
     loadingProducts = false;
     notifyListeners();
   }
+
+
 }
+
+
