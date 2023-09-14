@@ -1,8 +1,5 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:soodboard/src/modules/profile/providers/accont_provider.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../providers/changename-provider.dart';
@@ -40,13 +37,9 @@ class _ChangeNamePage extends StatelessWidget {
           onPressed: () => context.vRouter.pop(),
           icon: const Icon(Icons.arrow_back_ios),
         ),
+        elevation: 0,
         title: const Text(
           'Name',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: Color(0xFF223263),
-          ),
         ),
       ),
       body: Padding(
@@ -54,40 +47,78 @@ class _ChangeNamePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(
-              color: Color(0xFFEBF0FF),
-            ),
-            Text(
-              'First Name',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                hintText: staticProvider.firstName,
+            Expanded(
+              child: ListView(
+                children: [
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    'First Name',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  TextField(
+                    style: Theme.of(context).textTheme.labelLarge,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      hintStyle: Theme.of(context).textTheme.labelLarge,
+                      hintText: provider.firstName,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+
+                  Text(
+                    'Last Name',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  TextField(
+                    style: Theme.of(context).textTheme.labelLarge,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
+                      ),
+                      hintStyle: Theme.of(context).textTheme.labelLarge,
+                      hintText: provider.lastName,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            Text(
-              'Last Name',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                hintText: staticProvider.lastName,
-              ),
-            ),
-            const SizedBox(
-              height: 381,
             ),
             ElevatedButton(
               style: ButtonStyle(
@@ -100,15 +131,24 @@ class _ChangeNamePage extends StatelessWidget {
                 ),
               ),
               onPressed: () {},
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text('Save'),
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      'Save',
+                      style:
+                      Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 16,
             ),
           ],
         ),

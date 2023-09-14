@@ -150,41 +150,36 @@ class _ChangePassword extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue),
+                foregroundColor: MaterialStateProperty.all(Colors.white),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      'Save',
+                      style:
+                      Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Text(
-                          'Save',
-                          style:
-                          Theme.of(context).textTheme.titleSmall!.copyWith(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
           ],
         ),
       ),
