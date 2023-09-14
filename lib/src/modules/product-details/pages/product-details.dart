@@ -92,12 +92,14 @@ class _ProductDetails extends StatelessWidget {
                             ),
                           ),
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
                                 child: Text(
                                   provider.productDetail.title,
                                   style: Theme.of(context).textTheme.titleLarge,
                                   overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
                                 ),
                               ),
                               IconButton(
@@ -107,34 +109,22 @@ class _ProductDetails extends StatelessWidget {
                               )
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              RatingBar.builder(
-                                minRating: 1,
-                                itemBuilder: (context, _) =>
-                                    Icon(Icons.star, color: Colors.amber),
-                                onRatingUpdate: (rating) {},
-                              ),
-                            ],
+                          RatingBar.builder(
+                            initialRating: provider.productDetail.rating,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            ignoreGestures: true,
+                            itemCount: 5,
+                            itemPadding: const EdgeInsets.only(right: 2.0),
+                            itemSize: 16,
+                            itemBuilder: (context, _) => const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            onRatingUpdate: (rating) {},
                           ),
-
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.start,
-                          //   children: [
-                          //     SizedBox(
-                          //       width: 100,
-                          //       height: 16,
-                          //       child: IconButton(
-                          //         onPressed: () {},
-                          //         icon: SvgPicture.asset(
-                          //           'assets/icons/star_rating.svg',
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
                           Text(
@@ -219,7 +209,7 @@ class _ProductDetails extends StatelessWidget {
                                 .bodyLarge
                                 ?.copyWith(fontWeight: FontWeight.w700),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
                           Row(
@@ -259,7 +249,7 @@ class _ProductDetails extends StatelessWidget {
                             ],
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Column(
@@ -287,7 +277,7 @@ class _ProductDetails extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
@@ -302,7 +292,7 @@ class _ProductDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Row(
@@ -318,7 +308,7 @@ class _ProductDetails extends StatelessWidget {
                               ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
-                                      context , MaterialPageRoute(builder:(context) => ProductsReview() ));
+                                      context , MaterialPageRoute(builder:(context) => const ProductsReview() ));
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white, // Background color
@@ -335,15 +325,22 @@ class _ProductDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/icons/star_rating.svg',
-                              ),
-                            ],
+                          RatingBar.builder(
+                            initialRating: provider.productDetail.rating,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            ignoreGestures: true,
+                            itemCount: 5,
+                            itemPadding: const EdgeInsets.only(right: 2.0),
+                            itemSize: 16,
+                            itemBuilder: (context, _) => const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            onRatingUpdate: (rating) {},
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
                           Column(
@@ -351,7 +348,7 @@ class _ProductDetails extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 48,
                                     width: 48,
                                     child: CircleAvatar(
@@ -359,7 +356,7 @@ class _ProductDetails extends StatelessWidget {
                                           'assets/mock-files/Jamesp.png'),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Column(
@@ -372,14 +369,26 @@ class _ProductDetails extends StatelessWidget {
                                             ?.copyWith(
                                                 fontWeight: FontWeight.w700),
                                       ),
-                                      SvgPicture.asset(
-                                        'assets/icons/star_rating.svg',
+                                      RatingBar.builder(
+                                        initialRating: provider.productDetail.rating,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        ignoreGestures: true,
+                                        itemCount: 5,
+                                        itemPadding: const EdgeInsets.only(right: 2.0),
+                                        itemSize: 16,
+                                        itemBuilder: (context, _) => const Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        onRatingUpdate: (rating) {},
                                       ),
                                     ],
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
@@ -392,7 +401,7 @@ class _ProductDetails extends StatelessWidget {
                                       color: Colors.grey,
                                     ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 16,
                               ),
                               Row(
@@ -403,7 +412,7 @@ class _ProductDetails extends StatelessWidget {
                                       width: 72,
                                       child: Image.asset(
                                           'assets/mock-files/product1.png')),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 16,
                                   ),
                                   SizedBox(
@@ -413,7 +422,7 @@ class _ProductDetails extends StatelessWidget {
                                           'assets/mock-files/product1-2.png')),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 16,
                               ),
                               Row(
@@ -434,7 +443,7 @@ class _ProductDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 25,
                           ),
                           Text(
@@ -468,7 +477,7 @@ class _ProductDetails extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 60,
                           ),
                         ],
@@ -477,7 +486,7 @@ class _ProductDetails extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                            context , MaterialPageRoute(builder:(context) => ProductsReview() ));
+                            context , MaterialPageRoute(builder:(context) => const ProductsReview() ));
                       },
                       child: Container(
                         height: 57,

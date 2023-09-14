@@ -11,7 +11,7 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
   ProductDetailProvider(this.context) {
     initProductDetail();
   }
-  late ProductDetailModel productDetail;
+  late final ProductDetailModel productDetail;
   final ProductDetailAPI _productDetailAPI = ProductDetailAPIMock();
 
 
