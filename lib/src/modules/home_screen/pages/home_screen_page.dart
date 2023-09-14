@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/product/product_tile_half_width.dart';
 import 'package:soodboard/src/components/search_field.dart';
-import 'package:soodboard/src/modules/home_screen/components/product_home_component.dart';
-import 'package:soodboard/src/modules/home_screen/components/recomended_product_component.dart';
+import 'package:soodboard/src/components/product/product_tile_small.dart';
 import 'package:soodboard/src/modules/home_screen/components/slidebar_component.dart';
 import '../../explore/components/category_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
@@ -93,10 +93,11 @@ class _HomeScreen extends StatelessWidget {
                   height: 110,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.only(left: 12),
                     children: provider.categories
                         .map(
                           (e) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            padding: const EdgeInsets.only(right: 12),
                             child: CategoryComponent(categoryModel: e),
                           ),
                         )
@@ -104,65 +105,76 @@ class _HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 24),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      child: Text(
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Text(
                         "Flash Sale",
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
-                    ),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text("See More",
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: const Color(0xFF40BFFF),
-                                  )),
-                    ),
-                  ],
+                      Expanded(child: Container()),
+                      Text(
+                        "See More",
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: const Color(0xFF40BFFF),
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
+                const SizedBox(height: 12),
                 SizedBox(
                   height: 238,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.only(left: 16),
                     children: provider.products
-                        .map((e) => ProductHomeComponent(productModel: e))
+                        .map(
+                          (e) => Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: ProductTileSmall(productModel: e),
+                          ),
+                        )
                         .toList(),
                   ),
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      child: Text(
+                const SizedBox(height: 24),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Text(
                         "Mega Sale",
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
-                    ),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text("See More",
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: const Color(0xFF40BFFF),
-                                  )),
-                    ),
-                  ],
+                      Expanded(child: Container()),
+                      Text(
+                        "See More",
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: const Color(0xFF40BFFF),
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
+                const SizedBox(height: 12),
                 SizedBox(
                   height: 238,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.only(left: 16),
                     children: provider.products
-                        .map((e) => ProductHomeComponent(productModel: e))
+                        .map(
+                          (e) => Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: ProductTileSmall(productModel: e),
+                          ),
+                        )
                         .toList(),
                   ),
                 ),
+                const SizedBox(height: 9),
                 Stack(
                   alignment: Alignment.centerLeft,
                   children: [
@@ -205,24 +217,14 @@ class _HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 238,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
+                Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Wrap(
+                    spacing: 13,
                     children: provider.products
-                        .map((e) => RecomendedProductComponent(productModel: e))
-                        .toList(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 238,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: provider.products
-                        .map((e) => RecomendedProductComponent(productModel: e))
+                        .map(
+                          (e) => ProductTileHalfWidth(productModel: e),
+                    )
                         .toList(),
                   ),
                 ),
