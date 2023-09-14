@@ -2,7 +2,7 @@ class CartProductModel {
   final String productName;
   final String image;
   final int quantity;
-  final int price;
+  final double price;
 
   const CartProductModel({
     required this.image,

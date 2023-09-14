@@ -26,9 +26,13 @@ class _CartPage extends StatelessWidget {
         title: const Text(
           'Your Cart',
         ),
+        elevation: 0,
       ),
       body: Column(
         children: [
+          const Divider(
+            color: Color(0xFFEBF0FF),
+          ),
           Expanded(
             child: ListView(
               children: provider.products
@@ -42,7 +46,7 @@ class _CartPage extends StatelessWidget {
                 children: [
                   SizedBox(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       height: 56,
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
@@ -64,7 +68,7 @@ class _CartPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     width: 87,
                     height: 56,
                     decoration: const BoxDecoration(
@@ -86,11 +90,11 @@ class _CartPage extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             width: 343,
             height: 164,
             decoration: BoxDecoration(
@@ -152,7 +156,7 @@ class _CartPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     width: 343,
                     height: 57,
                     decoration: BoxDecoration(
