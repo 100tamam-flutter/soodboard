@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:soodboard/src/modules/product-details/api/review_api.dart';
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
 import '../api/product_detail_api.dart';
 import '../models/product_detail_model.dart';
+import '../models/review_model.dart';
 
 class ProductDetailProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
@@ -12,15 +14,18 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     initProductDetail();
   }
   late final ProductDetailModel productDetail;
+  late final List<ReviewModel> reviews;
   final ProductDetailAPI _productDetailAPI = ProductDetailAPIMock();
-
-
-
+  final ReviewApi _reviewApi = ReviewApiMock();
 
   bool loadingProductDetail = true;
+  bool loadingReviews = true;
+
+  get isLoading => loadingProductDetail || loadingReviews;
 
   Future<void> initProductDetail() async {
     getProductDetail();
+    getReviews();
   }
 
   Future<void> getProductDetail() async {
@@ -32,6 +37,18 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
       showError(context, e);
     }
     loadingProductDetail = false;
+    notifyListeners();
+  }
+
+  Future<void> getReviews() async {
+    loadingReviews = true;
+    notifyListeners();
+    try {
+      reviews = await _reviewApi.getReviews();
+    } on ApiError catch (e) {
+      showError(context, e);
+    }
+    loadingReviews = false;
     notifyListeners();
   }
 

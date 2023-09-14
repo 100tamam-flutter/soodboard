@@ -6,6 +6,7 @@ import 'package:soodboard/src/modules/product-details/components/panels/product_
 import 'package:soodboard/src/modules/product-details/components/panels/select_color_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_size_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/recProduct_box_component.dart';
+import 'package:soodboard/src/modules/product-details/components/review_component.dart';
 import '../../products-review/products-review-page.dart';
 import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
@@ -57,7 +58,7 @@ class _ProductDetails extends StatelessWidget {
           ),
         ],
       ),
-      body: provider.loadingProductDetail
+      body: provider.isLoading
           ? const Center(
               child: CircularProgressIndicator(),
             )
@@ -75,7 +76,7 @@ class _ProductDetails extends StatelessWidget {
                         height: 16,
                       ),
                       ProductMainInfoPanel(
-                          productDetail: provider.productDetail,
+                        productDetail: provider.productDetail,
                       ),
                       const SizedBox(
                         height: 24,
@@ -155,105 +156,8 @@ class _ProductDetails extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              const SizedBox(
-                                height: 48,
-                                width: 48,
-                                child: CircleAvatar(
-                                  backgroundImage: AssetImage(
-                                      'assets/mock-files/Jamesp.png'),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "James Lawson",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.copyWith(fontWeight: FontWeight.w700),
-                                  ),
-                                  RatingBar.builder(
-                                    initialRating:
-                                        provider.productDetail.rating,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    ignoreGestures: true,
-                                    itemCount: 5,
-                                    itemPadding:
-                                        const EdgeInsets.only(right: 2.0),
-                                    itemSize: 16,
-                                    itemBuilder: (context, _) => const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                    onRatingUpdate: (rating) {},
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey,
-                                    ),
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                  height: 72,
-                                  width: 72,
-                                  child: Image.asset(
-                                      'assets/mock-files/product1.png')),
-                              const SizedBox(
-                                width: 16,
-                              ),
-                              SizedBox(
-                                  height: 72,
-                                  width: 72,
-                                  child: Image.asset(
-                                      'assets/mock-files/product1-2.png')),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "December 10, 2016",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 10,
-                                      color: Colors.grey,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                      if (provider.reviews.isNotEmpty)
+                        ReviewComponent(review: provider.reviews.first),
                       const SizedBox(
                         height: 25,
                       ),
