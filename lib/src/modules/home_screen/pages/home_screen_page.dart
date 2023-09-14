@@ -68,27 +68,25 @@ class _HomeScreen extends StatelessWidget {
                 const SizedBox(height: 32),
                 SlideBarComponent(bannerModels: provider.banners),
                 const SizedBox(
-                  height: 48,
+                  height: 24,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      child: Text(
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Text(
                         "Category",
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
-                    ),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text("More Category",
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: const Color(0xFF40BFFF),
-                                  )),
-                    )
-                  ],
+                      Expanded(child: Container()),
+                      Text(
+                        "More Category",
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: const Color(0xFF40BFFF),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 12),
                 const CategoryComponent(),
