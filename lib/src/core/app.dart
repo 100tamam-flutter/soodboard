@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
+import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/explore/pages/explore_pages.dart';
@@ -76,7 +77,7 @@ class _SoodBoard extends StatelessWidget {
           ),
           VWidget(
             path: 'offer',
-            widget: const ExplorePage(),
+            widget: const OfferScreen(),
           ),
           VWidget(
             path: 'account',
