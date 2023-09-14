@@ -19,9 +19,6 @@ class ProductImagesPanel extends StatelessWidget {
       height: 238,
       child: ImageSlideshow(
         indicatorColor: Colors.blue,
-        onPageChanged: (value) {
-          debugPrint('Page changed: $value');
-        },
         autoPlayInterval: 3000,
         isLoop: true,
         children: [firstImage, secondImage, thirdImage]

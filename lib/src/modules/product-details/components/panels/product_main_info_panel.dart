@@ -58,8 +58,9 @@ class ProductMainInfoPanel extends StatelessWidget {
           ),
           Text(
             "\$${productDetail.price}",
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: const Color(0xFF40BFFF), fontWeight: FontWeight.w700),
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: const Color(0xFF40BFFF),
+                ),
           ),
         ],
       ),

@@ -25,8 +25,7 @@ class SelectSizePanel extends StatelessWidget {
             "Select Size",
             style: Theme.of(context)
                 .textTheme
-                .bodyLarge
-                ?.copyWith(fontWeight: FontWeight.w700),
+                .titleSmall,
           ),
           const SizedBox(
             height: 12,

@@ -28,7 +28,7 @@ class CircleSize extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Text(size),
+          child: Text(size, style: Theme.of(context).textTheme.titleSmall,),
         ),
       ),
     );

@@ -7,6 +7,7 @@ import 'package:soodboard/src/modules/product-details/components/panels/select_c
 import 'package:soodboard/src/modules/product-details/components/panels/select_size_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/recProduct_box_component.dart';
 import '../../products-review/products-review-page.dart';
+import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -93,94 +94,15 @@ class _ProductDetails extends StatelessWidget {
                         selectedColorIndex: provider.selectedColor,
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 24,
                       ),
-                      Text(
-                        "Specification",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge
-                            ?.copyWith(fontWeight: FontWeight.w700),
+                      SpecificationsPanel(
+                        style: provider.productDetail.style,
+                        shown: provider.productDetail.shown,
+                        description: provider.productDetail.description,
                       ),
                       const SizedBox(
-                        height: 16,
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Shown:",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              "                          Laser",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey,
-                                  ),
-                            ),
-                          ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            " Blue/Anthracite/Watermelon/White",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey,
-                                    ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Style",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                " CD0113-400",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey,
-                                    ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            provider.productDetail.description,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey,
-                                    ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
+                        height: 24,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

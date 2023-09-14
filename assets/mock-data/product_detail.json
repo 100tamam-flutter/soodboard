@@ -10,6 +10,8 @@
   "sizes" : ["6", "6.5", "7", "7.5", "8", "8.5", "9"],
   "colors" : ["0xFFFFC833", "0xFF40BFFF", "0xFFFB7181", "0xFF53D1B6", "0xFF5C61F4", "0xFF223263"],
   "description" : "The Nike Air Max 270 React ENG combines a full-length React foam midsole with a 270 Max Air unit for unrivaled comfort and a striking visual experience.",
+  "style" : "CD0113-400",
+  "shown" : "Blue/Anthracite/Watermelon/White",
   "related_products" : [
     {
       "id": "1",

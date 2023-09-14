@@ -11,6 +11,8 @@ class ProductDetailModel {
   final double rating;
   final List<String> sizes;
   final List<String> colors;
+  final String style;
+  final String shown;
 
   const ProductDetailModel({
     required this.title,
@@ -25,6 +27,8 @@ class ProductDetailModel {
     required this.rating,
     required this.sizes,
     required this.colors,
+    required this.style,
+    required this.shown,
   });
 
   factory ProductDetailModel.fromJson(Map<String, dynamic> json) {
@@ -38,6 +42,8 @@ class ProductDetailModel {
       before: json['before'] as double,
       offer: json['offer'] as double,
       description: json['description'] as String,
+      style: json['style'] as String,
+      shown: json['shown'] as String,
       rating: json['rating'] as double,
       sizes: (json['sizes'] as List).map((e) => e as String).toList(),
       colors: (json['colors'] as List).map((e) => e as String).toList(),
