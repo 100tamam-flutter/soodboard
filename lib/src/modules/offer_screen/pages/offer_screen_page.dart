@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/home_screen/components/recommended_products_panel.dart';
-import '../../home_screen/providers/home_screen_provider.dart';
+import 'package:soodboard/src/modules/offer_screen/providers/offer_screen_provider.dart';
 
 class OfferScreen extends StatelessWidget {
   const OfferScreen({super.key});
@@ -10,7 +10,7 @@ class OfferScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => HomeScreenProvider(context),
+      create: (context) => OfferScreenProvider(context),
       child: const _OfferScreen(),
     );
   }
@@ -21,7 +21,7 @@ class _OfferScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<HomeScreenProvider>();
+    final provider = context.watch<OfferScreenProvider>();
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -55,7 +55,8 @@ class _OfferScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 RecommendedProductsPanel(
-                    products: provider.recommendedProducts),
+                  products: provider.products,
+                ),
               ],
             ),
     );
