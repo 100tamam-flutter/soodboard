@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:soodboard/src/models/product_model.dart';
 
+
 abstract class FavoriteProductsAPI {
   Future<List<ProductModel>> getProducts() async {
     throw UnimplementedError();
@@ -28,3 +29,5 @@ class FavoriteProductsAPIMock implements FavoriteProductsAPI {
         .toList();
   }
 }
+
+

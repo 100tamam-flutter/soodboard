@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:soodboard/src/modules/home_screen/components/slidebar_component.dart';
-
+import 'package:soodboard/src/components/product/products_horizontal_listview.dart';
+import 'package:soodboard/src/modules/home_screen/components/categories_panel.dart';
+import 'package:soodboard/src/modules/home_screen/components/home_search_bar.dart';
+import 'package:soodboard/src/modules/home_screen/components/recommended_products_panel.dart';
+import 'package:soodboard/src/modules/home_screen/components/home_banner_slidebar_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,69 +26,30 @@ class _HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<HomeScreenProvider>();
     return Scaffold(
-      body: provider.loadingBanners
+      body: provider.loading
           ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView(
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(
-                          top: 20,
-                          bottom: 20,
-                          left: 10,
-                          right: 10,
-                        ),
-                        child: TextFormField(
-                          style: Theme.of(context).textTheme.displaySmall,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              hintText: "Search Product",
-                              prefixIcon: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: SvgPicture.asset(
-                                  'assets/icons/search.svg',
-                                ),
-                              ),
-                              isDense: true),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        bottom: 16,
-                        right: 8,
-                        left: 16,
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/icons/love.svg',
-                        height: 24,
-                        width: 24,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        bottom: 16,
-                        left: 8,
-                        right: 16,
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/icons/notification.svg',
-                        height: 24,
-                        width: 24,
-                      ),
-                    )
-                  ],
+                const SizedBox(height: 16),
+                const HomeSearchBar(),
+                const SizedBox(height: 32),
+                HomeBannerSlideBarComponent(bannerModels: provider.banners),
+                const SizedBox(height: 24),
+                CategoriesPanel(categories: provider.categories),
+                const SizedBox(height: 24),
+                ProductsHorizontalListView(
+                  products: provider.flashSaleProducts,
+                  title: "Flash Sale",
                 ),
-                const SizedBox(height: 20),
-                SlideBarComponent(bannerModels: provider.banners),
+                const SizedBox(height: 24),
+                ProductsHorizontalListView(
+                  products: provider.megaSaleProducts,
+                  title: "Mega Sale",
+                ),
+                const SizedBox(height: 9),
+                RecommendedProductsPanel(products: provider.recommendedProducts)
               ],
             ),
     );
