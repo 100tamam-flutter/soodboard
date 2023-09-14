@@ -7,7 +7,6 @@ import 'package:soodboard/src/modules/product-details/components/panels/product_
 import 'package:soodboard/src/modules/product-details/components/panels/review_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_color_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_size_panel.dart';
-import '../../products-review/products-review-page.dart';
 import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
 
@@ -37,6 +36,7 @@ class _ProductDetails extends StatelessWidget {
           onPressed: () {},
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
+        elevation: 0,
         title: Text(
           provider.loadingProductDetail
               ? 'Loading Data'
@@ -124,14 +124,10 @@ class _ProductDetails extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProductsReview()));
-                  },
+                  onTap: staticProvider.addToCart,
                   child: Container(
                     height: 57,
+                    margin: EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(10),
