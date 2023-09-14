@@ -92,14 +92,6 @@ class _SoodBoard extends StatelessWidget {
         path: '/favorite_products',
         widget: const FavoriteProductsPage(),
       ),
-      VWidget(
-          path: '/home_screen',
-          widget: const HomeScreen(),
-      ),
-      VWidget(
-        path: '/explore',
-        widget: const ExplorePage(),
-      ),
     ];
   }
 }
