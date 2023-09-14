@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:soodboard/src/models/product_model.dart';
+import 'package:vrouter/vrouter.dart';
 
 class ProductTileHalfWidth extends StatelessWidget {
   const ProductTileHalfWidth({Key? key, required this.productModel})
@@ -10,7 +11,7 @@ class ProductTileHalfWidth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => context.vRouter.to('/product_detail'),
       child: Container(
         height: 282,
         width: (MediaQuery.sizeOf(context).width / 2) - 22.5,

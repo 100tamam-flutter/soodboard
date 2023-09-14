@@ -3,7 +3,6 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
-import 'package:soodboard/src/components/empty_state.dart';
 import 'package:soodboard/src/modules/product-details/components/circleColor_component.dart';
 import 'package:soodboard/src/modules/product-details/components/circleSize.dart';
 import 'package:soodboard/src/modules/product-details/components/recProduct_box_component.dart';
@@ -48,7 +47,7 @@ class _ProductDetails extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {},
-              icon: SvgPicture.asset("assets/icons/search.svg"),
+              icon: SvgPicture.asset("assets/icons/Search_2.svg"),
             ),
             IconButton(
               onPressed: () {},
@@ -322,7 +321,7 @@ class _ProductDetails extends StatelessWidget {
                                       context , MaterialPageRoute(builder:(context) => ProductsReview() ));
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.white, // Background color
+                                  backgroundColor: Colors.white, // Background color
                                 ),
                                 child: Text(
                                   "see more",
