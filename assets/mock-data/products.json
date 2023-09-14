@@ -3,24 +3,39 @@
     "products": [
       {
         "id": "1",
-        "title": "First Product",
+        "title": "FS - Nike Air Max 270",
         "image": "assets/mock-files/product1.png",
-        "price": 534.33,
-        "discount": 24
+        "price": 299.43,
+        "discount": 24,
+        "previousPrice": 543.33,
+        "rating": 3.0
       },
       {
         "id": "2",
-        "title": "Second Product",
+        "title": "FS - QUILTED MAXI ...",
         "image": "assets/mock-files/product2.png",
-        "price": 422.33,
-        "discount": 24
+        "price": 299.43,
+        "discount": 24,
+        "previousPrice": 543.33,
+        "rating": 5.0
       },
       {
         "id": "3",
-        "title": "Third Product",
+        "title": "FS - QUILTED MAXI...",
         "image": "assets/mock-files/product3.png",
-        "price": 410.33,
-        "discount": 24
+        "price": 299.33,
+        "discount": 24,
+        "previousPrice": 543.33,
+        "rating": 1.5
+      },
+      {
+        "id": "3",
+        "title": "FS - QUILTED MAXI...",
+        "image": "assets/mock-files/product1.png",
+        "price": 299.33,
+        "discount": 24,
+        "previousPrice": 543.33,
+        "rating": 4.5
       }
     ]
   }

@@ -37,13 +37,20 @@ dependencies:
 
 
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   intl: any
   flutter_image_slideshow: ^0.1.6
   flutter_svg: ^2.0.7
+  gap: ^3.0.1
+  timer_count_down: ^2.2.2
+  slide_countdown: ^0.6.0
+  flutter_rating_bar: ^4.0.1
+  http: ^1.1.0
+  shared_preferences: ^2.2.0
+  form_builder_image_picker: ^4.0.0
+
 
 dev_dependencies:
   build_runner: ^2.2.0
@@ -75,7 +82,7 @@ flutter:
     - assets/mock-files/
     - assets/icons/
     - assets/products/
-    - assets/icons/
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
