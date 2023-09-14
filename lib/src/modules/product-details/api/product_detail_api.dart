@@ -2,16 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:soodboard/src/modules/product-details/models/product_detail_model.dart';
-
-import '../../../constants/urls.dart';
-import '../../../core/api/core_api.dart';
-import '../../../models/error_template.dart';
 import '../../../models/product_model.dart';
 
 abstract class ProductDetailAPI {
-  Future<ProductDetailModel> getProductDetail() async {
-    throw UnimplementedError();
-  }
+  Future<ProductDetailModel> getProductDetail();
+
+  Future<List<ProductModel>> getRelatedProducts();
 
 }
 
@@ -33,6 +29,25 @@ class ProductDetailAPIMock implements ProductDetailAPI {
 
 
     return ProductDetailModel.fromJson(responseBody);
+  }
+
+  @override
+  Future<List<ProductModel>> getRelatedProducts() async {
+    // Simulate API request delay
+    await Future.delayed(
+      const Duration(
+        seconds: 1,
+      ),
+    );
+
+    final response =
+    await rootBundle.loadString('assets/mock-data/products.json');
+    final responseBody = jsonDecode(response) as Map<String, dynamic>;
+    final data = responseBody['data'] as Map<String, dynamic>;
+    final productsList = data['products'] as List;
+    return productsList
+        .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
 }

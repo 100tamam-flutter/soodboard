@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/product/products_horizontal_listview.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/product_images_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/product_main_info_panel.dart';
+import 'package:soodboard/src/modules/product-details/components/panels/review_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_color_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_size_panel.dart';
-import 'package:soodboard/src/modules/product-details/components/recProduct_box_component.dart';
-import 'package:soodboard/src/modules/product-details/components/review_component.dart';
 import '../../products-review/products-review-page.dart';
 import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({Key? key}) : super(key: key);
@@ -105,92 +104,18 @@ class _ProductDetails extends StatelessWidget {
                       const SizedBox(
                         height: 24,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Review Product",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge
-                                ?.copyWith(fontWeight: FontWeight.w700),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ProductsReview()));
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white, // Background color
-                            ),
-                            child: Text(
-                              "see more",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(
-                                      color: const Color(0xFF40BFFF),
-                                      fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                        ],
-                      ),
-                      RatingBar.builder(
-                        initialRating: provider.productDetail.rating,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        ignoreGestures: true,
-                        itemCount: 5,
-                        itemPadding: const EdgeInsets.only(right: 2.0),
-                        itemSize: 16,
-                        itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        onRatingUpdate: (rating) {},
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
                       if (provider.reviews.isNotEmpty)
-                        ReviewComponent(review: provider.reviews.first),
+                        ReviewPanel(
+                          productRating: provider.productDetail.rating,
+                          reviewsNumber: provider.reviews.length,
+                          firstReview: provider.reviews.first,
+                        ),
                       const SizedBox(
                         height: 25,
                       ),
-                      Text(
-                        "You Might Also Like",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                      SizedBox(
-                        height: 274,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.all(8),
-                          children: const [
-                            RecProductComponent(
-                                image: "assets/mock-files/product1.png",
-                                name: "First Product",
-                                price: "\$534.33",
-                                offer: '24% off',
-                                before: "\$645.5"),
-                            RecProductComponent(
-                                image: "assets/mock-files/product2.png",
-                                name: "Second Product",
-                                price: "\$422.33",
-                                offer: '24% off',
-                                before: "\$645.5"),
-                            RecProductComponent(
-                                image: "assets/mock-files/product3.png",
-                                name: "third Product",
-                                price: "\$410.33",
-                                offer: '24% off',
-                                before: "\$645.5")
-                          ],
-                        ),
+                      ProductsHorizontalListView(
+                        products: provider.relatedProducts,
+                        title: "You Might Also Like",
                       ),
                       const SizedBox(
                         height: 60,

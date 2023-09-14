@@ -4,8 +4,14 @@ import 'product_tile_small.dart';
 import '../../models/product_model.dart';
 
 class ProductsHorizontalListView extends StatelessWidget {
-  const ProductsHorizontalListView({super.key, required this.products});
+  const ProductsHorizontalListView({
+    super.key,
+    required this.products,
+    required this.title,
+  });
+
   final List<ProductModel> products;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +23,15 @@ class ProductsHorizontalListView extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "Flash Sale",
+                title,
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               Expanded(child: Container()),
               Text(
                 "See More",
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: const Color(0xFF40BFFF),
-                ),
+                      color: const Color(0xFF40BFFF),
+                    ),
               ),
             ],
           ),
@@ -39,10 +45,10 @@ class ProductsHorizontalListView extends StatelessWidget {
             children: products
                 .map(
                   (e) => Padding(
-                padding: const EdgeInsets.only(right: 16),
-                child: ProductTileSmall(productModel: e),
-              ),
-            )
+                    padding: const EdgeInsets.only(right: 16),
+                    child: ProductTileSmall(productModel: e),
+                  ),
+                )
                 .toList(),
           ),
         ),
