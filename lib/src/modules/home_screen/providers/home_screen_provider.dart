@@ -18,21 +18,27 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
   }
 
   late List<BannerModel> banners;
-  late List<ProductModel> products;
+  late List<ProductModel> flashSaleProducts;
+  late List<ProductModel> megaSaleProducts;
+  late List<ProductModel> recommendedProducts;
   late List<CategoryModel> categories;
   final HomeScreenProductsAPI _homeScreenProductsApi = HomeScreenProductsAPIMock();
   final ExploreAPI _exploreAPI = ExploreAPIMock();
 
   bool loadingBanners = true;
-  bool loadingProducts = true;
+  bool loadingFlashSale = true;
+  bool loadingMegaSale = true;
+  bool loadingRecommended = true;
   bool loadingCategories = true;
-  get loading => loadingBanners || loadingProducts || loadingCategories;
+  get loading => loadingBanners || loadingFlashSale || loadingCategories || loadingMegaSale || loadingRecommended;
 
   Future<void> initBanners() async {
     getBanners();
   }
   Future<void> initProducts() async {
-    getProducts();
+    getFlashSale();
+    getMegaSale();
+    getRecommended();
   }
   Future<void> initCategories() async {
     getCategories();
@@ -49,17 +55,42 @@ class HomeScreenProvider extends SafeProvider with ErrorHandler {
     loadingBanners = false;
     notifyListeners();
   }
-  Future<void> getProducts() async {
-    loadingProducts = true;
+  Future<void> getFlashSale() async {
+    loadingFlashSale = true;
     notifyListeners();
     try {
-      products = await _homeScreenProductsApi.getProducts();
+      flashSaleProducts = await _homeScreenProductsApi.getFlashSale();
     } on ApiError catch (e) {
       showError(context, e);
     }
-    loadingProducts = false;
+    loadingFlashSale = false;
     notifyListeners();
   }
+
+  Future<void> getMegaSale() async {
+    loadingMegaSale = true;
+    notifyListeners();
+    try {
+      megaSaleProducts = await _homeScreenProductsApi.getMegaSale();
+    } on ApiError catch (e) {
+      showError(context, e);
+    }
+    loadingMegaSale = false;
+    notifyListeners();
+  }
+
+  Future<void> getRecommended() async {
+    loadingRecommended = true;
+    notifyListeners();
+    try {
+      recommendedProducts = await _homeScreenProductsApi.getRecommendedProducts();
+    } on ApiError catch (e) {
+      showError(context, e);
+    }
+    loadingRecommended = false;
+    notifyListeners();
+  }
+
   Future<void> getCategories() async {
     loadingCategories = true;
     notifyListeners();
