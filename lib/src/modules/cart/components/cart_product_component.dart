@@ -5,8 +5,14 @@ class CartProductComponent extends StatelessWidget {
   const CartProductComponent({
     Key? key,
     required this.cartProductModel,
+    required this.removeFromCart,
+    required this.reduceQuantity,
+    required this.increaseQuantity,
   }) : super(key: key);
   final CartProductModel cartProductModel;
+  final Function() removeFromCart;
+  final Function() reduceQuantity;
+  final Function() increaseQuantity;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +31,13 @@ class CartProductComponent extends StatelessWidget {
       ),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(5),
-            child: Image.asset(cartProductModel.image),
+          SizedBox(
+            width: 72,
+            height: 72,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Image.asset(cartProductModel.image),
+            ),
           ),
           const SizedBox(
             width: 12,
@@ -61,7 +71,7 @@ class CartProductComponent extends StatelessWidget {
                       width: 8,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: removeFromCart,
                       child: const Icon(
                         Icons.delete,
                         size: 24,
@@ -82,23 +92,26 @@ class CartProductComponent extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Container(
-                          height: 24,
-                          width: 32,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: const Color(0xFFEBF0FF),
+                        InkWell(
+                          onTap: reduceQuantity,
+                          child: Container(
+                            height: 24,
+                            width: 32,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
                             ),
-                            borderRadius: const BorderRadius.horizontal(
-                              left: Radius.circular(8),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color(0xFFEBF0FF),
+                              ),
+                              borderRadius: const BorderRadius.horizontal(
+                                left: Radius.circular(8),
+                              ),
                             ),
-                          ),
-                          child: const Icon(
-                            Icons.remove,
-                            size: 16,
+                            child: const Icon(
+                              Icons.remove,
+                              size: 16,
+                            ),
                           ),
                         ),
                         Container(
@@ -120,23 +133,26 @@ class CartProductComponent extends StatelessWidget {
                                 ),
                           ),
                         ),
-                        Container(
-                          height: 24,
-                          width: 32,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: const Color(0xFFEBF0FF),
+                        InkWell(
+                          onTap: increaseQuantity,
+                          child: Container(
+                            height: 24,
+                            width: 32,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
                             ),
-                            borderRadius: const BorderRadius.horizontal(
-                              right: Radius.circular(8),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color(0xFFEBF0FF),
+                              ),
+                              borderRadius: const BorderRadius.horizontal(
+                                right: Radius.circular(8),
+                              ),
                             ),
-                          ),
-                          child: const Icon(
-                            Icons.add,
-                            size: 16,
+                            child: const Icon(
+                              Icons.add,
+                              size: 16,
+                            ),
                           ),
                         ),
                       ],

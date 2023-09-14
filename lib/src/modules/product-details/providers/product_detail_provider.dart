@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:soodboard/src/models/product_model.dart';
+import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/product-details/api/review_api.dart';
+import 'package:vrouter/vrouter.dart';
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
@@ -14,6 +17,7 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
   ProductDetailProvider(this.context) {
     initProductDetail();
   }
+
   late final ProductDetailModel productDetail;
   late final List<ReviewModel> reviews;
   late final List<ProductModel> relatedProducts;
@@ -24,7 +28,8 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
   bool loadingReviews = true;
   bool loadingRelatedProducts = true;
 
-  get isLoading => loadingProductDetail || loadingReviews || loadingRelatedProducts;
+  get isLoading =>
+      loadingProductDetail || loadingReviews || loadingRelatedProducts;
 
   Future<void> initProductDetail() async {
     getProductDetail();
@@ -81,5 +86,10 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     selectedColor = colorIndex;
     notifyListeners();
   }
-}
 
+  void addToCart() async {
+    final cartProvider = context.read<CartProvider>();
+    cartProvider.addToCart(productDetail);
+    context.vRouter.to('/cart');
+  }
+}

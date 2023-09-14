@@ -8,19 +8,8 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CartProvider(context),
-      child: const _CartPage(),
-    );
-  }
-}
-
-class _CartPage extends StatelessWidget {
-  const _CartPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     final provider = context.watch<CartProvider>();
+    final staticProvider = context.read<CartProvider>();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -37,7 +26,12 @@ class _CartPage extends StatelessWidget {
             child: ListView(
               children: provider.products
                   .map(
-                    (e) => CartProductComponent(cartProductModel: e),
+                    (e) => CartProductComponent(
+                      cartProductModel: e,
+                      increaseQuantity: () => staticProvider.increaseQuantity(e.id),
+                      reduceQuantity: () => staticProvider.reduceQuantity(e.id),
+                      removeFromCart: () => staticProvider.removeFromCart(e.id),
+                    ),
                   )
                   .toList(),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
@@ -30,6 +31,9 @@ class SoodBoard extends StatelessWidget {
       providers: <ChangeNotifierProvider<dynamic>>[
         ChangeNotifierProvider<LocaleProvider>(
           create: (_) => LocaleProvider(),
+        ),
+        ChangeNotifierProvider<CartProvider>(
+          create: (_) => CartProvider(),
         ),
       ],
       child: const _SoodBoard(),

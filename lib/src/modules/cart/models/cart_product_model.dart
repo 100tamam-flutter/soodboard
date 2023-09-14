@@ -1,11 +1,13 @@
 
 class CartProductModel {
+  final String id;
   final String productName;
   final String image;
-  final int quantity;
+  int quantity;
   final double price;
 
-  const CartProductModel({
+  CartProductModel({
+    required this.id,
     required this.image,
     required this.productName,
     required this.quantity,
