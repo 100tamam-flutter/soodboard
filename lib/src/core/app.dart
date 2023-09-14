@@ -133,6 +133,7 @@ class _SoodBoard extends StatelessWidget {
               ),
             ],
           ),
+
           VPopHandler(
             onPop: (vRedirector) async => (vRedirector.historyCanBack())
                 ? vRedirector.historyBack()
@@ -142,8 +143,8 @@ class _SoodBoard extends StatelessWidget {
                 : vRedirector.pop(),
             stackedRoutes: [
               VWidget(
-                path: 'cart',
-                widget: const ExplorePage(),
+                path: 'offer',
+                widget: const OfferScreen(),
               ),
             ],
           ),
@@ -156,8 +157,8 @@ class _SoodBoard extends StatelessWidget {
                 : vRedirector.pop(),
             stackedRoutes: [
               VWidget(
-                path: 'offer',
-                widget: const OfferScreen(),
+                path: 'cart',
+                widget: const ExplorePage(),
               ),
             ],
           ),
