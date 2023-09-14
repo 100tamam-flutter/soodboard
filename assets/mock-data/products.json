@@ -7,7 +7,8 @@
         "image": "assets/mock-files/product1.png",
         "price": 299.43,
         "discount": 24,
-        "previousPrice": 543.33
+        "previousPrice": 543.33,
+        "rating": 3.0
       },
       {
         "id": "2",
@@ -15,7 +16,8 @@
         "image": "assets/mock-files/product2.png",
         "price": 299.43,
         "discount": 24,
-        "previousPrice": 543.33
+        "previousPrice": 543.33,
+        "rating": 5.0
       },
       {
         "id": "3",
@@ -23,7 +25,8 @@
         "image": "assets/mock-files/product3.png",
         "price": 299.33,
         "discount": 24,
-        "previousPrice": 543.33
+        "previousPrice": 543.33,
+        "rating": 1.5
       },
       {
         "id": "3",
@@ -31,7 +34,8 @@
         "image": "assets/mock-files/product1.png",
         "price": 299.33,
         "discount": 24,
-        "previousPrice": 543.33
+        "previousPrice": 543.33,
+        "rating": 4.5
       }
     ]
   }

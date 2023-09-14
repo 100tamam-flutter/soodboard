@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:soodboard/src/modules/home_screen/components/category_component.dart';
-import 'package:soodboard/src/components/product_home_component.dart';
-import 'package:soodboard/src/modules/home_screen/components/recomended_product_component.dart';
-import 'package:soodboard/src/components/slidebar_component.dart';
+import 'package:soodboard/src/components/product/products_horizontal_listview.dart';
+import 'package:soodboard/src/modules/home_screen/components/categories_panel.dart';
+import 'package:soodboard/src/modules/home_screen/components/home_search_bar.dart';
+import 'package:soodboard/src/modules/home_screen/components/recommended_products_panel.dart';
+import 'package:soodboard/src/modules/home_screen/components/home_banner_slidebar_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,220 +32,19 @@ class _HomeScreen extends StatelessWidget {
             )
           : ListView(
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(
-                          top: 20,
-                          bottom: 20,
-                          left: 10,
-                          right: 10,
-                        ),
-                        child: TextFormField(
-                          style: Theme.of(context).textTheme.displaySmall,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              hintText: "Search Product",
-                              prefixIcon: InkWell(
-                                onTap: (){},
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16),
-                                  child: SvgPicture.asset(
-                                    'icons/Search.svg',
-                                  ),
-                                ),
-                              ),
-                              isDense: true),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        bottom: 16,
-                        right: 8,
-                        left: 16,
-                      ),
-                      child: InkWell(
-                        child: SvgPicture.asset(
-                          'assets/icons/love.svg',
-                          height: 24,
-                          width: 24,
-                        ),
-                        onTap: (){},
-                      )
-                    ),
-                    const SizedBox(width: 10),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        bottom: 16,
-                        left: 8,
-                        right: 16,
-                      ),
-                      child: InkWell(
-                        child: SvgPicture.asset(
-                          'assets/icons/notification.svg',
-                          height: 24,
-                          width: 24,
-                        ),
-                        onTap: (){},
-                      )
-                    )
-                  ],
-                ),
-                const SizedBox(height: 20),
-                SlideBarComponent(bannerModels: provider.banners),
-                const SizedBox(
-                  height: 48,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      child: Text(
-                        "Category",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text("More Category",
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: const Color(0xFF40BFFF),
-                                  )),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 12),
-                const CategoryComponent(),
                 const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      child: Text(
-                        "Flash Sale",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text("See More",
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: const Color(0xFF40BFFF),
-                                  )),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 238,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: provider.products
-                        .map((e) => ProductHomeComponent(productModel: e))
-                        .toList(),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      child: Text(
-                        "Mega Sale",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text("See More",
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: const Color(0xFF40BFFF),
-                                  )),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 238,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: provider.products
-                        .map((e) => ProductHomeComponent(productModel: e))
-                        .toList(),
-                  ),
-                ),
-                Stack(
-                  alignment: Alignment.centerLeft,
-                  children: [
-                    Stack(
-                      alignment: Alignment.topLeft,
-                      children: [
-                        SizedBox(
-                          height: 270,
-                          width: MediaQuery.sizeOf(context).width,
-                          child: Image.asset(
-                            "assets/products/shoes2.png",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.all(32),
-                          child: Text(
-                              "Recomended                                                                            "
-                              "Product",
-                              textAlign: TextAlign.start,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge
-                                  ?.copyWith(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                  )),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(32),
-                      child: Text("We recommend the best for you",
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400)),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 238,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: provider.products
-                        .map((e) => RecomendedProductComponent(productModel: e))
-                        .toList(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 238,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: provider.products
-                        .map((e) => RecomendedProductComponent(productModel: e))
-                        .toList(),
-                  ),
-                ),
+                const HomeSearchBar(),
+                const SizedBox(height: 32),
+                HomeBannerSlideBarComponent(bannerModels: provider.banners),
+                const SizedBox(height: 24),
+                CategoriesPanel(categories: provider.categories),
+                const SizedBox(height: 24),
+                ProductsHorizontalListView(
+                    products: provider.flashSaleProducts),
+                const SizedBox(height: 24),
+                ProductsHorizontalListView(products: provider.megaSaleProducts),
+                const SizedBox(height: 9),
+                RecommendedProductsPanel(products: provider.recommendedProducts)
               ],
             ),
     );
