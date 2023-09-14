@@ -83,6 +83,12 @@ class _DashboardPageState extends State<DashboardPage> {
       return 0;
     } else if (context.vRouter.path.contains('explore')) {
       return 1;
+    } else if (context.vRouter.path.contains('cart')) {
+      return 2;
+    } else if (context.vRouter.path.contains('offer')) {
+      return 3;
+    } else if (context.vRouter.path.contains('account')) {
+      return 4;
     }
     return 0;
   }
