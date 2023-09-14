@@ -13,8 +13,10 @@ import 'package:soodboard/src/modules/profile/pages/profile_page.dart';
 import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:vrouter/vrouter.dart';
 
+import '../modules/add-review/add-review-page.dart';
 import '../modules/explore/pages/explore_pages.dart';
 import '../modules/product-details/pages/product_details_page.dart';
+import '../modules/products-review/products-review-page.dart';
 import '../modules/profile/pages/account_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
@@ -86,6 +88,48 @@ class _SoodBoard extends StatelessWidget {
               VWidget(
                 path: 'explore',
                 widget: const ExplorePage(),
+              ),
+            ],
+          ),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'productDetail',
+                widget: const ProductDetailsPage(),
+              ),
+            ],
+          ),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'productReview',
+                widget: const ProductsReview(),
+              ),
+            ],
+          ),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'addReview',
+                widget: const AddReview(),
               ),
             ],
           ),
