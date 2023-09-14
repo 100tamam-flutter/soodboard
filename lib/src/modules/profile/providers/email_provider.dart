@@ -9,10 +9,4 @@ class EmailProvider extends SafeProvider with ErrorHandler{
   final BuildContext context;
   final String email;
   EmailProvider(this.context, this.email,);
-
-  final _profileApi = ProfileApiMock();
-  late final ProfileDetail profileDetail;
-  bool isLoading = true;
-
-
 }

@@ -19,11 +19,11 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> checkTokens() async {
     await Future.delayed(const Duration(seconds: 2));
-    goToDashboardPage();
+    goToLogin();
   }
 
-  void goToDashboardPage() {
-    context.vRouter.to('/', isReplacement: true);
+  void goToLogin() {
+    context.vRouter.to('/login', isReplacement: true);
   }
 
   @override

@@ -9,11 +9,4 @@ class PhoneNumberProvider extends SafeProvider with ErrorHandler{
   final BuildContext context;
   final String phoneNumber;
   PhoneNumberProvider(this.context, this.phoneNumber,);
-
-  final _profileApi = ProfileApiMock();
-
-  late final ProfileDetail profileDetail;
-  bool isLoading = true;
-
-
 }
