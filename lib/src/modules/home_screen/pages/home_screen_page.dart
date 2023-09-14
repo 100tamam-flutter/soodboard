@@ -33,53 +33,39 @@ class _HomeScreen extends StatelessWidget {
             )
           : ListView(
               children: [
+                const SizedBox(height: 16),
                 Row(
                   children: [
-                    const Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: 16,
-                          bottom: 32,
-                          left: 16,
-                          right: 16,
-                        ),
-                        child: SSearchField()
-                      ),
+                    const SizedBox(
+                      width: 16,
                     ),
-                    Padding(
-                        padding: const EdgeInsets.only(
-                          top: 16,
-                          bottom: 16,
-                          right: 8,
-                          left: 16,
-                        ),
-                        child: InkWell(
-                          child: SvgPicture.asset(
-                            'assets/icons/love.svg',
-                            height: 24,
-                            width: 24,
-                          ),
-                          onTap: () {},
-                        )),
-                    const SizedBox(width: 10),
-                    Padding(
-                        padding: const EdgeInsets.only(
-                          top: 16,
-                          bottom: 16,
-                          left: 8,
-                          right: 16,
-                        ),
-                        child: InkWell(
-                          child: SvgPicture.asset(
-                            'assets/icons/notification.svg',
-                            height: 24,
-                            width: 24,
-                          ),
-                          onTap: () {},
-                        ))
+                    const Expanded(child: SSearchField()),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    InkWell(
+                      child: SvgPicture.asset(
+                        'assets/icons/love.svg',
+                        height: 24,
+                        width: 24,
+                      ),
+                      onTap: () {},
+                    ),
+                    const SizedBox(width: 16),
+                    InkWell(
+                      child: SvgPicture.asset(
+                        'assets/icons/notification.svg',
+                        height: 24,
+                        width: 24,
+                      ),
+                      onTap: () {},
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 32),
                 SlideBarComponent(bannerModels: provider.banners),
                 const SizedBox(
                   height: 48,
