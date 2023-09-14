@@ -25,9 +25,6 @@ class _CartPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Your Cart',
-          style: TextStyle(
-            color: Color(0xFF223263),
-          ),
         ),
       ),
       body: Column(

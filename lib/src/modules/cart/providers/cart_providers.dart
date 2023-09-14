@@ -9,12 +9,12 @@ class CartProvider extends SafeProvider with ErrorHandler {
   CartProvider(this.context) {
     products = [
       const CartProductModel(
-          image: 'assets/images/shoe.png',
+          image: 'assets/mock-files/shoe.png',
           productName: 'Nike Air Zoom Pegasus 36 Miami',
           quantity: 1,
           price: 29943),
       const CartProductModel(
-          image: 'assets/images/redshoe.png',
+          image: 'assets/mock-files/redshoe.png',
           productName: 'Nike Air Zoom Pegasus 36 Miami',
           quantity: 1,
           price: 29943, )
