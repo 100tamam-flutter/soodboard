@@ -35,5 +35,18 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     notifyListeners();
   }
 
+  int? selectedSize;
+
+  selectSize(int sizeIndex) {
+    selectedSize = sizeIndex;
+    notifyListeners();
+  }
+
+  int? selectedColor;
+
+  selectColor(int colorIndex) {
+    selectedColor = colorIndex;
+    notifyListeners();
+  }
 }
 

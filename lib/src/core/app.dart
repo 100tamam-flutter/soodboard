@@ -8,7 +8,7 @@ import 'package:vrouter/vrouter.dart';
 
 import '../modules/explore/pages/explore_pages.dart';
 import '../modules/favorite/pages/favorite_products_page.dart';
-import '../modules/product-details/pages/product-details.dart';
+import '../modules/product-details/pages/product_details_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
 import 'localization.dart';
@@ -96,7 +96,7 @@ class _SoodBoard extends StatelessWidget {
       ),
       VWidget(
         path: '/product_detail',
-        widget: const ProductDetails(),
+        widget: const ProductDetailsPage(),
       ),
     ];
   }

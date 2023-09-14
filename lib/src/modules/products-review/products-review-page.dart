@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:soodboard/src/modules/add-review/add-review-page.dart';
 
-import '../product-details/pages/product-details.dart';
+import '../product-details/pages/product_details_page.dart';
 
 class ProductsReview extends StatelessWidget {
   const ProductsReview({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class ProductsReview extends StatelessWidget {
         leading: IconButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProductDetails()));
+                MaterialPageRoute(builder: (context) => ProductDetailsPage()));
           },
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
