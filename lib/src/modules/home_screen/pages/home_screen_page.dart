@@ -53,7 +53,7 @@ class _HomeScreen extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(16),
                                   child: SvgPicture.asset(
-                                    'icons/Search.svg',
+                                    'assets/icons/Search.svg',
                                   ),
                                 ),
                               ),
