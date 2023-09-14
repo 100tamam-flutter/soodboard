@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/components/search_field.dart';
-import 'package:soodboard/src/modules/home_screen/components/category_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/product_home_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/recomended_product_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/slidebar_component.dart';
+import '../../explore/components/category_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -82,15 +82,28 @@ class _HomeScreen extends StatelessWidget {
                       Text(
                         "More Category",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: const Color(0xFF40BFFF),
-                        ),
+                              color: const Color(0xFF40BFFF),
+                            ),
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 12),
-                const CategoryComponent(),
-                const SizedBox(height: 16),
+                SizedBox(
+                  height: 110,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: provider.categories
+                        .map(
+                          (e) => Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            child: CategoryComponent(categoryModel: e),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+                const SizedBox(height: 24),
                 Row(
                   children: [
                     Container(

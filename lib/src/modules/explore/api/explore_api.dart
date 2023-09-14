@@ -4,14 +4,14 @@ import 'package:soodboard/src/modules/explore/models/category_model.dart';
 
 
 abstract class ExploreAPI {
-  Future<List<CategoryModel>> getcategories() async {
+  Future<List<CategoryModel>> getCategories() async {
     throw UnimplementedError();
   }
 }
 
 class ExploreAPIMock implements ExploreAPI {
   @override
-  Future<List<CategoryModel>> getcategories() async {
+  Future<List<CategoryModel>> getCategories() async {
     // Simulate API request delay
     await Future.delayed(
       const Duration(
