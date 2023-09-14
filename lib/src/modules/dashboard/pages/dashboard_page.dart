@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:vrouter/vrouter.dart';
 
 class DashboardPage extends StatefulWidget {
-  const DashboardPage({Key? key, required this.child,}) : super(key: key);
+  const DashboardPage({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
   final Widget child;
 
   @override
@@ -10,8 +13,6 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +39,15 @@ class _DashboardPageState extends State<DashboardPage> {
             case 1:
               context.vRouter.to('/explore');
               break;
+            case 2:
+              context.vRouter.to('/cart');
+              break;
+            case 3:
+              context.vRouter.to('/offer');
+              break;
+            case 4:
+              context.vRouter.to('/account');
+              break;
             default:
               context.vRouter.to('/');
           }
@@ -51,18 +61,18 @@ class _DashboardPageState extends State<DashboardPage> {
             icon: Icon(Icons.search),
             label: 'Explore',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.shopping_cart_outlined),
-          //   label: 'Cart',
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.local_offer_outlined),
-          //   label: 'Offer',
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.person_outlined),
-          //   label: 'Account',
-          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_offer_outlined),
+            label: 'Offer',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            label: 'Account',
+          ),
         ],
       ),
     );
@@ -76,5 +86,4 @@ class _DashboardPageState extends State<DashboardPage> {
     }
     return 0;
   }
-
 }

@@ -70,6 +70,18 @@ class _SoodBoard extends StatelessWidget {
             path: 'explore',
             widget: const ExplorePage(),
           ),
+          VWidget(
+            path: 'cart',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'offer',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'account',
+            widget: const ExplorePage(),
+          ),
         ],
       ),
       VWidget(
