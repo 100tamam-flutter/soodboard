@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:soodboard/src/modules/add-review/add-review-page.dart';
+import 'package:vrouter/vrouter.dart';
+
 
 import '../product-details/pages/product_details_page.dart';
 
@@ -13,8 +15,9 @@ class ProductsReview extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProductDetailsPage()));
+            context.vRouter.to('/productDetail', isReplacement: true);
+
+
           },
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
@@ -334,8 +337,8 @@ class ProductsReview extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AddReview()));
+                context.vRouter.to('/addReview', isReplacement: true);
+
 
               },
               child: Container(

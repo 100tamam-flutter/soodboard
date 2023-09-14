@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:soodboard/src/modules/product-details/models/review_model.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../review_component.dart';
 
@@ -32,7 +33,10 @@ class ReviewPanel extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  context.vRouter.to('/productReview', isReplacement: true);
+
+                },
                 child: Text(
                   "See More",
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(

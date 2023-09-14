@@ -3,6 +3,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 import '../products-review/products-review-page.dart';
+import 'package:vrouter/vrouter.dart';
+
 
 class AddReview extends StatelessWidget {
   const AddReview({Key? key}) : super(key: key);
@@ -14,8 +16,8 @@ class AddReview extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProductsReview()));
+              context.vRouter.to('/productReview', isReplacement: true);
+
             },
             icon: SvgPicture.asset("assets/icons/Left.svg"),
           ),

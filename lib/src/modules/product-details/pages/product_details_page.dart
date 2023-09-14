@@ -10,6 +10,8 @@ import 'package:soodboard/src/modules/product-details/components/panels/select_s
 import '../../products-review/products-review-page.dart';
 import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
+import 'package:vrouter/vrouter.dart';
+
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({Key? key}) : super(key: key);
@@ -34,7 +36,10 @@ class _ProductDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.vRouter.to('/', isReplacement: true);
+
+          },
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
         title: Text(
@@ -125,10 +130,7 @@ class _ProductDetails extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProductsReview()));
+                    context.vRouter.to('/productDetail', isReplacement: true);
                   },
                   child: Container(
                     height: 57,
