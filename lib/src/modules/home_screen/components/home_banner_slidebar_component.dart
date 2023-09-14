@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:soodboard/src/models/banner_model.dart';
 
-import 'banner_component.dart';
+import '../../../components/banner_component.dart';
 
-class SlideBarComponent extends StatelessWidget {
+class HomeBannerSlideBarComponent extends StatelessWidget {
   final List<BannerModel> bannerModels;
 
-  const SlideBarComponent({Key? key, required this.bannerModels})
+  const HomeBannerSlideBarComponent({Key? key, required this.bannerModels})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImageSlideshow(
-      // indicatorColor: Colors.blue,
-      // autoPlayInterval: 3000,
       onPageChanged: (value) {
       },
       indicatorColor: Colors.blue,

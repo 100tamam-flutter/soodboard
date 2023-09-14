@@ -4,7 +4,7 @@ import 'package:soodboard/src/components/product/products_horizontal_listview.da
 import 'package:soodboard/src/modules/home_screen/components/categories_panel.dart';
 import 'package:soodboard/src/modules/home_screen/components/home_search_bar.dart';
 import 'package:soodboard/src/modules/home_screen/components/recommended_products_panel.dart';
-import 'package:soodboard/src/modules/home_screen/components/slidebar_component.dart';
+import 'package:soodboard/src/modules/home_screen/components/home_banner_slidebar_component.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -35,7 +35,7 @@ class _HomeScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 const HomeSearchBar(),
                 const SizedBox(height: 32),
-                SlideBarComponent(bannerModels: provider.banners),
+                HomeBannerSlideBarComponent(bannerModels: provider.banners),
                 const SizedBox(height: 24),
                 CategoriesPanel(categories: provider.categories),
                 const SizedBox(height: 24),
