@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:soodboard/src/models/product_model.dart';
 
 class RecProductComponent extends StatelessWidget {
 

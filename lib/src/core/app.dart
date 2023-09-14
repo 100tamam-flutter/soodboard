@@ -3,12 +3,19 @@ import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
+import 'package:soodboard/src/modules/profile/pages/birthday_page.dart';
+import 'package:soodboard/src/modules/profile/pages/changename_page.dart';
+import 'package:soodboard/src/modules/profile/pages/changepasword_page.dart';
+import 'package:soodboard/src/modules/profile/pages/email_page.dart';
+import 'package:soodboard/src/modules/profile/pages/gender_page.dart';
+import 'package:soodboard/src/modules/profile/pages/phonenumbre_page.dart';
+import 'package:soodboard/src/modules/profile/pages/profile_page.dart';
 import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/explore/pages/explore_pages.dart';
-import '../modules/favorite/pages/favorite_products_page.dart';
 import '../modules/product-details/pages/product_details_page.dart';
+import '../modules/profile/pages/account_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
 import 'localization.dart';
@@ -68,21 +75,93 @@ class _SoodBoard extends StatelessWidget {
             path: null,
             widget: const HomeScreen(),
           ),
-          VWidget(
-            path: 'explore',
-            widget: const ExplorePage(),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'explore',
+                widget: const ExplorePage(),
+              ),
+            ],
           ),
-          VWidget(
-            path: 'cart',
-            widget: const ExplorePage(),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'cart',
+                widget: const ExplorePage(),
+              ),
+            ],
           ),
-          VWidget(
-            path: 'offer',
-            widget: const OfferScreen(),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'offer',
+                widget: const OfferScreen(),
+              ),
+            ],
           ),
-          VWidget(
-            path: 'account',
-            widget: const ExplorePage(),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'account',
+                widget: const AccountPage(),
+                stackedRoutes: [
+                  VWidget(
+                    path: 'profile',
+                    widget: const ProfilePage(),
+                    stackedRoutes: [
+                      VWidget(
+                        path: 'change_name',
+                        widget: const ChangeNamePage(),
+                      ),
+                      VWidget(
+                        path: 'gender',
+                        widget: const GenderPage(),
+                      ),
+                      VWidget(
+                        path: 'birth_date',
+                        widget: const BirthDatePage(),
+                      ),
+                      VWidget(
+                        path: 'email',
+                        widget: const EmailPage(),
+                      ),
+                      VWidget(
+                        path: 'phone_number',
+                        widget: const PhoneNumber(),
+                      ),
+                      VWidget(
+                        path: 'change_password',
+                        widget: const ChangePassword(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
@@ -90,13 +169,19 @@ class _SoodBoard extends StatelessWidget {
         path: '/login',
         widget: const LoginPage(),
       ),
-      VWidget(
-        path: '/favorite_products',
-        widget: const FavoriteProductsPage(),
-      ),
-      VWidget(
-        path: '/product_detail',
-        widget: const ProductDetailsPage(),
+      VPopHandler(
+        onPop: (vRedirector) async => (vRedirector.historyCanBack())
+            ? vRedirector.historyBack()
+            : vRedirector.pop(),
+        onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+            ? vRedirector.historyBack()
+            : vRedirector.pop(),
+        stackedRoutes: [
+          VWidget(
+            path: '/product_detail',
+            widget: const ProductDetailsPage(),
+          ),
+        ],
       ),
     ];
   }
