@@ -130,10 +130,7 @@ class _ProductDetails extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProductsReview()));
+                    context.vRouter.to('/productDetail', isReplacement: true);
                   },
                   child: Container(
                     height: 57,
