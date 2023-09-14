@@ -1,6 +1,9 @@
 {
   "first_name" : "Parsa",
   "last_name" : "Faridi",
+  "avatar": {
+    "file": "assets/mock-files/parsa.jpeg"
+  },
   "username" : "@parsaf87",
   "gender" : "male",
   "birth_date" : "2008-08-28T14:38:26.357",

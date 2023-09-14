@@ -1,4 +1,7 @@
+import 'package:soodboard/src/models/file_model.dart';
+
 class ProfileDetail {
+  final FileModel avatar;
   final String firstName;
   final String lastName;
   final String username;
@@ -9,6 +12,7 @@ class ProfileDetail {
   final String address;
 
   const ProfileDetail({
+    required this.avatar,
     required this.firstName,
     required this.lastName,
     required this.username,
@@ -21,6 +25,7 @@ class ProfileDetail {
 
   factory ProfileDetail.fromJson(Map<String, dynamic> json) {
     return ProfileDetail(
+      avatar: FileModel.fromJson(json['avatar'] as Map<String, dynamic>),
       firstName: json['first_name'],
       lastName: json['last_name'],
       username: json['username'],

@@ -44,8 +44,9 @@ class _ProfilePage extends StatelessWidget {
                   color: Color(0xFFEBF0FF),
                 ),
                 ListTile(
-                  leading: const CircleAvatar(
+                  leading: CircleAvatar(
                     radius: 36,
+                    backgroundImage: AssetImage(provider.profileDetail.avatar.file),
                   ),
                   minVerticalPadding: 24,
                   title: Text(
