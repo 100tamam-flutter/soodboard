@@ -1,3 +1,4 @@
+
 class CartProductModel {
   final String productName;
   final String image;
@@ -10,4 +11,6 @@ class CartProductModel {
     required this.quantity,
     required this.price,
   });
+
 }
+

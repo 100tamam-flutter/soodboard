@@ -36,141 +36,169 @@ class _CartPage extends StatelessWidget {
           Expanded(
             child: ListView(
               children: provider.products
-                  .map((e) => CartProductComponent(cartProductModel: e))
+                  .map(
+                    (e) => CartProductComponent(cartProductModel: e),
+                  )
                   .toList(),
             ),
           ),
-          Column(
-            children: [
-              Row(
-                children: [
-                  SizedBox(
-                    child: Container(
-                      padding: const EdgeInsets.all(16),
-                      height: 56,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(5),
-                          topLeft: Radius.circular(5),
-                        ),
-                        border: Border.all(
-                          color: const Color(0xFF9B9B9B),
-                          width: 0.5,
-                        ),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Enter Coupon Code',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Color(0xFF9B9B9B)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    width: 87,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
                     height: 56,
-                    decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(5),
-                        topRight: Radius.circular(5),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFEBF0FF)),
+                      borderRadius: const BorderRadius.horizontal(
+                        left: Radius.circular(5),
                       ),
                     ),
-                    child: const Center(
-                      child: Text(
-                        'Apply',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                    child: TextField(
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: const Color(0xFF9098B1)),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search Product",
+                        hintStyle:
+                            Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: const Color(0xFF9098B1),
+                                ),
+                        isDense: true,
+                        contentPadding: EdgeInsets.zero,
                       ),
                     ),
                   ),
-                ],
-              )
-            ],
+                ),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  width: 87,
+                  height: 56,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF40BFFF),
+                    borderRadius: BorderRadius.horizontal(
+                      right: Radius.circular(5),
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Apply',
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                            color: Colors.white,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(
-            height: 8,
+            height: 16,
           ),
           Container(
             padding: const EdgeInsets.all(16),
-            width: 343,
-            height: 164,
+            margin: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               border: Border.all(
-                color: const Color(0xFF9B9B9B),
-                width: 0.5,
+                color: const Color(0xFFEBF0FF),
               ),
             ),
             child: Column(
               children: [
-                const Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'Items',
-                          style: TextStyle(
-                            color: Color(0xFF9B9B9B),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Items',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: const Color(0xFF9098B1),
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                    Text('\$${provider.getTotalPrice()}',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ],
                 ),
-                const Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text('Shipping',
-                            style: TextStyle(color: Color(0xFF9B9B9B))),
-                      ),
-                    ],
-                  ),
+                const SizedBox(
+                  height: 12,
                 ),
-                const Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text('Import charges',
-                            style: TextStyle(color: Color(0xFF9B9B9B))),
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shipping',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: const Color(0xFF9098B1),
+                          ),
+                    ),
+                    Text('\$40.0',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ],
                 ),
-                Expanded(
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        child: Text(
-                          'Total Price',
-                          style: TextStyle(
-                              color: Color(0xFF223263),
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Text(provider.getTotalPrice().toString())
-                    ],
-                  ),
+                const SizedBox(
+                  height: 12,
                 ),
-                Container(
-                    padding: const EdgeInsets.all(16),
-                    width: 343,
-                    height: 57,
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: const Center(
-                      child: Text('Check Out',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold)),
-                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Import Charges',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: const Color(0xFF9098B1),
+                          ),
+                    ),
+                    Text('\$128.0',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total Price',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    Text(
+                      '\$${provider.getTotalPrice() + 40.0 + 128.0}',
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                            color: const Color(0xFF40BFFF),
+                          ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Container(
+            padding: const EdgeInsets.all(16),
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            height: 57,
+            decoration: BoxDecoration(
+              color: const Color(0xFF40BFFF),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+              child: Text(
+                'Check Out',
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Colors.white,
+                    ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
         ],
       ),
     );
