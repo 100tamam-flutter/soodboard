@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:soodboard/src/core/localization.dart';
 import 'package:vrouter/vrouter.dart';
 
+
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -17,9 +18,12 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> checkTokens() async {
-    // Mock Entry Check:
     await Future.delayed(const Duration(seconds: 2));
-    context.vRouter.to('/favorite_products', isReplacement: true);
+    goToLogin();
+  }
+
+  void goToLogin() {
+    context.vRouter.to('/login', isReplacement: true);
   }
 
   @override

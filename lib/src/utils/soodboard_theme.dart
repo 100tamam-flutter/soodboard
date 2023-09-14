@@ -23,7 +23,7 @@ mixin SoodBoardTheme {
         ),
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
-          outline: Color(0xFFCDCDCD),
+          outline: Color(0xFFCDCCDD),
           primary: Color(0xFF40BFFF),
           onPrimary: Colors.white,
           secondary: Color(0xFFBCDDFE),
