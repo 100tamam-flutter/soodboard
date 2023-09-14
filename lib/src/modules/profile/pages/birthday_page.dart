@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vrouter/vrouter.dart';
-import '../providers/gender_provider.dart';
+import '../providers/birthday_provider.dart';
 
-class GenderPage extends StatelessWidget {
-  const GenderPage({Key? key}) : super(key: key);
+
+class BirthDatePage extends StatelessWidget {
+  const BirthDatePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final gender = context.vRouter.historyState['gender'] ?? 'male';
+    final birthDate = context.vRouter.historyState['birth_date'] ?? 'male';
     return ChangeNotifierProvider(
-      create: (context) => GenderProvider(context, gender),
-      child: const _GenderPage(),
+      create: (context) => BirthDateProvider(context, birthDate),
+      child: const _BirthDayPage(),
     );
   }
 }
 
-class _GenderPage extends StatelessWidget {
-  const _GenderPage({Key? key}) : super(key: key);
+class _BirthDayPage extends StatelessWidget {
+  const _BirthDayPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<GenderProvider>();
-    final staticProvider = context.read<GenderProvider>();
+    final provider = context.watch<BirthDateProvider>();
+    final staticProvider = context.read<BirthDateProvider>();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -31,7 +32,7 @@ class _GenderPage extends StatelessWidget {
         ),
         elevation: 0,
         title: const Text(
-          'Gender',
+          'Birthday',
         ),
       ),
       body: Padding(
@@ -48,7 +49,7 @@ class _GenderPage extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  'Choose Gender',
+                  'Your Birthday',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(
@@ -74,7 +75,7 @@ class _GenderPage extends StatelessWidget {
                       borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
                     ),
                     hintStyle: Theme.of(context).textTheme.labelLarge,
-                    hintText: staticProvider.gender,
+                    hintText: staticProvider.birthdate,
                   ),
                 ),
               ],
@@ -101,9 +102,9 @@ class _GenderPage extends StatelessWidget {
                         child: Text(
                           'Save',
                           style:
-                              Theme.of(context).textTheme.titleSmall!.copyWith(
-                                    color: Colors.white,
-                                  ),
+                          Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],

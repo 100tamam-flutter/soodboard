@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
-import 'package:soodboard/src/modules/profile/pages/birthday-page.dart';
+import 'package:soodboard/src/modules/profile/pages/birthday_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changename_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changepasword_page.dart';
 import 'package:soodboard/src/modules/profile/pages/email_page.dart';
