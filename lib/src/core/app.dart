@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
+import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/explore/pages/explore_pages.dart';
@@ -40,7 +42,7 @@ class _SoodBoard extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       mode: VRouterMode.history,
-      initialUrl: '/product_detail',
+      initialUrl: '/splash',
       routes: routes,
       buildTransition: (animation, _, child) => FadeTransition(
         opacity: animation,
@@ -56,6 +58,34 @@ class _SoodBoard extends StatelessWidget {
         widget: const SplashPage(),
         transitionDuration: Duration.zero,
       ),
+      VNester(
+        path: '/',
+        widgetBuilder: (child) => DashboardPage(
+          child: child,
+        ),
+        nestedRoutes: [
+          VWidget(
+            path: null,
+            widget: const HomeScreen(),
+          ),
+          VWidget(
+            path: 'explore',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'cart',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'offer',
+            widget: const OfferScreen(),
+          ),
+          VWidget(
+            path: 'account',
+            widget: const ExplorePage(),
+          ),
+        ],
+      ),
       VWidget(
         path: '/login',
         widget: const LoginPage(),
@@ -67,14 +97,6 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/product_detail',
         widget: const ProductDetails(),
-      ),
-      VWidget(
-          path: '/home_screen',
-          widget: const HomeScreen(),
-      ),
-      VWidget(
-        path: '/explore',
-        widget: const ExplorePage(),
       ),
     ];
   }
