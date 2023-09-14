@@ -22,18 +22,24 @@ class CategoryTableComponent extends StatelessWidget {
               Text(
                 title,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                 color: const Color(0xFF223263),
-                ),
+                      color: const Color(0xFF223263),
+                    ),
               ),
             ],
           ),
           Wrap(
             alignment: WrapAlignment.start,
-              children: categories
-                  .map((e) => CategoryComponent(
-                        categoryModel: e,
-                      ))
-                  .toList()),
+            children: categories
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                    child: CategoryComponent(
+                      categoryModel: e,
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
         ],
       ),
     );
