@@ -29,4 +29,5 @@ class ProductModel {
       rating: json['rating'] as double,
     );
   }
+
 }

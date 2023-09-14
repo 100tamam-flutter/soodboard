@@ -40,9 +40,14 @@ class _HomeScreen extends StatelessWidget {
                 CategoriesPanel(categories: provider.categories),
                 const SizedBox(height: 24),
                 ProductsHorizontalListView(
-                    products: provider.flashSaleProducts),
+                  products: provider.flashSaleProducts,
+                  title: "Flash Sale",
+                ),
                 const SizedBox(height: 24),
-                ProductsHorizontalListView(products: provider.megaSaleProducts),
+                ProductsHorizontalListView(
+                  products: provider.megaSaleProducts,
+                  title: "Mega Sale",
+                ),
                 const SizedBox(height: 9),
                 RecommendedProductsPanel(products: provider.recommendedProducts)
               ],

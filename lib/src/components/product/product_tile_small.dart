@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soodboard/src/models/product_model.dart';
+import 'package:vrouter/vrouter.dart';
 
 class ProductTileSmall extends StatelessWidget {
   const ProductTileSmall({Key? key, required this.productModel})
@@ -9,7 +10,7 @@ class ProductTileSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => context.vRouter.to('/product_detail'),
       child: Container(
         height: 238,
         width: 141,
