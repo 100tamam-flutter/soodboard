@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/search_field.dart';
 import 'package:soodboard/src/modules/home_screen/components/category_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/product_home_component.dart';
 import 'package:soodboard/src/modules/home_screen/components/recomended_product_component.dart';
@@ -34,66 +35,48 @@ class _HomeScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(
-                          top: 20,
-                          bottom: 20,
-                          left: 10,
-                          right: 10,
+                    const Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: 16,
+                          bottom: 32,
+                          left: 16,
+                          right: 16,
                         ),
-                        child: TextFormField(
-                          style: Theme.of(context).textTheme.displaySmall,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              hintText: "Search Product",
-                              prefixIcon: InkWell(
-                                onTap: (){},
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16),
-                                  child: SvgPicture.asset(
-                                    'assets/icons/Search.svg',
-                                  ),
-                                ),
-                              ),
-                              isDense: true),
-                        ),
+                        child: SSearchField()
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        bottom: 16,
-                        right: 8,
-                        left: 16,
-                      ),
-                      child: InkWell(
-                        child: SvgPicture.asset(
-                          'assets/icons/love.svg',
-                          height: 24,
-                          width: 24,
+                        padding: const EdgeInsets.only(
+                          top: 16,
+                          bottom: 16,
+                          right: 8,
+                          left: 16,
                         ),
-                        onTap: (){},
-                      )
-                    ),
+                        child: InkWell(
+                          child: SvgPicture.asset(
+                            'assets/icons/love.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                          onTap: () {},
+                        )),
                     const SizedBox(width: 10),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        bottom: 16,
-                        left: 8,
-                        right: 16,
-                      ),
-                      child: InkWell(
-                        child: SvgPicture.asset(
-                          'assets/icons/notification.svg',
-                          height: 24,
-                          width: 24,
+                        padding: const EdgeInsets.only(
+                          top: 16,
+                          bottom: 16,
+                          left: 8,
+                          right: 16,
                         ),
-                        onTap: (){},
-                      )
-                    )
+                        child: InkWell(
+                          child: SvgPicture.asset(
+                            'assets/icons/notification.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                          onTap: () {},
+                        ))
                   ],
                 ),
                 const SizedBox(height: 20),
