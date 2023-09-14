@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/pages/login_page.dart';
 import 'package:vrouter/vrouter.dart';
@@ -39,7 +40,7 @@ class _SoodBoard extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       mode: VRouterMode.history,
-      initialUrl: '/favorite_products',
+      initialUrl: '/splash',
       routes: routes,
       buildTransition: (animation, _, child) => FadeTransition(
         opacity: animation,
@@ -55,6 +56,34 @@ class _SoodBoard extends StatelessWidget {
         widget: const SplashPage(),
         transitionDuration: Duration.zero,
       ),
+      VNester(
+        path: '/',
+        widgetBuilder: (child) => DashboardPage(
+          child: child,
+        ),
+        nestedRoutes: [
+          VWidget(
+            path: null,
+            widget: const HomeScreen(),
+          ),
+          VWidget(
+            path: 'explore',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'cart',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'offer',
+            widget: const ExplorePage(),
+          ),
+          VWidget(
+            path: 'account',
+            widget: const ExplorePage(),
+          ),
+        ],
+      ),
       VWidget(
         path: '/login',
         widget: const LoginPage(),
@@ -62,14 +91,6 @@ class _SoodBoard extends StatelessWidget {
       VWidget(
         path: '/favorite_products',
         widget: const FavoriteProductsPage(),
-      ),
-      VWidget(
-          path: '/home_screen',
-          widget: const HomeScreen(),
-      ),
-      VWidget(
-        path: '/explore',
-        widget: const ExplorePage(),
       ),
     ];
   }
