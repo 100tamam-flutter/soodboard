@@ -45,7 +45,7 @@ class ProductTileHalfWidth extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 RatingBar.builder(
-                  initialRating: 3.5,
+                  initialRating: productModel.rating,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: true,
