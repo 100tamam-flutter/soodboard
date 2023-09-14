@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vrouter/vrouter.dart';
 
 class LogInButtonComponent extends StatelessWidget {
   const LogInButtonComponent({Key? key, required this.icon, required this.title}) : super(key: key);
@@ -19,7 +20,6 @@ class LogInButtonComponent extends StatelessWidget {
         height: 57,
        width: 343,
        child: Row(
-    //     mainAxisAlignment:MainAxisAlignment.center,
          children: [
            Padding(padding: const EdgeInsets.all(16), child: SvgPicture.asset(icon),),
            const SizedBox(width: 10),
@@ -36,7 +36,7 @@ class LogInButtonComponent extends StatelessWidget {
          ],
        ),
       ),
-      onTap:(){},
+      onTap:() => context.vRouter.to('/'),
     );
   }
 }
