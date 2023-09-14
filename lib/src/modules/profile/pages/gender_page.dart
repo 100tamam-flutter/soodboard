@@ -30,6 +30,7 @@ class _GenderPage extends StatelessWidget {
           onPressed: () => context.vRouter.pop(),
           icon: const Icon(Icons.arrow_back_ios),
         ),
+        elevation: 0,
         title: const Text(
           'Gender',
           style: TextStyle(
@@ -43,47 +44,57 @@ class _GenderPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Divider(
-              color: Color(0xFFEBF0FF),
-            ),
-            Text(
-              'Choose Gender',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                hintText: staticProvider.gender,
-              ),
-            ),
-            const SizedBox(
-              height: 486,
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
-                foregroundColor: MaterialStateProperty.all(Colors.white),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 16,),
+                Text(
+                  'Choose Gender',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    hintText: staticProvider.gender,
                   ),
                 ),
-              ),
-              onPressed: () {},
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text('Save'),
-                  ),
-                ],
-              ),
+              ],
             ),
+
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text('Save'),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16,),
+              ],
+            )
           ],
         ),
       ),
