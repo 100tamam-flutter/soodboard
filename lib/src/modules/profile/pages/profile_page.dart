@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -75,7 +74,7 @@ class _ProfilePage extends StatelessWidget {
                       "gender": provider.profileDetail.gender,
                     },
                   ),
-                  leading: SvgPicture.asset('icons/Gender.svg'),
+                  leading: SvgPicture.asset('assets/icons/Gender.svg'),
                   minVerticalPadding: 16,
                   title: Row(
                     children: <Widget>[
@@ -99,7 +98,7 @@ class _ProfilePage extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                    leading: SvgPicture.asset('icons/Date.svg'),
+                    leading: SvgPicture.asset('assets/icons/Date.svg'),
                     minVerticalPadding: 16,
                     title: Row(children: <Widget>[
                       Text(
@@ -117,7 +116,7 @@ class _ProfilePage extends StatelessWidget {
                       const SizedBox(
                         width: 16,
                       ),
-                      SvgPicture.asset('icons/Right.svg')
+                      SvgPicture.asset('assets/icons/Right.svg')
                     ],
                     ),
                   onTap: () => context.vRouter.to(
@@ -126,10 +125,9 @@ class _ProfilePage extends StatelessWidget {
                       "birth_date": provider.profileDetail.birthDate.toString(),
                     },
                   ),
-
                 ),
                 ListTile(
-                  leading: SvgPicture.asset('icons/Message.svg'),
+                  leading: SvgPicture.asset('assets/icons/Message.svg'),
                   minVerticalPadding: 16,
                   title: Row(children: <Widget>[
                     Text(
@@ -147,7 +145,7 @@ class _ProfilePage extends StatelessWidget {
                     const SizedBox(
                       width: 16,
                     ),
-                    SvgPicture.asset('icons/Right.svg')
+                    SvgPicture.asset('assets/icons/Right.svg')
                   ],
                   ),
                   onTap: () => context.vRouter.to(
@@ -158,7 +156,7 @@ class _ProfilePage extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  leading: SvgPicture.asset('icons/Phone.svg'),
+                  leading: SvgPicture.asset('assets/icons/Phone.svg'),
                   minVerticalPadding: 16,
                   title: Row(children: <Widget>[
                     Text(
@@ -176,7 +174,7 @@ class _ProfilePage extends StatelessWidget {
                     const SizedBox(
                       width: 16,
                     ),
-                    SvgPicture.asset('icons/Right.svg')
+                    SvgPicture.asset('assets/icons/Right.svg')
                   ],
                   ),
                   onTap: () => context.vRouter.to(
@@ -188,7 +186,7 @@ class _ProfilePage extends StatelessWidget {
                 ),
 
                 ListTile(
-                  leading: SvgPicture.asset('icons/Password.svg'),
+                  leading: SvgPicture.asset('assets/icons/Password.svg'),
                   minVerticalPadding: 16,
                   title: Row(children: <Widget>[
                     Text(
@@ -205,7 +203,7 @@ class _ProfilePage extends StatelessWidget {
                     const SizedBox(
                       width: 16,
                     ),
-                    SvgPicture.asset('icons/Right.svg')
+                    SvgPicture.asset('assets/icons/Right.svg')
                   ],
                   ),
                   onTap: () => context.vRouter.to(

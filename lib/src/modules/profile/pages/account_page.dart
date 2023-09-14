@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +38,7 @@ class _AccountPage extends StatelessWidget {
             color: Color(0xFFEBF0FF),
           ),
           ListTile(
-            leading: SvgPicture.asset('icons/User.svg'),
+            leading: SvgPicture.asset('assets/icons/person.svg'),
             minVerticalPadding: 16,
             title: Text(
               'Profile',
@@ -48,7 +47,7 @@ class _AccountPage extends StatelessWidget {
             onTap: () => context.vRouter.to('profile'),
           ),
           ListTile(
-            leading: SvgPicture.asset('icons/bag.svg'),
+            leading: SvgPicture.asset('assets/icons/bag.svg'),
             minVerticalPadding: 16,
             title: Text(
               'Order',
@@ -56,7 +55,7 @@ class _AccountPage extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: SvgPicture.asset('icons/Location.svg'),
+            leading: SvgPicture.asset('assets/icons/Location.svg'),
             minVerticalPadding: 16,
             title: Text(
               'Address',
@@ -64,7 +63,7 @@ class _AccountPage extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: SvgPicture.asset('icons/Credit_Card.svg'),
+            leading: SvgPicture.asset('assets/icons/Credit_Card.svg'),
             minVerticalPadding: 16,
             title: Text(
               'Payment',
