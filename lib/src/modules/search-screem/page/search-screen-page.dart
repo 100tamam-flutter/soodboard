@@ -120,6 +120,7 @@ class _SearchPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -130,26 +131,26 @@ class _SearchPage extends StatelessWidget {
                             color: const Color(0xFF9098B1)),
                       ),
                       Container(
-                        width: 105,
-                        child:
-                          Row(
-                            children: [
-                              Text(
-                                "Man shoes",
-                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        width: 110,
+                        child: Row(
+                          children: [
+                            Text(
+                              "Man shoes",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(
                                     fontWeight: FontWeight.w700,
                                   ),
-                              ),
-                              SvgPicture.asset('assets/icons/Down Icon.svg'),
-                            ],
-                          ),
-
-
+                            ),
+                            SvgPicture.asset('assets/icons/Down Icon.svg'),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 18,
+                    height: 36,
                   ),
                   Expanded(
                       child: VerticalProducts(
