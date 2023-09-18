@@ -28,6 +28,7 @@ class ProductMainInfoPanel extends StatelessWidget {
                 ),
               ),
               InkWell(
+
                 onTap: () {},
                 child: SvgPicture.asset(
                   'assets/icons/Add Favorite Icon.svg',

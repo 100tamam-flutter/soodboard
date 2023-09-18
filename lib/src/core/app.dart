@@ -11,6 +11,7 @@ import 'package:soodboard/src/modules/profile/pages/gender_page.dart';
 import 'package:soodboard/src/modules/profile/pages/phonenumbre_page.dart';
 import 'package:soodboard/src/modules/profile/pages/profile_page.dart';
 import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
+import 'package:soodboard/src/modules/search-screem/page/search-screen-page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../modules/add-review/add-review-page.dart';
@@ -145,6 +146,20 @@ class _SoodBoard extends StatelessWidget {
               VWidget(
                 path: 'offer',
                 widget: const OfferScreen(),
+              ),
+            ],
+          ),
+          VPopHandler(
+            onPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            onSystemPop: (vRedirector) async => (vRedirector.historyCanBack())
+                ? vRedirector.historyBack()
+                : vRedirector.pop(),
+            stackedRoutes: [
+              VWidget(
+                path: 'search',
+                widget: const SearchPage(),
               ),
             ],
           ),

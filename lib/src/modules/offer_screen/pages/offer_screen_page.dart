@@ -54,6 +54,7 @@ class _OfferScreen extends StatelessWidget {
           : ListView(
               children: [
                 const SizedBox(height: 20),
+
                 RecommendedProductsPanel(
                   products: provider.products,
                 ),

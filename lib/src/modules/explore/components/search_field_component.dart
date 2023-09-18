@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vrouter/vrouter.dart';
 
 class SearchFieldComponent extends StatelessWidget {
   const SearchFieldComponent({Key? key}) : super(key: key);
@@ -12,6 +13,9 @@ class SearchFieldComponent extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: TextField(
+              onTap: (){
+                context.vRouter.to('/search', isReplacement: true);
+              },
               // onChanged: (value) => _runFilter(value),
               onChanged: (value) {},
               decoration: const InputDecoration(
