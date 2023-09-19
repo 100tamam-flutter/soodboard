@@ -3,10 +3,17 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:soodboard/src/modules/product-details/models/product_detail_model.dart';
 
-class ProductMainInfoPanel extends StatelessWidget {
+class ProductMainInfoPanel extends StatefulWidget {
   const ProductMainInfoPanel({super.key, required this.productDetail});
 
   final ProductDetailModel productDetail;
+
+  @override
+  State<ProductMainInfoPanel> createState() => _ProductMainInfoPanelState();
+}
+
+class _ProductMainInfoPanelState extends State<ProductMainInfoPanel> {
+  bool click = true;
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +28,34 @@ class ProductMainInfoPanel extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  productDetail.title,
+                  widget.productDetail.title,
                   style: Theme.of(context).textTheme.titleLarge,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
               ),
-              InkWell(
+              ElevatedButton(
 
-                onTap: () {},
-                child: SvgPicture.asset(
-                  'assets/icons/Add Favorite Icon.svg',
-                ),
-              )
-            ],
+                onPressed: (){
+                  setState(() {
+                   click =  !click;
+                  });
+                },
+              child: click == false ? SvgPicture.asset("assets/icons/love.svg"): SvgPicture.asset("assets/icons/redlove.svg"),
+               style: ElevatedButton.styleFrom(
+                 backgroundColor: Colors.transparent,
+                 foregroundColor: Colors.transparent,
+               ),
+
+               ),
+              ]
           ),
+
           const SizedBox(
             height: 8,
           ),
           RatingBar.builder(
-            initialRating: productDetail.rating,
+            initialRating: widget.productDetail.rating,
             minRating: 1,
             direction: Axis.horizontal,
             allowHalfRating: true,
@@ -58,7 +73,7 @@ class ProductMainInfoPanel extends StatelessWidget {
             height: 16,
           ),
           Text(
-            "\$${productDetail.price}",
+            "\$${widget.productDetail.price}",
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: const Color(0xFF40BFFF),
                 ),
