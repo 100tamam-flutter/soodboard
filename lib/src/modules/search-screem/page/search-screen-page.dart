@@ -5,6 +5,7 @@ import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/search-screem/components/vertical-products-components.dart';
 import '../../../components/product/product_tile_half_width.dart';
+import '../../../models/product_model.dart';
 import '../../home_screen/providers/home_screen_provider.dart';
 import '../../products-review/products-review-page.dart';
 import 'package:vrouter/vrouter.dart';
@@ -125,7 +126,7 @@ class _SearchPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "145 results",
+                       "145 results" ,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.w700,
                             color: const Color(0xFF9098B1)),
