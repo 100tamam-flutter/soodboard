@@ -19,6 +19,8 @@ import '../modules/explore/pages/explore_pages.dart';
 import '../modules/product-details/pages/product_details_page.dart';
 import '../modules/products-review/products-review-page.dart';
 import '../modules/profile/pages/account_page.dart';
+import '../modules/cart/pages/cart_pages.dart';
+import '../modules/favorite/pages/favorite_products_page.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
 import 'localization.dart';
@@ -173,7 +175,7 @@ class _SoodBoard extends StatelessWidget {
             stackedRoutes: [
               VWidget(
                 path: 'cart',
-                widget: const ExplorePage(),
+                widget: const CartPage(),
               ),
             ],
           ),
@@ -243,6 +245,7 @@ class _SoodBoard extends StatelessWidget {
           ),
         ],
       ),
+      VWidget(path: '/cart_page', widget: const CartPage())
     ];
   }
 }

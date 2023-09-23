@@ -11,10 +11,17 @@ import '../../products-review/products-review-page.dart';
 import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
 import 'package:vrouter/vrouter.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
-
-class ProductDetailsPage extends StatelessWidget {
+class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({Key? key}) : super(key: key);
+
+  @override
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+}
+
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +45,6 @@ class _ProductDetails extends StatelessWidget {
         leading: IconButton(
           onPressed: () {
             context.vRouter.to('/', isReplacement: true);
-
           },
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
@@ -56,10 +62,26 @@ class _ProductDetails extends StatelessWidget {
             onPressed: () {},
             icon: SvgPicture.asset("assets/icons/Search_2.svg"),
           ),
-          IconButton(
-            onPressed: () {},
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: SvgPicture.asset("assets/icons/More.svg"),
+          // ),
+
+          PopupMenuButton(
             icon: SvgPicture.asset("assets/icons/More.svg"),
-          ),
+            onSelected: (value) {
+              // your logic
+            },
+            itemBuilder: (BuildContext bc) {
+              return const [
+                PopupMenuItem(
+                  child: Text("Add to Favorite"),
+                  value: '/hello',
+                ),
+
+              ];
+            },
+          )
         ],
       ),
       body: provider.isLoading
@@ -130,7 +152,7 @@ class _ProductDetails extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    context.vRouter.to('/productDetail', isReplacement: true);
+                    context.vRouter.to('/cart', isReplacement: true);
                   },
                   child: Container(
                     height: 57,
