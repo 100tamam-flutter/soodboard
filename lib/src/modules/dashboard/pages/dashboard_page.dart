@@ -43,9 +43,6 @@ class _DashboardPageState extends State<DashboardPage> {
               context.vRouter.to('/cart');
               break;
             case 3:
-              context.vRouter.to('/offer');
-              break;
-            case 4:
               context.vRouter.to('/account');
               break;
             default:
@@ -66,10 +63,6 @@ class _DashboardPageState extends State<DashboardPage> {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_offer_outlined),
-            label: 'Offer',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.person_outlined),
             label: 'Account',
           ),
@@ -85,10 +78,8 @@ class _DashboardPageState extends State<DashboardPage> {
       return 1;
     } else if (context.vRouter.path.contains('cart')) {
       return 2;
-    } else if (context.vRouter.path.contains('offer')) {
-      return 3;
     } else if (context.vRouter.path.contains('account')) {
-      return 4;
+      return 3;
     }
     return 0;
   }

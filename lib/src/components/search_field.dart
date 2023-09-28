@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../modules/explore/pages/explore_pages.dart';
+
 class SSearchField extends StatelessWidget {
   const SSearchField({super.key});
 
@@ -36,8 +38,14 @@ class SSearchField extends StatelessWidget {
           onTap: () {},
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: SvgPicture.asset(
-              'assets/icons/Search.svg',
+            child: InkWell(
+              child: SvgPicture.asset(
+                'assets/icons/Search.svg',
+              ),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ExplorePage()),
+                );
+              } ,
             ),
           ),
         ),

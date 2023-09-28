@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:soodboard/src/modules/explore/pages/explore_pages.dart';
 
 import '../../../components/search_field.dart';
 
@@ -14,7 +15,15 @@ class HomeSearchBar extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        const Expanded(child: SSearchField()),
+         Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ExplorePage()),
+                );
+              } ,
+                child: SSearchField(),
+            )
+            ),
         const SizedBox(
           width: 16,
         ),

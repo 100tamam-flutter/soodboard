@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../modules/offer_screen/pages/offer_screen_page.dart';
 import 'product_tile_small.dart';
 import '../../models/product_model.dart';
 
@@ -27,12 +28,18 @@ class ProductsHorizontalListView extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               Expanded(child: Container()),
-              Text(
-                "See More",
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: const Color(0xFF40BFFF),
-                    ),
-              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OfferScreen()),
+                  );
+                } ,
+                child: Text(
+                  "See More",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: const Color(0xFF40BFFF),
+                  ),
+                ),
+              )
             ],
           ),
         ),
