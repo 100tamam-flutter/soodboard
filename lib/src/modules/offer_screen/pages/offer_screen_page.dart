@@ -24,7 +24,7 @@ class _OfferScreen extends StatelessWidget {
     final provider = context.watch<OfferScreenProvider>();
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         leading: const Icon(
           Icons.keyboard_arrow_left,
           size: 24,

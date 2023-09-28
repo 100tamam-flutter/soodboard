@@ -13,7 +13,7 @@ class ProductTileHalfWidth extends StatelessWidget {
     return InkWell(
       onTap: () => context.vRouter.to('/product_detail'),
       child: Container(
-        height: 282,
+        height: 301,
         width: (MediaQuery.sizeOf(context).width / 2) - 22.5,
         margin: const EdgeInsets.only(bottom: 13),
         padding: const EdgeInsets.all(16),
