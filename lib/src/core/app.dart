@@ -60,6 +60,7 @@ class _SoodBoard extends StatelessWidget {
         opacity: animation,
         child: child,
       ),
+      transitionDuration: const Duration(milliseconds: 350),
     );
   }
 

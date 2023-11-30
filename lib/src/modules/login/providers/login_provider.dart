@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../../../core/providers/safe_provider.dart';
@@ -12,8 +13,13 @@ class LoginProvider extends SafeProvider with ErrorHandler {
   }
 
   Future<void> showMockedDialog() async {
-    await Future.delayed(const Duration(seconds: 1));
-    _showMockedDialog();
+    final prefs = await SharedPreferences.getInstance();
+    final bool? firstTime = prefs.getBool('first_time');
+    if (firstTime == null || firstTime == true) {
+      await Future.delayed(const Duration(seconds: 1));
+      _showMockedDialog();
+      prefs.setBool('first_time', false);
+    }
   }
 
   void _showMockedDialog() {
