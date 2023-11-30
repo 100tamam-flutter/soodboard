@@ -154,7 +154,7 @@ class _LoginPage extends StatelessWidget {
                       ),
                 ),
                 InkWell(
-                  onTap: () => context.vRouter.to('/'),
+                  onTap: staticProvider.goToRegisterPage,
                   child: Text(
                     ' Register',
                     style: Theme.of(context).textTheme.labelLarge!.copyWith(

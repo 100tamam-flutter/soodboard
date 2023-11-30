@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/login/components/send_reset_link_button.dart';
 import 'package:soodboard/src/modules/login/components/text_field_component.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../providers/forgot_password_provider.dart';
 
@@ -90,7 +89,7 @@ class _ForgotPasswordPage extends StatelessWidget {
                         ),
                   ),
                   InkWell(
-                    onTap: () => context.vRouter.to('/'),
+                    onTap: staticProvider.goToRegisterPage,
                     child: Text(
                       ' Register',
                       style: Theme.of(context).textTheme.labelLarge!.copyWith(

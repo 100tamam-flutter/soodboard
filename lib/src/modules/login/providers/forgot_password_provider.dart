@@ -12,4 +12,8 @@ class ForgotPasswordProvider extends SafeProvider with ErrorHandler {
   void goToLoginPage() {
     context.vRouter.to('/login');
   }
+
+  void goToRegisterPage() {
+    context.vRouter.to('/register');
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:soodboard/src/modules/login/pages/forgot_password_page.dart';
+import 'package:soodboard/src/modules/login/pages/register_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../pages/login_page.dart';
@@ -15,6 +16,10 @@ List<VRouteElement> loginRoutes = [
       VWidget(
         path: '/forgot_password',
         widget: const ForgotPasswordPage(),
+      ),
+      VWidget(
+        path: '/register',
+        widget: const RegisterPage(),
       ),
     ],
   ),

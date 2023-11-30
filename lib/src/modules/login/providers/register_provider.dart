@@ -5,10 +5,10 @@ import 'package:vrouter/vrouter.dart';
 import '../../../core/providers/safe_provider.dart';
 import '../../../utils/error_handler.dart';
 
-class LoginProvider extends SafeProvider with ErrorHandler {
+class RegisterProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  LoginProvider(this.context) {
+  RegisterProvider(this.context) {
     showMockedDialog();
   }
 
@@ -42,7 +42,7 @@ class LoginProvider extends SafeProvider with ErrorHandler {
     context.vRouter.to('/forgot_password');
   }
 
-  void goToRegisterPage() {
-    context.vRouter.to('/register');
+  void goToLoginPage() {
+    context.vRouter.to('/login');
   }
 }
