@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/login/components/logIn_component.dart';
 import 'package:soodboard/src/modules/login/components/signIn_component.dart';
 import 'package:soodboard/src/modules/login/components/text_field_component.dart';
+import 'package:soodboard/src/modules/login/providers/login_provider.dart';
 import 'package:vrouter/vrouter.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => LoginProvider(context),
+      child: const _LoginPage(),
+    );
+  }
+}
+
+class _LoginPage extends StatelessWidget {
+  const _LoginPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final staticProvider = context.read<LoginProvider>();
+    staticProvider.showMockedDialog();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -107,16 +123,16 @@ class LoginPage extends StatelessWidget {
               height: 16,
             ),
             InkWell(
-              onTap:() => context.vRouter.to('/'),
+              onTap: () => context.vRouter.to('/'),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Forgot Password?',
                     style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                      color: const Color(0xFF40BFFF),
-                      letterSpacing: 0.5,
-                    ),
+                          color: const Color(0xFF40BFFF),
+                          letterSpacing: 0.5,
+                        ),
                   ),
                 ],
               ),
@@ -135,13 +151,13 @@ class LoginPage extends StatelessWidget {
                       ),
                 ),
                 InkWell(
-                    onTap:() => context.vRouter.to('/'),
-                    child: Text(
+                  onTap: () => context.vRouter.to('/'),
+                  child: Text(
                     ' Register',
                     style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                      color: const Color(0xFF40BFFF),
-                      letterSpacing: 0.5,
-                    ),
+                          color: const Color(0xFF40BFFF),
+                          letterSpacing: 0.5,
+                        ),
                   ),
                 ),
               ],
