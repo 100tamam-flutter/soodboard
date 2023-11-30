@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
+import 'package:soodboard/src/modules/favorite/routes/favorite_products_routes.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/routes/login_routes.dart';
 import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
@@ -173,6 +174,7 @@ class _SoodBoard extends StatelessWidget {
             ],
           ),
         ] +
-        loginRoutes;
+        loginRoutes +
+        favoriteProductsRoutes;
   }
 }

@@ -13,5 +13,10 @@
       "@favoriteProductsAppBar": {
         "type": "text",
         "description": "Favorite Products"
-  }
+  },
+    "emptyData": "There is no data",
+        "@emptyData": {
+          "type": "text",
+          "description": "empty data"
+    }
 }

@@ -28,40 +28,44 @@ class _HomeScreen extends StatelessWidget {
     final provider = context.watch<HomeScreenProvider>();
     return SafeArea(
       child: Scaffold(
-        body: CustomScrollView(
-          key: UniqueKey(),
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            const SliverAppBar(
-              flexibleSpace: HomeSearchBar(),
-              floating: true,
-              pinned: false,
-              collapsedHeight: 90,
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  const SizedBox(height: 16),
-                  HomeBannerSlideBarComponent(bannerModels: provider.banners),
-                  const SizedBox(height: 24),
-                  CategoriesPanel(categories: provider.categories),
-                  const SizedBox(height: 24),
-                  ProductsHorizontalListView(
-                    products: provider.flashSaleProducts,
-                    title: "Flash Sale",
+        body: provider.loading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : CustomScrollView(
+                key: UniqueKey(),
+                physics: const BouncingScrollPhysics(),
+                slivers: [
+                  const SliverAppBar(
+                    flexibleSpace: HomeSearchBar(),
+                    floating: true,
+                    pinned: false,
+                    collapsedHeight: 90,
                   ),
-                  const SizedBox(height: 24),
-                  ProductsHorizontalListView(
-                    products: provider.megaSaleProducts,
-                    title: "Mega Sale",
+                  SliverList(
+                    delegate: SliverChildListDelegate(
+                      [
+                        const SizedBox(height: 16),
+                        HomeBannerSlideBarComponent(bannerModels: provider.banners),
+                        const SizedBox(height: 24),
+                        CategoriesPanel(categories: provider.categories),
+                        const SizedBox(height: 24),
+                        ProductsHorizontalListView(
+                          products: provider.flashSaleProducts,
+                          title: "Flash Sale",
+                        ),
+                        const SizedBox(height: 24),
+                        ProductsHorizontalListView(
+                          products: provider.megaSaleProducts,
+                          title: "Mega Sale",
+                        ),
+                        const SizedBox(height: 9),
+                        RecommendedProductsPanel(products: provider.recommendedProducts),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 9),
-                  RecommendedProductsPanel(products: provider.recommendedProducts),
                 ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

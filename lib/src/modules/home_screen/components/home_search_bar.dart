@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../../../components/search_field.dart';
 
@@ -26,7 +27,7 @@ class HomeSearchBar extends StatelessWidget {
               height: 24,
               width: 24,
             ),
-            onTap: () {},
+            onTap: () => context.vRouter.to('/favorite_products'),
           ),
           const SizedBox(width: 16),
           InkWell(
