@@ -1,0 +1,21 @@
+{
+  "data": {
+    "activities": [
+      {
+        "title": "Transaction Nike Air Zoom Product",
+        "content": "Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo",
+        "created_at": "2023-07-30T19:29:45.781"
+      },
+      {
+        "title": "Transaction Nike Air Zoom Pegasus 36 Miami",
+        "content": "Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo",
+        "created_at": "2023-07-30T19:29:45.781"
+      },
+      {
+        "title": "Transaction Nike Air Max",
+        "content": "Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo",
+        "created_at": "2023-07-30T19:29:45.781"
+      }
+    ]
+  }
+}

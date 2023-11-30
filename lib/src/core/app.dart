@@ -18,6 +18,7 @@ import 'package:vrouter/vrouter.dart';
 
 import '../modules/cart/pages/cart_pages.dart';
 import '../modules/explore/pages/explore_pages.dart';
+import '../modules/notifications/routes/notifications_routes.dart';
 import '../modules/product-details/pages/product_details_page.dart';
 import '../modules/profile/pages/account_page.dart';
 import '../modules/splash/pages/splash_page.dart';
@@ -175,6 +176,7 @@ class _SoodBoard extends StatelessWidget {
           ),
         ] +
         loginRoutes +
-        favoriteProductsRoutes;
+        favoriteProductsRoutes +
+        notificationsRoutes;
   }
 }

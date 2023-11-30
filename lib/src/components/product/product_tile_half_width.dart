@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:soodboard/src/constants/colors.dart';
 import 'package:soodboard/src/models/product_model.dart';
 import 'package:vrouter/vrouter.dart';
 
@@ -88,7 +89,7 @@ class ProductTileHalfWidth extends StatelessWidget {
                     Text(
                       '${productModel.discount}%',
                       style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                            color: const Color(0xFFFB7181),
+                            color: AppColors.lightRed,
                           ),
                     ),
                     Expanded(child: Container()),

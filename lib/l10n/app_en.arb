@@ -14,6 +14,11 @@
         "type": "text",
         "description": "Favorite Products"
   },
+    "notificationsAppBar": "Notifications",
+        "@notificationsAppBar": {
+          "type": "text",
+          "description": "notifications app bar"
+    },
     "emptyData": "There is no data",
         "@emptyData": {
           "type": "text",
