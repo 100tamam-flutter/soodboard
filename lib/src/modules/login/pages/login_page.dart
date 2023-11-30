@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/login/components/logIn_component.dart';
+import 'package:soodboard/src/modules/login/components/secure_text_field_component.dart';
 import 'package:soodboard/src/modules/login/components/signIn_component.dart';
 import 'package:soodboard/src/modules/login/components/text_field_component.dart';
 import 'package:soodboard/src/modules/login/providers/login_provider.dart';
@@ -24,8 +25,6 @@ class _LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final staticProvider = context.read<LoginProvider>();
-    staticProvider.showMockedDialog();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -39,7 +38,7 @@ class _LoginPage extends StatelessWidget {
               height: 16,
             ),
             const Text(
-              'Welcome to E-com',
+              'Welcome to Soodboard',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.w700,
@@ -69,7 +68,7 @@ class _LoginPage extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            const TextFieldComponent(
+            const SecureTextFieldComponent(
               title: 'Password',
               icon: 'assets/icons/passphrase.svg',
             ),

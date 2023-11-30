@@ -7,7 +7,9 @@ import '../../../utils/error_handler.dart';
 class LoginProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  LoginProvider(this.context);
+  LoginProvider(this.context){
+    showMockedDialog();
+  }
 
   Future<void> showMockedDialog() async {
     await Future.delayed(const Duration(seconds: 1));
