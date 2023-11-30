@@ -1,0 +1,21 @@
+{
+  "data": {
+    "banners": [
+      {
+        "image": "assets/products/shoes1.png",
+        "id": "1",
+        "end_time": "2023-09-14T04:57:25.499"
+      },
+      {
+        "image": "assets/products/shoes2.png",
+        "id": "2",
+        "end_time": "2023-09-14T04:57:25.499"
+      },
+      {
+        "image": "assets/products/shoes3.png",
+        "id": "3",
+        "end_time": "2023-09-14T04:57:25.499"
+      }
+    ]
+  }
+}
