@@ -42,4 +42,8 @@ class NotificationsProvider extends SafeProvider with ErrorHandler {
   void goToFeedPage() {
     context.vRouter.to('feed');
   }
+
+  void goToActivityPage() {
+    context.vRouter.to('activity');
+  }
 }

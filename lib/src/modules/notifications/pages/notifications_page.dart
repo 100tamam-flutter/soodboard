@@ -95,6 +95,7 @@ class _NotificationsPage extends StatelessWidget {
                       height: 24,
                     ),
                     title: const Text('Activity'),
+                    onTap: staticProvider.goToActivityPage,
                     trailing: Container(
                       height: 20,
                       width: 20,

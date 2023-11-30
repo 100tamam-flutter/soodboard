@@ -29,6 +29,11 @@
         "type": "text",
         "description": "Feed"
   },
+  "activityAppBar": "Activity",
+      "@activityAppBar": {
+        "type": "text",
+        "description": "Activity"
+  },
     "emptyData": "There is no data",
         "@emptyData": {
           "type": "text",

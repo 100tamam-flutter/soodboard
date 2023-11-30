@@ -1,3 +1,4 @@
+import 'package:soodboard/src/modules/notifications/pages/activity_page.dart';
 import 'package:soodboard/src/modules/notifications/pages/feed_page.dart';
 import 'package:soodboard/src/modules/notifications/pages/notifications_page.dart';
 import 'package:soodboard/src/modules/notifications/pages/offers_page.dart';
@@ -20,6 +21,10 @@ List<VRouteElement> notificationsRoutes = [
             VWidget(
               path: 'feed',
               widget: const FeedPage(),
+            ),
+            VWidget(
+              path: 'activity',
+              widget: const ActivityPage(),
             ),
           ],
         ),

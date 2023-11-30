@@ -5,5 +5,6 @@
   "notificationsAppBar": "اعلانات",
   "offersAppBar": "پیشنهادات",
   "feedAppBar": "فید ها",
+  "activityAppBar": "فعالیت ها",
   "emptyData": "داده ای برای نمایش موجود نیست"
 }

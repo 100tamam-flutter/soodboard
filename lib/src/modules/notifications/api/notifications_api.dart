@@ -62,7 +62,7 @@ class NotificationsApiMock implements NotificationsApi {
     final response = await rootBundle.loadString('assets/mock-data/activities.json');
     final responseBody = jsonDecode(response) as Map<String, dynamic>;
     final data = responseBody['data'] as Map<String, dynamic>;
-    final activitiesList = data['feeds'] as List;
+    final activitiesList = data['activities'] as List;
     return activitiesList.map((e) => ActivityModel.fromJson(e as Map<String, dynamic>)).toList();
   }
 
