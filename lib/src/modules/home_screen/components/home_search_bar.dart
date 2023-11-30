@@ -36,7 +36,7 @@ class HomeSearchBar extends StatelessWidget {
               height: 24,
               width: 24,
             ),
-            onTap: () {},
+            onTap: () => context.vRouter.to('/notifications'),
           ),
           const SizedBox(
             width: 16,

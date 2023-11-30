@@ -47,7 +47,7 @@ class _NotificationsPage extends StatelessWidget {
                 children: [
                   ListTile(
                     leading: SvgPicture.asset(
-                      'assets/icons/offer.svg',
+                      'assets/icons/offer_blue.svg',
                       height: 24,
                     ),
                     title: const Text('Offer'),
@@ -56,6 +56,7 @@ class _NotificationsPage extends StatelessWidget {
                       width: 20,
                       decoration: BoxDecoration(
                         color: AppColors.lightRed,
+                        shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: Text(
@@ -76,6 +77,7 @@ class _NotificationsPage extends StatelessWidget {
                       width: 20,
                       decoration: BoxDecoration(
                         color: AppColors.lightRed,
+                        shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: Text(
@@ -87,7 +89,7 @@ class _NotificationsPage extends StatelessWidget {
                   ),
                   ListTile(
                     leading: SvgPicture.asset(
-                      'assets/icons/notification.svg',
+                      'assets/icons/notification_blue.svg',
                       height: 24,
                     ),
                     title: const Text('Activity'),
@@ -96,6 +98,7 @@ class _NotificationsPage extends StatelessWidget {
                       width: 20,
                       decoration: BoxDecoration(
                         color: AppColors.lightRed,
+                        shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: Text(
