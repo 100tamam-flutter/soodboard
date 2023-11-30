@@ -7,7 +7,7 @@ import '../../../utils/error_handler.dart';
 class LoginProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  LoginProvider(this.context){
+  LoginProvider(this.context) {
     showMockedDialog();
   }
 
@@ -30,5 +30,9 @@ class LoginProvider extends SafeProvider with ErrorHandler {
         ],
       ),
     );
+  }
+
+  void goToForgotPasswordPage() {
+    context.vRouter.to('/forgot_password');
   }
 }

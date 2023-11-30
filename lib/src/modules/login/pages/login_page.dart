@@ -25,6 +25,7 @@ class _LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final staticProvider = context.read<LoginProvider>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -126,13 +127,16 @@ class _LoginPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Forgot Password?',
-                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          color: const Color(0xFF40BFFF),
-                          letterSpacing: 0.5,
-                        ),
-                  ),
+                  InkWell(
+                    onTap: staticProvider.goToForgotPasswordPage,
+                    child: Text(
+                      'Forgot Password?',
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                            color: const Color(0xFF40BFFF),
+                            letterSpacing: 0.5,
+                          ),
+                    ),
+                  )
                 ],
               ),
             ),
