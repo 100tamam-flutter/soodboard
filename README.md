@@ -42,7 +42,7 @@ Soodboard was developed by a dynamic Scrum team, emphasizing collaboration, adap
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/soodboard.git
+   git clone https://github.com/100tamam-flutter/soodboard.git
    cd soodboard
    ```
 
@@ -62,4 +62,4 @@ Contributions to Soodboard are welcome! Whether you want to fix a bug, implement
 
 ## Issues and Feedback
 
-If you encounter any issues or have feedback, please feel free to [open an issue](https://github.com/your-username/soodboard/issues). Your input is valuable, and we appreciate your help in making Soodboard even better.
+If you encounter any issues or have feedback, please feel free to [open an issue](https://github.com/100tamam-flutter/soodboard/issues). Your input is valuable, and we appreciate your help in making Soodboard even better.
