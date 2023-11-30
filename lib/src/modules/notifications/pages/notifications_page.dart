@@ -72,6 +72,7 @@ class _NotificationsPage extends StatelessWidget {
                       'assets/icons/list.svg',
                       height: 24,
                     ),
+                    onTap: staticProvider.goToFeedPage,
                     title: const Text('Feed'),
                     trailing: Container(
                       height: 20,

@@ -24,6 +24,11 @@
         "type": "text",
         "description": "Offers"
   },
+  "feedAppBar": "Feed",
+      "@feedAppBar": {
+        "type": "text",
+        "description": "Feed"
+  },
     "emptyData": "There is no data",
         "@emptyData": {
           "type": "text",
