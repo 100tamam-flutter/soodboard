@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
@@ -27,6 +28,12 @@ class SoodBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark, // or Brightness.light
+      ),
+    );
     return MultiProvider(
       providers: <ChangeNotifierProvider<dynamic>>[
         ChangeNotifierProvider<LocaleProvider>(
