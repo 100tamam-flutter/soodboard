@@ -25,7 +25,7 @@ class _NotificationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<NotificationsProvider>();
-    // final staticProvider = context.read<NotificationsProvider>();
+    final staticProvider = context.read<NotificationsProvider>();
     return Scaffold(
       appBar: AppBar(
         title: Text(context.localizations.notificationsAppBar),
@@ -65,6 +65,7 @@ class _NotificationsPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    onTap: staticProvider.goToOffersScreen,
                   ),
                   ListTile(
                     leading: SvgPicture.asset(

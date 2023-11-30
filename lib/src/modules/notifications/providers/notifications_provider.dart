@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soodboard/src/modules/notifications/api/notifications_api.dart';
 import 'package:soodboard/src/modules/notifications/models/notification_status.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
@@ -32,5 +33,9 @@ class NotificationsProvider extends SafeProvider with ErrorHandler {
     }
     loadingStatus = false;
     notifyListeners();
+  }
+
+  void goToOffersScreen() {
+    context.vRouter.to('offers');
   }
 }

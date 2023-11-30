@@ -6,7 +6,6 @@ import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/favorite/routes/favorite_products_routes.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/routes/login_routes.dart';
-import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:soodboard/src/modules/profile/pages/birthday_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changename_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changepasword_page.dart';
@@ -110,16 +109,16 @@ class _SoodBoard extends StatelessWidget {
                   ),
                 ],
               ),
-              VPopHandler(
-                onPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
-                onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
-                stackedRoutes: [
-                  VWidget(
-                    path: 'offer',
-                    widget: const OfferScreen(),
-                  ),
-                ],
-              ),
+              // VPopHandler(
+              //   onPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
+              //   onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
+              //   stackedRoutes: [
+              //     VWidget(
+              //       path: 'offer',
+              //       widget: const OfferScreen(),
+              //     ),
+              //   ],
+              // ),
               VPopHandler(
                 onPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
                 onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),

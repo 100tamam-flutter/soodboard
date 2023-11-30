@@ -19,6 +19,11 @@
           "type": "text",
           "description": "notifications app bar"
     },
+  "offersAppBar": "Offers",
+      "@offersAppBar": {
+        "type": "text",
+        "description": "Offers"
+  },
     "emptyData": "There is no data",
         "@emptyData": {
           "type": "text",
