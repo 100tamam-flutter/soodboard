@@ -16,7 +16,7 @@ class BannerModel {
   factory BannerModel.fromJson(Map<String, dynamic> json) {
     //TODO: add custom end time on mock
     final random = Random();
-    final int increasingHours = random.nextInt(5);
+    final int increasingHours = random.nextInt(5) + 1;
 
     return BannerModel(
       title: json['title'] as String,
