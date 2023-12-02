@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
+import 'package:soodboard/src/modules/favorite/routes/favorite_products_routes.dart';
 import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/routes/login_routes.dart';
-import 'package:soodboard/src/modules/offer_screen/pages/offer_screen_page.dart';
 import 'package:soodboard/src/modules/profile/pages/birthday_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changename_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changepasword_page.dart';
@@ -16,6 +17,7 @@ import 'package:vrouter/vrouter.dart';
 
 import '../modules/cart/pages/cart_pages.dart';
 import '../modules/explore/pages/explore_pages.dart';
+import '../modules/notifications/routes/notifications_routes.dart';
 import '../modules/product-details/pages/product_details_page.dart';
 import '../modules/profile/pages/account_page.dart';
 import '../modules/splash/pages/splash_page.dart';
@@ -27,6 +29,12 @@ class SoodBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark, // or Brightness.light
+      ),
+    );
     return MultiProvider(
       providers: <ChangeNotifierProvider<dynamic>>[
         ChangeNotifierProvider<LocaleProvider>(
@@ -101,16 +109,16 @@ class _SoodBoard extends StatelessWidget {
                   ),
                 ],
               ),
-              VPopHandler(
-                onPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
-                onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
-                stackedRoutes: [
-                  VWidget(
-                    path: 'offer',
-                    widget: const OfferScreen(),
-                  ),
-                ],
-              ),
+              // VPopHandler(
+              //   onPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
+              //   onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
+              //   stackedRoutes: [
+              //     VWidget(
+              //       path: 'offer',
+              //       widget: const OfferScreen(),
+              //     ),
+              //   ],
+              // ),
               VPopHandler(
                 onPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
                 onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
@@ -166,6 +174,8 @@ class _SoodBoard extends StatelessWidget {
             ],
           ),
         ] +
-        loginRoutes;
+        loginRoutes +
+        favoriteProductsRoutes +
+        notificationsRoutes;
   }
 }

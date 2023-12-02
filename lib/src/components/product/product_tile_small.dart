@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:soodboard/src/constants/colors.dart';
 import 'package:soodboard/src/models/product_model.dart';
 import 'package:vrouter/vrouter.dart';
 
 class ProductTileSmall extends StatelessWidget {
-  const ProductTileSmall({Key? key, required this.productModel})
-      : super(key: key);
+  const ProductTileSmall({Key? key, required this.productModel}) : super(key: key);
   final ProductModel productModel;
 
   @override
@@ -45,9 +45,9 @@ class ProductTileSmall extends StatelessWidget {
                 Text(
                   productModel.previousPrice.toString(),
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: const Color(0xFF9098B1),
-                    decoration: TextDecoration.lineThrough,
-                  ),
+                        color: const Color(0xFF9098B1),
+                        decoration: TextDecoration.lineThrough,
+                      ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -55,8 +55,8 @@ class ProductTileSmall extends StatelessWidget {
                 Text(
                   '${productModel.discount}%',
                   style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                    color: const Color(0xFFFB7181),
-                  ),
+                        color: AppColors.lightRed,
+                      ),
                 ),
               ],
             )

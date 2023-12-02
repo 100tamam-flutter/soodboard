@@ -13,5 +13,30 @@
       "@favoriteProductsAppBar": {
         "type": "text",
         "description": "Favorite Products"
-  }
+  },
+    "notificationsAppBar": "Notifications",
+        "@notificationsAppBar": {
+          "type": "text",
+          "description": "notifications app bar"
+    },
+  "offersAppBar": "Offers",
+      "@offersAppBar": {
+        "type": "text",
+        "description": "Offers"
+  },
+  "feedAppBar": "Feed",
+      "@feedAppBar": {
+        "type": "text",
+        "description": "Feed"
+  },
+  "activityAppBar": "Activity",
+      "@activityAppBar": {
+        "type": "text",
+        "description": "Activity"
+  },
+    "emptyData": "There is no data",
+        "@emptyData": {
+          "type": "text",
+          "description": "empty data"
+    }
 }
