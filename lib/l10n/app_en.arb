@@ -38,5 +38,30 @@
         "@emptyData": {
           "type": "text",
           "description": "empty data"
-    }
+    },
+  "searchPageProductsSortRelevance": "Relevance",
+      "@searchPageProductsSortRelevance": {
+        "type": "text",
+        "description": "searchPageProductsSortRelevance"
+  },
+  "searchPageProductsSortPopularity": "Popularity",
+      "@searchPageProductsSortPopularity": {
+        "type": "text",
+        "description": "searchPageProductsSortPopularity"
+  },
+  "searchPageProductsSortNewest": "Newest",
+      "@searchPageProductsSortNewest": {
+        "type": "text",
+        "description": "searchPageProductsSortNewest"
+  },
+  "searchPageProductsSortPriceHighToLow": "Price - High to Low",
+      "@searchPageProductsSortPriceHighToLow": {
+        "type": "text",
+        "description": "searchPageProductsSortPriceHighToLow"
+  },
+  "searchPageProductsSortPriceLowToHigh": "Price - Low to High",
+      "@searchPageProductsSortPriceLowToHigh": {
+        "type": "text",
+        "description": "searchPageProductsSortPriceLowToHigh"
+  }
 }

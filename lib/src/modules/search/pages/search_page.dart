@@ -32,6 +32,8 @@ class _SearchPage extends StatelessWidget {
           ),
           SearchAppbar(
             onTextChanged: staticProvider.changeSearchText,
+            openSorts: staticProvider.openSorts,
+            sortIsSelected: provider.selectedSort != null,
           ),
           if (provider.loadingProducts)
             const Expanded(

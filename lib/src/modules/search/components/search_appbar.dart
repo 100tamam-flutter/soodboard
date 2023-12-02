@@ -7,9 +7,13 @@ class SearchAppbar extends StatelessWidget {
   const SearchAppbar({
     super.key,
     required this.onTextChanged,
+    required this.openSorts,
+    required this.sortIsSelected,
   });
 
   final Function(String) onTextChanged;
+  final Function() openSorts;
+  final bool sortIsSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +34,9 @@ class SearchAppbar extends StatelessWidget {
             width: 16,
           ),
           InkWell(
+            onTap: openSorts,
             child: SvgPicture.asset(
-              'assets/icons/sort.svg',
+              sortIsSelected ? 'assets/icons/sort-blue.svg' : 'assets/icons/sort.svg',
               height: 24,
               width: 24,
             ),

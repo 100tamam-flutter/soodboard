@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soodboard/src/core/localization.dart';
 import 'package:soodboard/src/models/product_model.dart';
 import 'package:soodboard/src/modules/search/api/search_api.dart';
 
@@ -40,4 +41,88 @@ class SearchProvider extends SafeProvider with ErrorHandler {
     loadingProducts = false;
     notifyListeners();
   }
+
+  ProductsSort? selectedSort;
+
+  void selectSort(ProductsSort newSort) {
+    if (selectedSort == newSort) {
+      selectedSort = null;
+      notifyListeners();
+      getProducts();
+    } else {
+      selectedSort = newSort;
+      notifyListeners();
+      getProducts();
+    }
+  }
+
+  void openSorts() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(8),
+        ),
+      ),
+      builder: (context) => Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: sorts
+              .map(
+                (e) => InkWell(
+                  onTap: () {
+                    selectSort(e);
+                    Navigator.of(context).pop();
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: (selectedSort == e) ? Theme.of(context).colorScheme.surface : Colors.transparent,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(sortMapText()[e] ?? context.localizations.searchPageProductsSortRelevance),
+                        if (selectedSort == e)
+                          const Icon(
+                            Icons.check_rounded,
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ),
+    );
+  }
+
+  List<ProductsSort> sorts = [
+    ProductsSort.relevance,
+    ProductsSort.newest,
+    ProductsSort.popularity,
+    ProductsSort.priceHighToLow,
+    ProductsSort.priceLowToHigh,
+  ];
+
+  Map<ProductsSort?, String> sortMapText() {
+    return {
+      ProductsSort.relevance: context.localizations.searchPageProductsSortRelevance,
+      ProductsSort.popularity: context.localizations.searchPageProductsSortPopularity,
+      ProductsSort.newest: context.localizations.searchPageProductsSortNewest,
+      ProductsSort.priceLowToHigh: context.localizations.searchPageProductsSortPriceLowToHigh,
+      ProductsSort.priceHighToLow: context.localizations.searchPageProductsSortPriceHighToLow,
+    };
+  }
+}
+
+enum ProductsSort {
+  relevance,
+  popularity,
+  newest,
+  priceLowToHigh,
+  priceHighToLow,
 }
