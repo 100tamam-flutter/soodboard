@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../../explore/components/category_component.dart';
 import '../../explore/models/category_model.dart';
@@ -22,12 +23,15 @@ class CategoriesPanel extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               Expanded(child: Container()),
-              Text(
-                "More Category",
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: const Color(0xFF40BFFF),
-                    ),
-              ),
+              InkWell(
+                onTap: () => context.vRouter.to('/explore'),
+                child: Text(
+                  "More Category",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: const Color(0xFF40BFFF),
+                      ),
+                ),
+              )
             ],
           ),
         ),

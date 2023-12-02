@@ -12,7 +12,7 @@ import '../../explore/models/category_model.dart';
 class SearchProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  SearchProvider(this.context) {
+  SearchProvider({required this.context, this.categoryId}) {
     initProducts();
   }
 
@@ -25,6 +25,8 @@ class SearchProvider extends SafeProvider with ErrorHandler {
   late List<CategoryModel> categories = [];
 
   String searchText = '';
+
+  final String? categoryId;
 
   void changeSearchText(String newSearchText) {
     searchText = newSearchText;
@@ -53,6 +55,9 @@ class SearchProvider extends SafeProvider with ErrorHandler {
     notifyListeners();
     try {
       categories = await _exploreAPI.getCategories();
+      if (categoryId != null) {
+        selectCategory(categories.singleWhere((element) => element.id == categoryId));
+      }
     } on ApiError catch (e) {
       showError(context, e);
     }

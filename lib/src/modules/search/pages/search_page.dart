@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/components/product/product_tile_half_width.dart';
 import 'package:soodboard/src/modules/search/components/search_appbar.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../providers/search_provider.dart';
 
@@ -10,8 +11,9 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categoryId = context.vRouter.historyState['category_id'];
     return ChangeNotifierProvider(
-      create: (context) => SearchProvider(context),
+      create: (context) => SearchProvider(context: context, categoryId: categoryId),
       child: const _SearchPage(),
     );
   }
