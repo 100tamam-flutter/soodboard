@@ -32,6 +32,7 @@ class SearchAppbar extends StatelessWidget {
           Expanded(
             child: SSearchField(
               onTextChanged: onTextChanged,
+              autoFocus: true,
             ),
           ),
           const SizedBox(

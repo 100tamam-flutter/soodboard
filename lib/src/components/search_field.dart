@@ -7,9 +7,11 @@ class SSearchField extends StatelessWidget {
     this.isEditable,
     this.onTap,
     this.onTextChanged,
+    this.autoFocus,
   });
 
   final bool? isEditable;
+  final bool? autoFocus;
   final Function()? onTap;
   final Function(String)? onTextChanged;
 
@@ -18,6 +20,7 @@ class SSearchField extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: TextField(
+        autofocus: autoFocus ?? false,
         enabled: isEditable,
         onChanged: onTextChanged,
         style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFF9098B1)),
