@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:soodboard/src/core/localization.dart';
 import 'package:soodboard/src/models/product_model.dart';
+import 'package:soodboard/src/modules/explore/api/explore_api.dart';
 import 'package:soodboard/src/modules/search/api/search_api.dart';
 
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
+import '../../explore/models/category_model.dart';
 
 class SearchProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
@@ -16,8 +18,11 @@ class SearchProvider extends SafeProvider with ErrorHandler {
 
   List<ProductModel> products = [];
   final SearchApi _favoriteProductsApi = SearchApiMock();
+  final ExploreAPI _exploreAPI = ExploreAPIMock();
 
   bool loadingProducts = true;
+  bool loadingCategories = false;
+  late List<CategoryModel> categories = [];
 
   String searchText = '';
 
@@ -28,6 +33,7 @@ class SearchProvider extends SafeProvider with ErrorHandler {
 
   Future<void> initProducts() async {
     getProducts();
+    getCategories();
   }
 
   Future<void> getProducts() async {
@@ -42,7 +48,20 @@ class SearchProvider extends SafeProvider with ErrorHandler {
     notifyListeners();
   }
 
+  Future<void> getCategories() async {
+    loadingCategories = true;
+    notifyListeners();
+    try {
+      categories = await _exploreAPI.getCategories();
+    } on ApiError catch (e) {
+      showError(context, e);
+    }
+    loadingCategories = false;
+    notifyListeners();
+  }
+
   ProductsSort? selectedSort;
+  CategoryModel? selectedCategory;
 
   void selectSort(ProductsSort newSort) {
     if (selectedSort == newSort) {
@@ -51,6 +70,18 @@ class SearchProvider extends SafeProvider with ErrorHandler {
       getProducts();
     } else {
       selectedSort = newSort;
+      notifyListeners();
+      getProducts();
+    }
+  }
+
+  void selectCategory(CategoryModel newCategory) {
+    if (selectedCategory == newCategory) {
+      selectedCategory = null;
+      notifyListeners();
+      getProducts();
+    } else {
+      selectedCategory = newCategory;
       notifyListeners();
       getProducts();
     }
@@ -96,6 +127,52 @@ class SearchProvider extends SafeProvider with ErrorHandler {
               )
               .toList(),
         ),
+      ),
+    );
+  }
+
+  void openCategories() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(8),
+        ),
+      ),
+      builder: (context) => Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: loadingCategories
+            ? const CircularProgressIndicator()
+            : ListView(
+                // mainAxisSize: MainAxisSize.min,
+                children: categories
+                    .map(
+                      (e) => InkWell(
+                        onTap: () {
+                          selectCategory(e);
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: (selectedCategory == e) ? Theme.of(context).colorScheme.surface : Colors.transparent,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(e.title),
+                              if (selectedCategory == e)
+                                const Icon(
+                                  Icons.check_rounded,
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
       ),
     );
   }

@@ -9,11 +9,15 @@ class SearchAppbar extends StatelessWidget {
     required this.onTextChanged,
     required this.openSorts,
     required this.sortIsSelected,
+    required this.openCategories,
+    required this.categorySelected,
   });
 
   final Function(String) onTextChanged;
   final Function() openSorts;
   final bool sortIsSelected;
+  final Function() openCategories;
+  final bool categorySelected;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +47,9 @@ class SearchAppbar extends StatelessWidget {
           ),
           const SizedBox(width: 16),
           InkWell(
+            onTap: openCategories,
             child: SvgPicture.asset(
-              'assets/icons/filter.svg',
+              categorySelected ? 'assets/icons/filter-blue.svg' : 'assets/icons/filter.svg',
               height: 24,
               width: 24,
             ),

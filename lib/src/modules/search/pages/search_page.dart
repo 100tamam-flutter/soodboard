@@ -34,6 +34,8 @@ class _SearchPage extends StatelessWidget {
             onTextChanged: staticProvider.changeSearchText,
             openSorts: staticProvider.openSorts,
             sortIsSelected: provider.selectedSort != null,
+            openCategories: staticProvider.openCategories,
+            categorySelected: provider.selectedCategory != null,
           ),
           if (provider.loadingProducts)
             const Expanded(

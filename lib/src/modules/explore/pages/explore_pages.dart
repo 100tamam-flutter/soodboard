@@ -28,7 +28,7 @@ class _ExplorePage extends StatelessWidget {
       child: Scaffold(
         body: AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
-          child: provider.loadingcategories
+          child: provider.loadingCategories
               ? const Center(child: CircularProgressIndicator())
               : provider.categories.isEmpty
                   ? const EmptyState()
