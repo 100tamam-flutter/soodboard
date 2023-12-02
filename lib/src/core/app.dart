@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:soodboard/src/modules/favorite/routes/favorite_products_routes.dart';
-import 'package:soodboard/src/modules/home_screen/pages/home_screen_page.dart';
+import 'package:soodboard/src/modules/home/pages/home_screen_page.dart';
 import 'package:soodboard/src/modules/login/routes/login_routes.dart';
 import 'package:soodboard/src/modules/profile/pages/birthday_page.dart';
 import 'package:soodboard/src/modules/profile/pages/changename_page.dart';
@@ -20,6 +20,7 @@ import '../modules/explore/pages/explore_pages.dart';
 import '../modules/notifications/routes/notifications_routes.dart';
 import '../modules/product-details/pages/product_details_page.dart';
 import '../modules/profile/pages/account_page.dart';
+import '../modules/search/routes/search_routes.dart';
 import '../modules/splash/pages/splash_page.dart';
 import '../utils/soodboard_theme.dart';
 import 'localization.dart';
@@ -176,6 +177,7 @@ class _SoodBoard extends StatelessWidget {
         ] +
         loginRoutes +
         favoriteProductsRoutes +
-        notificationsRoutes;
+        notificationsRoutes +
+        searchRoutes;
   }
 }

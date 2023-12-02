@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:soodboard/src/components/empty_state.dart';
 import 'package:soodboard/src/modules/explore/components/category_table_component.dart';
 import 'package:soodboard/src/modules/explore/provider/explore_provider.dart';
-import 'package:soodboard/src/modules/home_screen/components/home_search_bar.dart';
+import 'package:soodboard/src/modules/home/components/home_search_bar.dart';
 
 class ExplorePage extends StatelessWidget {
   const ExplorePage({Key? key}) : super(key: key);
@@ -50,17 +50,11 @@ class _ExplorePage extends StatelessWidget {
                             children: [
                               CategoryTableComponent(
                                 title: "Man Fashion",
-                                categories: provider.categories
-                                    .where(
-                                        (element) => element.gender == 'male')
-                                    .toList(),
+                                categories: provider.categories.where((element) => element.gender == 'male').toList(),
                               ),
                               CategoryTableComponent(
                                 title: "Woman Fashion",
-                                categories: provider.categories
-                                    .where(
-                                        (element) => element.gender == 'female')
-                                    .toList(),
+                                categories: provider.categories.where((element) => element.gender == 'female').toList(),
                               ),
                             ],
                           ),

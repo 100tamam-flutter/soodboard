@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:soodboard/src/modules/home/api/home_screen_api.dart';
+import 'package:soodboard/src/models/product_model.dart';
+import 'package:soodboard/src/modules/search/api/search_api.dart';
 
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
-import '../../../models/product_model.dart';
 import '../../../utils/error_handler.dart';
 
-class OfferScreenProvider extends SafeProvider with ErrorHandler {
+class SearchProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  OfferScreenProvider(this.context) {
+  SearchProvider(this.context) {
     initProducts();
   }
 
-  late List<ProductModel> products;
-
-  final HomeScreenProductsAPI _homeScreenProductsApi = HomeScreenProductsAPIMock();
+  List<ProductModel> products = [];
+  final SearchApi _favoriteProductsApi = SearchApiMock();
 
   bool loadingProducts = true;
 
-  get loading => loadingProducts;
+  String searchText = '';
+
+  void changeSearchText(String newSearchText) {
+    searchText = newSearchText;
+    getProducts();
+  }
 
   Future<void> initProducts() async {
     getProducts();
@@ -29,7 +33,7 @@ class OfferScreenProvider extends SafeProvider with ErrorHandler {
     loadingProducts = true;
     notifyListeners();
     try {
-      products = await _homeScreenProductsApi.getRecommendedProducts();
+      products = await _favoriteProductsApi.searchProducts(searchText: searchText);
     } on ApiError catch (e) {
       showError(context, e);
     }

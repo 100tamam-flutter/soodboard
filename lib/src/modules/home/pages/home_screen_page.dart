@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soodboard/src/components/product/products_horizontal_listview.dart';
-import 'package:soodboard/src/modules/home_screen/components/categories_panel.dart';
-import 'package:soodboard/src/modules/home_screen/components/home_banner_slidebar_component.dart';
-import 'package:soodboard/src/modules/home_screen/components/home_search_bar.dart';
-import 'package:soodboard/src/modules/home_screen/components/recommended_products_panel.dart';
+import 'package:soodboard/src/modules/home/components/categories_panel.dart';
+import 'package:soodboard/src/modules/home/components/home_banner_slidebar_component.dart';
+import 'package:soodboard/src/modules/home/components/home_search_bar.dart';
+import 'package:soodboard/src/modules/home/components/recommended_products_panel.dart';
 
-import '../../home_screen/providers/home_screen_provider.dart';
+import '../../home/providers/home_screen_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
