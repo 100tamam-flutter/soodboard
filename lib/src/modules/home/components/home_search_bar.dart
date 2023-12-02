@@ -17,7 +17,12 @@ class HomeSearchBar extends StatelessWidget {
           const SizedBox(
             width: 16,
           ),
-          const Expanded(child: SSearchField()),
+          Expanded(
+            child: SSearchField(
+              isEditable: false,
+              onTap: () => context.vRouter.to('/search'),
+            ),
+          ),
           const SizedBox(
             width: 16,
           ),

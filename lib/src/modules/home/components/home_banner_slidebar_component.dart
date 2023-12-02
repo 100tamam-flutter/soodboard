@@ -7,25 +7,22 @@ import '../../../components/banner_component.dart';
 class HomeBannerSlideBarComponent extends StatelessWidget {
   final List<BannerModel> bannerModels;
 
-  const HomeBannerSlideBarComponent({Key? key, required this.bannerModels})
-      : super(key: key);
+  const HomeBannerSlideBarComponent({Key? key, required this.bannerModels}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImageSlideshow(
-      onPageChanged: (value) {
-      },
+      onPageChanged: (value) {},
       indicatorColor: Colors.blue,
       autoPlayInterval: 3000,
       isLoop: true,
       width: 343,
       height: 270,
       children: bannerModels
-          .map(
-            (e) => BannerComponent(bannerModel: e,)
-      )
+          .map((e) => BannerComponent(
+                bannerModel: e,
+              ))
           .toList(),
     );
-
   }
 }

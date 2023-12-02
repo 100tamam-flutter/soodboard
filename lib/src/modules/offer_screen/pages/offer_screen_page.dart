@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 // import 'package:provider/provider.dart';
-// import 'package:soodboard/src/modules/home_screen/components/recommended_products_panel.dart';
+// import 'package:soodboard/src/modules/home/components/recommended_products_panel.dart';
 // import 'package:soodboard/src/modules/offer_screen/providers/offer_screen_provider.dart';
 //
 // class OfferScreen extends StatelessWidget {

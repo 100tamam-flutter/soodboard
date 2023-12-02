@@ -6,5 +6,10 @@
   "offersAppBar": "پیشنهادات",
   "feedAppBar": "فید ها",
   "activityAppBar": "فعالیت ها",
-  "emptyData": "داده ای برای نمایش موجود نیست"
+  "emptyData": "داده ای برای نمایش موجود نیست",
+  "searchPageProductsSortRelevance": "مرتبط ترین",
+  "searchPageProductsSortPopularity": "محبوب ترین",
+  "searchPageProductsSortNewest": "جدید ترین",
+  "searchPageProductsSortPriceHighToLow": "قیمت - گران ترین",
+  "searchPageProductsSortPriceLowToHigh": "قیمت - ارزان ترین"
 }
