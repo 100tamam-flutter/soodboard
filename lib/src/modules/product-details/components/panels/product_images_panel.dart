@@ -15,7 +15,7 @@ class ProductImagesPanel extends StatelessWidget {
       height: 238,
       child: ImageSlideshow(
         indicatorColor: Colors.blue,
-        autoPlayInterval: 3000,
+        autoPlayInterval: 6000,
         isLoop: true,
         children: images
             .map(

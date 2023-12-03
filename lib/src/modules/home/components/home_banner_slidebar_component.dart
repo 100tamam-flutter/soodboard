@@ -14,7 +14,7 @@ class HomeBannerSlideBarComponent extends StatelessWidget {
     return ImageSlideshow(
       onPageChanged: (value) {},
       indicatorColor: Colors.blue,
-      autoPlayInterval: 3000,
+      autoPlayInterval: 6000,
       isLoop: true,
       width: 343,
       height: 270,
