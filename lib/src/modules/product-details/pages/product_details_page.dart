@@ -40,7 +40,7 @@ class _ProductDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => context.vRouter.pop(),
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
         elevation: 0,

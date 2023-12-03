@@ -52,8 +52,8 @@ class SearchProvider extends SafeProvider with ErrorHandler {
   List<int> processes = [];
 
   Future<void> initProducts() async {
+    await getCategories();
     getProducts();
-    getCategories();
   }
 
   Future<void> getProducts() async {
@@ -64,7 +64,7 @@ class SearchProvider extends SafeProvider with ErrorHandler {
       gridKey!.currentState!.removeItem(
         i,
         (context, animation) => ScaleTransition(
-          scale: animation,
+          scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
           child: Center(
             child: ProductTileHalfWidth(
               productModel: copyOfProducts[i],
@@ -81,7 +81,7 @@ class SearchProvider extends SafeProvider with ErrorHandler {
     notifyListeners();
     try {
       processes.add(0);
-      final newProducts = await _favoriteProductsApi.searchProducts(searchText: searchText);
+      final newProducts = await _favoriteProductsApi.searchProducts(searchText: searchText, categoryId: selectedCategory?.slug ?? '');
       processes.removeLast();
       if (processes.isEmpty) {
         // only the last process can modify the list

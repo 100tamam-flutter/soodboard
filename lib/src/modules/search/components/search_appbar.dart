@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../../../components/search_field.dart';
 
@@ -28,6 +29,10 @@ class SearchAppbar extends StatelessWidget {
         children: [
           const SizedBox(
             width: 16,
+          ),
+          IconButton(
+            onPressed: () => context.vRouter.pop(),
+            icon: SvgPicture.asset("assets/icons/Left.svg"),
           ),
           Expanded(
             child: SSearchField(

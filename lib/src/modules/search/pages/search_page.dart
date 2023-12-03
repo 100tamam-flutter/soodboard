@@ -61,7 +61,7 @@ class _SearchPageState extends State<_SearchPage> {
                   initialItemCount: provider.products.length,
                   itemBuilder: (context, index, animation) {
                     return ScaleTransition(
-                      scale: animation,
+                      scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
                       child: Center(
                         child: ProductTileHalfWidth(
                           productModel: provider.products[index],

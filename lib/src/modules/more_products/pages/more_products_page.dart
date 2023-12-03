@@ -59,7 +59,7 @@ class _MoreProductsPageState extends State<_MoreProductsPage> {
             initialItemCount: provider.products.length,
             itemBuilder: (context, index, animation) {
               return ScaleTransition(
-                scale: animation,
+                scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
                 child: Center(
                   child: ProductTileHalfWidth(
                     productModel: provider.products[index],

@@ -51,17 +51,13 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
                     child: TextField(
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: const Color(0xFF9098B1)),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFF9098B1)),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Search Product",
-                        hintStyle:
-                            Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                  color: const Color(0xFF9098B1),
-                                ),
+                        hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: const Color(0xFF9098B1),
+                            ),
                         isDense: true,
                         contentPadding: EdgeInsets.zero,
                       ),
@@ -113,8 +109,7 @@ class CartPage extends StatelessWidget {
                             color: const Color(0xFF9098B1),
                           ),
                     ),
-                    Text('\$${provider.getTotalPrice()}',
-                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text('\$${provider.getTotalItemsPrice()}', style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
                 const SizedBox(
@@ -129,8 +124,7 @@ class CartPage extends StatelessWidget {
                             color: const Color(0xFF9098B1),
                           ),
                     ),
-                    Text('\$40.0',
-                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text('\$40.0', style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
                 const SizedBox(
@@ -145,8 +139,7 @@ class CartPage extends StatelessWidget {
                             color: const Color(0xFF9098B1),
                           ),
                     ),
-                    Text('\$128.0',
-                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text('\$128.0', style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
                 const SizedBox(
@@ -160,7 +153,7 @@ class CartPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Text(
-                      '\$${provider.getTotalPrice() + 40.0 + 128.0}',
+                      '\$${provider.getTotalPrice()}',
                       style: Theme.of(context).textTheme.labelLarge!.copyWith(
                             color: const Color(0xFF40BFFF),
                           ),
