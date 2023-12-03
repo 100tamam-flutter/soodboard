@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/animated_sliver_list_view.dart';
 import 'package:soodboard/src/modules/profile/providers/accont_provider.dart';
 import 'package:vrouter/vrouter.dart';
 
@@ -32,43 +33,54 @@ class _AccountPage extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView(
-        children: [
-          const Divider(
-            color: Color(0xFFEBF0FF),
-          ),
-          ListTile(
-            leading: SvgPicture.asset('assets/icons/person.svg'),
-            minVerticalPadding: 16,
-            title: Text(
-              'Profile',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            onTap: () => context.vRouter.to('profile'),
-          ),
-          ListTile(
-            leading: SvgPicture.asset('assets/icons/bag.svg'),
-            minVerticalPadding: 16,
-            title: Text(
-              'Order',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          ),
-          ListTile(
-            leading: SvgPicture.asset('assets/icons/Location.svg'),
-            minVerticalPadding: 16,
-            title: Text(
-              'Address',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          ),
-          ListTile(
-            leading: SvgPicture.asset('assets/icons/Credit_Card.svg'),
-            minVerticalPadding: 16,
-            title: Text(
-              'Payment',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
+      body: CustomScrollView(
+        key: UniqueKey(),
+        slivers: [
+          AnimatedSliverListView(
+            key: UniqueKey(),
+            transitionType: TransitionType.slide,
+            delay: const Duration(milliseconds: 100),
+            children: [
+              const Divider(
+                color: Color(0xFFEBF0FF),
+              ),
+              ListTile(
+                leading: SvgPicture.asset('assets/icons/person.svg'),
+                minVerticalPadding: 16,
+                title: Text(
+                  'Profile',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+                onTap: () => context.vRouter.to('/profile'),
+              ),
+              ListTile(
+                onTap: () => context.vRouter.to('/orders'),
+                leading: SvgPicture.asset('assets/icons/bag.svg'),
+                minVerticalPadding: 16,
+                title: Text(
+                  'Order',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+              ),
+              ListTile(
+                onTap: () => context.vRouter.to('/addresses'),
+                leading: SvgPicture.asset('assets/icons/Location.svg'),
+                minVerticalPadding: 16,
+                title: Text(
+                  'Address',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+              ),
+              ListTile(
+                onTap: () => context.vRouter.to('/payments'),
+                leading: SvgPicture.asset('assets/icons/Credit_Card.svg'),
+                minVerticalPadding: 16,
+                title: Text(
+                  'Payment',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+              ),
+            ],
           ),
         ],
       ),

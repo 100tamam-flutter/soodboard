@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:soodboard/src/constants/colors.dart';
 import 'package:soodboard/src/models/product_model.dart';
 import 'package:vrouter/vrouter.dart';
 
 class ProductTileHalfWidth extends StatelessWidget {
-  const ProductTileHalfWidth({Key? key, required this.productModel})
-      : super(key: key);
+  const ProductTileHalfWidth({Key? key, required this.productModel, this.onRemove}) : super(key: key);
   final ProductModel productModel;
+  final Function()? onRemove;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.vRouter.to('/product_detail'),
+      onTap: () => context.vRouter.to('/product_detail/${productModel.id}'),
       child: Container(
-        height: 282,
+        height: 300,
         width: (MediaQuery.sizeOf(context).width / 2) - 22.5,
         margin: const EdgeInsets.only(bottom: 13),
         padding: const EdgeInsets.all(16),
@@ -31,10 +33,13 @@ class ProductTileHalfWidth extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(
-                  productModel.image,
+                SizedBox(
                   width: (MediaQuery.sizeOf(context).width / 2) - 54.5,
                   height: (MediaQuery.sizeOf(context).width / 2) - 54.5,
+                  child: Image.asset(
+                    productModel.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(
                   height: 8,
@@ -69,17 +74,17 @@ class ProductTileHalfWidth extends StatelessWidget {
                 Text(
                   productModel.price.toString(),
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: const Color(0xFF40BFFF),
-                  ),
+                        color: const Color(0xFF40BFFF),
+                      ),
                 ),
                 Row(
                   children: [
                     Text(
                       productModel.previousPrice.toString(),
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        color: const Color(0xFF9098B1),
-                        decoration: TextDecoration.lineThrough,
-                      ),
+                            color: const Color(0xFF9098B1),
+                            decoration: TextDecoration.lineThrough,
+                          ),
                     ),
                     const SizedBox(
                       width: 5,
@@ -87,9 +92,18 @@ class ProductTileHalfWidth extends StatelessWidget {
                     Text(
                       '${productModel.discount}%',
                       style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                        color: const Color(0xFFFB7181),
-                      ),
+                            color: AppColors.lightRed,
+                          ),
                     ),
+                    Expanded(child: Container()),
+                    if (onRemove != null)
+                      IconButton(
+                        onPressed: onRemove,
+                        icon: SvgPicture.asset(
+                          'assets/icons/trash.svg',
+                          height: 24,
+                        ),
+                      )
                   ],
                 ),
               ],

@@ -4,18 +4,18 @@
     "user": {
       "id": "0",
       "avatar": {
-        "file": "assets/mock-files/Jamesp.png"
+        "file": "assets/mock-files/users/Jamesp.png"
       },
-      "name" : "James Lawson"
+      "name": "James Lawson"
     },
     "rate": 4.5,
     "comment": "air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.",
     "images": [
       {
-        "file": "assets/mock-files/product1.png"
+        "file": "assets/mock-files/products/1-1.png"
       },
       {
-        "file": "assets/mock-files/product1-2.png"
+        "file": "assets/mock-files/products/1-2.png"
       }
     ],
     "date": "2022-07-28T13:14:15.123+01:00"
@@ -25,18 +25,18 @@
     "user": {
       "id": "0",
       "avatar": {
-        "file": "assets/mock-files/Jamesp.png"
+        "file": "assets/mock-files/users/jhonsonp.png"
       },
-      "name" : "James Lawson"
+      "name": "Jhonsonp"
     },
-    "rate": 4.5,
+    "rate": 3.2,
     "comment": "air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.",
     "images": [
       {
-        "file": "assets/mock-files/product1.png"
+        "file": "assets/mock-files/products/2-1.png"
       },
       {
-        "file": "assets/mock-files/product1-2.png"
+        "file": "assets/mock-files/products/2-2.png"
       }
     ],
     "date": "2022-07-28T13:14:15.123+01:00"
@@ -46,18 +46,18 @@
     "user": {
       "id": "0",
       "avatar": {
-        "file": "assets/mock-files/Jamesp.png"
+        "file": "assets/mock-files/users/laurap.png"
       },
-      "name" : "James Lawson"
+      "name": "Laura"
     },
-    "rate": 4.5,
+    "rate": 2.5,
     "comment": "air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.",
     "images": [
       {
-        "file": "assets/mock-files/product1.png"
+        "file": "assets/mock-files/products/3-1.png"
       },
       {
-        "file": "assets/mock-files/product1-2.png"
+        "file": "assets/mock-files/products/3-2.png"
       }
     ],
     "date": "2022-07-28T13:14:15.123+01:00"

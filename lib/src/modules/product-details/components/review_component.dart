@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:intl/intl.dart';
 import 'package:soodboard/src/modules/product-details/models/review_model.dart';
 
 class ReviewComponent extends StatelessWidget {
@@ -13,7 +14,7 @@ class ReviewComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.only(right: 16, left: 16, bottom: 24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,9 +39,7 @@ class ReviewComponent extends StatelessWidget {
                 children: [
                   Text(
                     review.user.name,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   RatingBar.builder(
                     initialRating: review.rate,
@@ -94,10 +93,10 @@ class ReviewComponent extends StatelessWidget {
             height: 16,
           ),
           Text(
-            review.dateTime.toString(),
+            DateFormat.yMd().add_jm().format(review.dateTime),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: const Color(0xFF9098B1),
-            ),
+                  color: const Color(0xFF9098B1),
+                ),
           ),
         ],
       ),

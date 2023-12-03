@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vrouter/vrouter.dart';
 
-import 'product_tile_small.dart';
 import '../../models/product_model.dart';
+import 'product_tile_small.dart';
 
 class ProductsHorizontalListView extends StatelessWidget {
   const ProductsHorizontalListView({
@@ -27,11 +28,14 @@ class ProductsHorizontalListView extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               Expanded(child: Container()),
-              Text(
-                "See More",
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: const Color(0xFF40BFFF),
-                    ),
+              InkWell(
+                onTap: () => context.vRouter.to('/more_products/$title'),
+                child: Text(
+                  "See More",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: const Color(0xFF40BFFF),
+                      ),
+                ),
               ),
             ],
           ),

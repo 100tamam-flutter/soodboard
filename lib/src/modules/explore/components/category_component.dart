@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:soodboard/src/modules/explore/models/category_model.dart';
+import 'package:vrouter/vrouter.dart';
 
 class CategoryComponent extends StatelessWidget {
   const CategoryComponent({
@@ -23,7 +24,9 @@ class CategoryComponent extends StatelessWidget {
               shape: const CircleBorder(),
               fixedSize: const Size(70, 70),
             ),
-            onPressed: () {},
+            onPressed: () => context.vRouter.to('/search', historyState: {
+              'category_id': categoryModel.slug,
+            }),
             child: SvgPicture.asset(
               categoryModel.icon,
               width: 24,
@@ -39,9 +42,9 @@ class CategoryComponent extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              color: const Color(0xFF9098B1),
-              letterSpacing: 0.5,
-            ),
+                  color: const Color(0xFF9098B1),
+                  letterSpacing: 0.5,
+                ),
           ),
         ],
       ),

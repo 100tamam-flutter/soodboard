@@ -1,32 +1,30 @@
 class ProductDetailModel {
   final String id;
   final String title;
-  final String firstImage;
-  final String thirdImage;
-  final String secondImage;
-  final double price;
-  final double before;
-  final double offer;
-  final String description;
-  final double rating;
+  final List<String> images;
   final List<String> sizes;
   final List<String> colors;
+  final double price;
+  final int discount;
+  final double previousPrice;
+  final double rating;
+  final String category;
+  final String description;
   final String style;
   final String shown;
 
   const ProductDetailModel({
-    required this.title,
-    required this.price,
-    required this.firstImage,
     required this.id,
-    required this.secondImage,
-    required this.thirdImage,
-    required this.before,
-    required this.offer,
-    required this.description,
+    required this.title,
+    required this.images,
+    required this.price,
+    required this.discount,
+    required this.previousPrice,
     required this.rating,
+    required this.category,
     required this.sizes,
     required this.colors,
+    required this.description,
     required this.style,
     required this.shown,
   });
@@ -35,18 +33,17 @@ class ProductDetailModel {
     return ProductDetailModel(
       id: json['id'] as String,
       title: json['title'] as String,
-      firstImage: json['image1'] as String,
-      secondImage: json['image2'] as String,
-      thirdImage: json['image3'] as String,
+      images: (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+      sizes: (json['sizes'] as List<dynamic>).map((e) => e as String).toList(),
+      colors: (json['colors'] as List<dynamic>).map((e) => e as String).toList(),
       price: json['price'] as double,
-      before: json['before'] as double,
-      offer: json['offer'] as double,
+      discount: json['discount'] as int,
+      previousPrice: json['previousPrice'] as double,
+      rating: json['rating'] as double,
+      category: json['category'] as String,
       description: json['description'] as String,
       style: json['style'] as String,
       shown: json['shown'] as String,
-      rating: json['rating'] as double,
-      sizes: (json['sizes'] as List).map((e) => e as String).toList(),
-      colors: (json['colors'] as List).map((e) => e as String).toList(),
     );
   }
 }

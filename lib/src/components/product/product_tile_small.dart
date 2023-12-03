@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:soodboard/src/constants/colors.dart';
 import 'package:soodboard/src/models/product_model.dart';
 import 'package:vrouter/vrouter.dart';
 
 class ProductTileSmall extends StatelessWidget {
-  const ProductTileSmall({Key? key, required this.productModel})
-      : super(key: key);
+  const ProductTileSmall({Key? key, required this.productModel}) : super(key: key);
   final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.vRouter.to('/product_detail'),
+      onTap: () => context.vRouter.to('/product_detail/${productModel.id}'),
       child: Container(
         height: 238,
         width: 141,
@@ -24,7 +24,14 @@ class ProductTileSmall extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(productModel.image),
+            SizedBox(
+              height: 100,
+              width: 141 - 32,
+              child: Image.asset(
+                productModel.image,
+                fit: BoxFit.cover,
+              ),
+            ),
             const SizedBox(
               height: 8,
             ),
@@ -45,9 +52,9 @@ class ProductTileSmall extends StatelessWidget {
                 Text(
                   productModel.previousPrice.toString(),
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: const Color(0xFF9098B1),
-                    decoration: TextDecoration.lineThrough,
-                  ),
+                        color: const Color(0xFF9098B1),
+                        decoration: TextDecoration.lineThrough,
+                      ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -55,8 +62,8 @@ class ProductTileSmall extends StatelessWidget {
                 Text(
                   '${productModel.discount}%',
                   style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                    color: const Color(0xFFFB7181),
-                  ),
+                        color: AppColors.lightRed,
+                      ),
                 ),
               ],
             )

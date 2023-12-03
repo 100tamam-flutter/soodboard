@@ -1,0 +1,15 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="system icon/24px/Transaction">
+        <g id="Group">
+            <path id="Vector" d="M20.9994 16.4922V9.73047H14.3008" stroke="#40BFFF" stroke-width="2"
+                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_2" d="M21.0001 9.73047L9.73047 21.0001" stroke="#40BFFF"
+                stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round" />
+            <path id="Vector_3" d="M3 7.50781V14.2696H9.69753" stroke="#40BFFF" stroke-width="2"
+                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_4" d="M3 14.2696L14.2696 3" stroke="#40BFFF" stroke-width="2"
+                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+    </g>
+</svg>

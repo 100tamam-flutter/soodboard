@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/animated_sliver_list_view.dart';
 import 'package:soodboard/src/components/empty_state.dart';
 import 'package:soodboard/src/modules/explore/components/category_table_component.dart';
 import 'package:soodboard/src/modules/explore/provider/explore_provider.dart';
-import 'package:soodboard/src/modules/home_screen/components/home_search_bar.dart';
+import 'package:soodboard/src/modules/home/components/home_search_bar.dart';
 
 class ExplorePage extends StatelessWidget {
   const ExplorePage({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _ExplorePage extends StatelessWidget {
       child: Scaffold(
         body: AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
-          child: provider.loadingcategories
+          child: provider.loadingCategories
               ? const Center(child: CircularProgressIndicator())
               : provider.categories.isEmpty
                   ? const EmptyState()
@@ -37,7 +38,7 @@ class _ExplorePage extends StatelessWidget {
                         const SizedBox(
                           height: 16,
                         ),
-                        HomeSearchBar(),
+                        const HomeSearchBar(),
                         const SizedBox(
                           height: 16,
                         ),
@@ -46,25 +47,25 @@ class _ExplorePage extends StatelessWidget {
                           height: 1,
                         ),
                         Expanded(
-                          child: ListView(
-                            children: [
-                              CategoryTableComponent(
-                                title: "Man Fashion",
-                                categories: provider.categories
-                                    .where(
-                                        (element) => element.gender == 'male')
-                                    .toList(),
-                              ),
-                              CategoryTableComponent(
-                                title: "Woman Fashion",
-                                categories: provider.categories
-                                    .where(
-                                        (element) => element.gender == 'female')
-                                    .toList(),
-                              ),
-                            ],
-                          ),
-                        ),
+                            child: CustomScrollView(
+                          key: UniqueKey(),
+                          slivers: [
+                            AnimatedSliverListView(
+                              transitionType: TransitionType.slide,
+                              delay: const Duration(milliseconds: 100),
+                              children: [
+                                CategoryTableComponent(
+                                  title: "Man Fashion",
+                                  categories: provider.categories.where((element) => element.gender == 'male').toList(),
+                                ),
+                                CategoryTableComponent(
+                                  title: "Woman Fashion",
+                                  categories: provider.categories.where((element) => element.gender == 'female').toList(),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
                       ],
                     ),
         ),

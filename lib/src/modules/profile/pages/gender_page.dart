@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vrouter/vrouter.dart';
+
 import '../providers/gender_provider.dart';
 
 class GenderPage extends StatelessWidget {
@@ -54,28 +55,20 @@ class _GenderPage extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                TextField(
-                  style: Theme.of(context).textTheme.labelLarge,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: Color(0xFFEBF0FF)),
-                    ),
-                    hintStyle: Theme.of(context).textTheme.labelLarge,
-                    hintText: staticProvider.gender,
-                  ),
+                DropdownButton<String>(
+                  value: provider.genderValue,
+                  items: provider.genders
+                      .map(
+                        (e) => DropdownMenuItem<String>(
+                          value: e,
+                          child: Text(
+                            e,
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                      )
+                      .toList(),
+                  onChanged: staticProvider.changeValue,
                 ),
               ],
             ),
@@ -100,10 +93,9 @@ class _GenderPage extends StatelessWidget {
                         padding: const EdgeInsets.all(16),
                         child: Text(
                           'Save',
-                          style:
-                              Theme.of(context).textTheme.titleSmall!.copyWith(
-                                    color: Colors.white,
-                                  ),
+                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                color: Colors.white,
+                              ),
                         ),
                       ),
                     ],
