@@ -4,6 +4,7 @@ import 'package:soodboard/src/models/product_model.dart';
 import 'package:soodboard/src/modules/cart/providers/cart_providers.dart';
 import 'package:soodboard/src/modules/product-details/api/review_api.dart';
 import 'package:vrouter/vrouter.dart';
+
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
@@ -14,9 +15,11 @@ import '../models/review_model.dart';
 class ProductDetailProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
-  ProductDetailProvider(this.context) {
+  ProductDetailProvider({required this.context, required this.productId}) {
     initProductDetail();
   }
+
+  final String productId;
 
   late final ProductDetailModel productDetail;
   late final List<ReviewModel> reviews;
@@ -28,8 +31,7 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
   bool loadingReviews = true;
   bool loadingRelatedProducts = true;
 
-  get isLoading =>
-      loadingProductDetail || loadingReviews || loadingRelatedProducts;
+  get isLoading => loadingProductDetail || loadingReviews || loadingRelatedProducts;
 
   Future<void> initProductDetail() async {
     getProductDetail();
@@ -41,7 +43,7 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     loadingProductDetail = true;
     notifyListeners();
     try {
-      productDetail = await _productDetailAPI.getProductDetail();
+      productDetail = await _productDetailAPI.getProductDetail(productId);
     } on ApiError catch (e) {
       showError(context, e);
     }
@@ -65,7 +67,7 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     loadingRelatedProducts = true;
     notifyListeners();
     try {
-      relatedProducts = await _productDetailAPI.getRelatedProducts();
+      relatedProducts = await _productDetailAPI.getRelatedProducts(productId);
     } on ApiError catch (e) {
       showError(context, e);
     }

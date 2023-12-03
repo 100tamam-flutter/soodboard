@@ -107,7 +107,7 @@ class SearchProvider extends SafeProvider with ErrorHandler {
     try {
       categories = await _exploreAPI.getCategories();
       if (categoryId != null) {
-        selectCategory(categories.singleWhere((element) => element.id == categoryId));
+        selectCategory(categories.singleWhere((element) => element.slug == categoryId));
       }
     } on ApiError catch (e) {
       showError(context, e);

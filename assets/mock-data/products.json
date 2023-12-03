@@ -3,39 +3,196 @@
     "products": [
       {
         "id": "1",
-        "title": "FS - Nike Air Max 270",
-        "image": "assets/mock-files/product1.png",
-        "price": 299.43,
-        "discount": 24,
-        "previousPrice": 543.33,
-        "rating": 3.0
+        "title": "FS - Classic White Button-Up",
+        "images": [
+          "assets/mock-files/products/1-1.png",
+          "assets/mock-files/products/1-2.png"
+        ],
+        "price": 49.99,
+        "discount": 10,
+        "previousPrice": 55.55,
+        "rating": 4.5,
+        "category": "manShirt",
+        "sizes": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ],
+        "colors": [
+          "0xFFFFC833",
+          "0xFF40BFFF",
+          "0xFFFB7181",
+          "0xFF53D1B6",
+          "0xFF5C61F4",
+          "0xFF223263"
+        ],
+        "description": "Classic white button-up shirt for a timeless and elegant look.",
+        "style": "CS001-WHT",
+        "shown": "White"
       },
       {
         "id": "2",
-        "title": "FS - QUILTED MAXI ...",
-        "image": "assets/mock-files/product2.png",
-        "price": 299.43,
-        "discount": 24,
-        "previousPrice": 543.33,
-        "rating": 5.0
+        "title": "FS - Professional Leather Briefcase",
+        "images": [
+          "assets/mock-files/products/2-1.png",
+          "assets/mock-files/products/2-2.png"
+        ],
+        "price": 129.99,
+        "discount": 5,
+        "previousPrice": 136.84,
+        "rating": 4.8,
+        "category": "manWorkEquipment",
+        "sizes": [
+          "One Size"
+        ],
+        "colors": [
+          "0xFF2B2D42",
+          "0xFF8D99AE",
+          "0xFFEDF2F4",
+          "0xFFEF233C"
+        ],
+        "description": "Premium leather briefcase for a professional and sophisticated appearance.",
+        "style": "PB200-BLK",
+        "shown": "Black"
       },
       {
         "id": "3",
-        "title": "FS - QUILTED MAXI...",
-        "image": "assets/mock-files/product3.png",
-        "price": 299.33,
-        "discount": 24,
-        "previousPrice": 543.33,
-        "rating": 1.5
+        "title": "FS - Man T-Shirt",
+        "images": [
+          "assets/mock-files/products/3-1.png",
+          "assets/mock-files/products/3-2.png"
+        ],
+        "price": 29.99,
+        "discount": 15,
+        "previousPrice": 35.50,
+        "rating": 4.2,
+        "category": "manTShirt",
+        "sizes": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ],
+        "colors": [
+          "0xFFEF233C",
+          "0xFF2B2D42",
+          "0xFF8D99AE",
+          "0xFFEDF2F4"
+        ],
+        "description": "Comfortable and stylish man t-shirt for everyday wear.",
+        "style": "MT001-BLU",
+        "shown": "Blue"
       },
       {
-        "id": "3",
-        "title": "FS - QUILTED MAXI...",
-        "image": "assets/mock-files/product1.png",
-        "price": 299.33,
-        "discount": 24,
-        "previousPrice": 543.33,
-        "rating": 4.5
+        "id": "4",
+        "title": "FS - Stylish Leather Shoes",
+        "images": [
+          "assets/mock-files/products/4-1.png",
+          "assets/mock-files/products/4-2.png"
+        ],
+        "price": 89.95,
+        "discount": 12,
+        "previousPrice": 102.20,
+        "rating": 4.7,
+        "category": "manShoes",
+        "sizes": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "colors": [
+          "0xFF5C61F4",
+          "0xFF223263",
+          "0xFFFFC833",
+          "0xFFFB7181"
+        ],
+        "description": "Elegant and stylish leather shoes for a polished look.",
+        "style": "LS200-BRN",
+        "shown": "Brown"
+      },
+      {
+        "id": "5",
+        "title": "FS - Elegant Evening Dress",
+        "images": [
+          "assets/mock-files/products/5-1.png",
+          "assets/mock-files/products/5-2.png"
+        ],
+        "price": 99.99,
+        "discount": 20,
+        "previousPrice": 124.99,
+        "rating": 4.4,
+        "category": "dress",
+        "sizes": [
+          "XS",
+          "S",
+          "M",
+          "L"
+        ],
+        "colors": [
+          "0xFFFB7181",
+          "0xFF53D1B6",
+          "0xFF5C61F4",
+          "0xFF223263"
+        ],
+        "description": "Elegant evening dress for a special night out.",
+        "style": "ED300-RED",
+        "shown": "Red"
+      },
+      {
+        "id": "6",
+        "title": "FS - Floral Print Skirt",
+        "images": [
+          "assets/mock-files/products/6-1.png",
+          "assets/mock-files/products/6-2.png"
+        ],
+        "price": 39.99,
+        "discount": 8,
+        "previousPrice": 43.50,
+        "rating": 4.2,
+        "category": "skirt",
+        "sizes": [
+          "XS",
+          "S",
+          "M",
+          "L"
+        ],
+        "colors": [
+          "0xFFFFC833",
+          "0xFF40BFFF",
+          "0xFFFB7181",
+          "0xFF53D1B6"
+        ],
+        "description": "Floral print skirt for a feminine and stylish look.",
+        "style": "FSK100-BLU",
+        "shown": "Blue"
+      },
+      {
+        "id": "7",
+        "title": "FS - Stylish Woman Bag",
+        "images": [
+          "assets/mock-files/products/7-1.png",
+          "assets/mock-files/products/7-2.png"
+        ],
+        "price": 79.99,
+        "discount": 12,
+        "previousPrice": 91.20,
+        "rating": 4.7,
+        "category": "womanBag",
+        "sizes": [
+          "One Size"
+        ],
+        "colors": [
+          "0xFF2B2D42",
+          "0xFF8D99AE",
+          "0xFFEDF2F4",
+          "0xFFEF233C"
+        ],
+        "description": "Stylish woman bag for carrying your essentials in style.",
+        "style": "SWB200-BLK",
+        "shown": "Black"
       }
     ]
   }

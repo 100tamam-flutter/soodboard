@@ -8,6 +8,8 @@ import 'package:soodboard/src/modules/product-details/components/panels/product_
 import 'package:soodboard/src/modules/product-details/components/panels/review_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_color_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/select_size_panel.dart';
+import 'package:vrouter/vrouter.dart';
+
 import '../components/panels/specifications_panel.dart';
 import '../providers/product_detail_provider.dart';
 
@@ -16,8 +18,12 @@ class ProductDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productId = context.vRouter.pathParameters['id'] ?? '';
     return ChangeNotifierProvider(
-      create: (context) => ProductDetailProvider(context),
+      create: (context) => ProductDetailProvider(
+        context: context,
+        productId: productId,
+      ),
       child: const _ProductDetails(),
     );
   }
@@ -39,13 +45,8 @@ class _ProductDetails extends StatelessWidget {
         ),
         elevation: 0,
         title: Text(
-          provider.loadingProductDetail
-              ? 'Loading Data'
-              : provider.productDetail.title,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(fontWeight: FontWeight.w700),
+          provider.loadingProductDetail ? 'Loading Data' : provider.productDetail.title,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         actions: [
           IconButton(
@@ -73,9 +74,7 @@ class _ProductDetails extends StatelessWidget {
                         delay: const Duration(milliseconds: 100),
                         children: [
                           ProductImagesPanel(
-                            firstImage: provider.productDetail.firstImage,
-                            secondImage: provider.productDetail.secondImage,
-                            thirdImage: provider.productDetail.thirdImage,
+                            images: provider.productDetail.images,
                           ),
                           const SizedBox(
                             height: 16,
