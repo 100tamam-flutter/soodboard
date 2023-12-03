@@ -7,10 +7,23 @@ import '../../../utils/error_handler.dart';
 class CartProvider extends SafeProvider with ErrorHandler {
   CartProvider();
 
+  double getTotalItemsPrice() {
+    double totalPrice = 0;
+    if (products.isNotEmpty) {
+      for (var element in products) {
+        totalPrice += element.price * element.quantity;
+      }
+    }
+    return totalPrice;
+  }
+
   double getTotalPrice() {
     double totalPrice = 0;
-    for (var element in products) {
-      totalPrice += element.price;
+    if (products.isNotEmpty) {
+      for (var element in products) {
+        totalPrice += element.price * element.quantity;
+      }
+      totalPrice += 40.0 + 128.0;
     }
     return totalPrice;
   }
