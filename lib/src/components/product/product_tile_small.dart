@@ -28,7 +28,7 @@ class ProductTileSmall extends StatelessWidget {
               height: 100,
               width: 141 - 32,
               child: Image.asset(
-                productModel.images[0],
+                productModel.image,
                 fit: BoxFit.cover,
               ),
             ),

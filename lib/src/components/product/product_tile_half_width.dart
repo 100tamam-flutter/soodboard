@@ -37,7 +37,7 @@ class ProductTileHalfWidth extends StatelessWidget {
                   width: (MediaQuery.sizeOf(context).width / 2) - 54.5,
                   height: (MediaQuery.sizeOf(context).width / 2) - 54.5,
                   child: Image.asset(
-                    productModel.images[1],
+                    productModel.image,
                     fit: BoxFit.cover,
                   ),
                 ),
