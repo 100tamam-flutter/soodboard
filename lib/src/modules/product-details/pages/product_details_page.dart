@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/animated_sliver_list_view.dart';
 import 'package:soodboard/src/components/product/products_horizontal_listview.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/product_images_panel.dart';
 import 'package:soodboard/src/modules/product-details/components/panels/product_main_info_panel.dart';
@@ -64,61 +65,68 @@ class _ProductDetails extends StatelessWidget {
           : Column(
               children: [
                 Expanded(
-                  child: ListView(
-                    children: [
-                      ProductImagesPanel(
-                        firstImage: provider.productDetail.firstImage,
-                        secondImage: provider.productDetail.secondImage,
-                        thirdImage: provider.productDetail.thirdImage,
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      ProductMainInfoPanel(
-                        productDetail: provider.productDetail,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      SelectSizePanel(
-                        sizes: provider.productDetail.sizes,
-                        selectSize: staticProvider.selectSize,
-                        selectedSizeIndex: provider.selectedSize,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      SelectColorPanel(
-                        selectColor: staticProvider.selectColor,
-                        colors: provider.productDetail.colors,
-                        selectedColorIndex: provider.selectedColor,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      SpecificationsPanel(
-                        style: provider.productDetail.style,
-                        shown: provider.productDetail.shown,
-                        description: provider.productDetail.description,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      if (provider.reviews.isNotEmpty)
-                        ReviewPanel(
-                          productRating: provider.productDetail.rating,
-                          reviewsNumber: provider.reviews.length,
-                          firstReview: provider.reviews.first,
-                        ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      ProductsHorizontalListView(
-                        products: provider.relatedProducts,
-                        title: "You Might Also Like",
-                      ),
-                      const SizedBox(
-                        height: 60,
+                  child: CustomScrollView(
+                    key: UniqueKey(),
+                    slivers: [
+                      AnimatedSliverListView(
+                        transitionType: TransitionType.slide,
+                        delay: const Duration(milliseconds: 100),
+                        children: [
+                          ProductImagesPanel(
+                            firstImage: provider.productDetail.firstImage,
+                            secondImage: provider.productDetail.secondImage,
+                            thirdImage: provider.productDetail.thirdImage,
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          ProductMainInfoPanel(
+                            productDetail: provider.productDetail,
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          SelectSizePanel(
+                            sizes: provider.productDetail.sizes,
+                            selectSize: staticProvider.selectSize,
+                            selectedSizeIndex: provider.selectedSize,
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          SelectColorPanel(
+                            selectColor: staticProvider.selectColor,
+                            colors: provider.productDetail.colors,
+                            selectedColorIndex: provider.selectedColor,
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          SpecificationsPanel(
+                            style: provider.productDetail.style,
+                            shown: provider.productDetail.shown,
+                            description: provider.productDetail.description,
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          if (provider.reviews.isNotEmpty)
+                            ReviewPanel(
+                              productRating: provider.productDetail.rating,
+                              reviewsNumber: provider.reviews.length,
+                              firstReview: provider.reviews.first,
+                            ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          ProductsHorizontalListView(
+                            products: provider.relatedProducts,
+                            title: "You Might Also Like",
+                          ),
+                          const SizedBox(
+                            height: 60,
+                          ),
+                        ],
                       ),
                     ],
                   ),
