@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:vrouter/vrouter.dart';
 
 class OrdersPage extends StatelessWidget {
   const OrdersPage({Key? key}) : super(key: key);
@@ -7,6 +9,10 @@ class OrdersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () => context.vRouter.pop(),
+            icon: SvgPicture.asset("assets/icons/Left.svg"),
+          ),
           title: const Text(
             'Order',
             style: TextStyle(

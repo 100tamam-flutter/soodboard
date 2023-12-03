@@ -27,6 +27,10 @@ class _ProfilePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => context.vRouter.pop(),
+          icon: SvgPicture.asset("assets/icons/Left.svg"),
+        ),
         title: const Text(
           'Profile',
           style: TextStyle(
