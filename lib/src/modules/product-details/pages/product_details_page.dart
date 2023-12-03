@@ -82,14 +82,20 @@ class _ProductDetails extends StatelessWidget {
                           ProductMainInfoPanel(
                             productDetail: provider.productDetail,
                           ),
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          SelectSizePanel(
-                            sizes: provider.productDetail.sizes,
-                            selectSize: staticProvider.selectSize,
-                            selectedSizeIndex: provider.selectedSize,
-                          ),
+                          if(provider.productDetail.sizes.length > 1)
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const SizedBox(
+                                  height: 24,
+                                ),
+                                SelectSizePanel(
+                                  sizes: provider.productDetail.sizes,
+                                  selectSize: staticProvider.selectSize,
+                                  selectedSizeIndex: provider.selectedSize,
+                                ),
+                              ],
+                            ),
                           const SizedBox(
                             height: 24,
                           ),
