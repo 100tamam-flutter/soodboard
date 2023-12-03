@@ -4,14 +4,10 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 class ProductImagesPanel extends StatelessWidget {
   const ProductImagesPanel({
     super.key,
-    required this.firstImage,
-    required this.secondImage,
-    required this.thirdImage,
+    required this.images,
   });
 
-  final String firstImage;
-  final String secondImage;
-  final String thirdImage;
+  final List<String> images;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +17,7 @@ class ProductImagesPanel extends StatelessWidget {
         indicatorColor: Colors.blue,
         autoPlayInterval: 3000,
         isLoop: true,
-        children: [firstImage, secondImage, thirdImage]
+        children: images
             .map(
               (e) => Image.asset(
                 e,

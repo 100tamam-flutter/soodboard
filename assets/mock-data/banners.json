@@ -3,19 +3,19 @@
     "banners": [
       {
         "title": "Super Flash Sale 50% Off",
-        "image": "assets/products/shoes1.png",
+        "image": "assets/mock-files/banners/shoes1.png",
         "id": "1",
         "end_time": "2023-09-14T04:57:25.499"
       },
       {
         "title": "Super Flash Sale 50% Off",
-        "image": "assets/products/shoes2.png",
+        "image": "assets/mock-files/banners/shoes2.png",
         "id": "2",
         "end_time": "2023-09-14T04:57:25.499"
       },
       {
         "title": "Super Flash Sale 50% Off",
-        "image": "assets/products/shoes3.png",
+        "image": "assets/mock-files/banners/shoes3.png",
         "id": "3",
         "end_time": "2023-09-14T04:57:25.499"
       }

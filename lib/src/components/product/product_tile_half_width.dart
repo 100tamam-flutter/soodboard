@@ -13,7 +13,7 @@ class ProductTileHalfWidth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.vRouter.to('/product_detail'),
+      onTap: () => context.vRouter.to('/product_detail/${productModel.id}'),
       child: Container(
         height: 300,
         width: (MediaQuery.sizeOf(context).width / 2) - 22.5,
@@ -33,10 +33,13 @@ class ProductTileHalfWidth extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(
-                  productModel.image,
+                SizedBox(
                   width: (MediaQuery.sizeOf(context).width / 2) - 54.5,
                   height: (MediaQuery.sizeOf(context).width / 2) - 54.5,
+                  child: Image.asset(
+                    productModel.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(
                   height: 8,

@@ -13,17 +13,13 @@ class ProductsReview extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProductDetailsPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailsPage()));
           },
           icon: SvgPicture.asset("assets/icons/Left.svg"),
         ),
         title: Text(
           "5 Reviews",
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(fontWeight: FontWeight.w700),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
       ),
       body: Padding(
@@ -33,7 +29,6 @@ class ProductsReview extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-
                   Column(
                     children: [
                       Row(
@@ -43,8 +38,7 @@ class ProductsReview extends StatelessWidget {
                             height: 48,
                             width: 48,
                             child: CircleAvatar(
-                              backgroundImage:
-                                  AssetImage('assets/mock-files/Jamesp.png'),
+                              backgroundImage: AssetImage('assets/mock-files/Jamesp.png'),
                             ),
                           ),
                           SizedBox(
@@ -54,10 +48,7 @@ class ProductsReview extends StatelessWidget {
                             children: [
                               Text(
                                 "James Lawson",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(fontWeight: FontWeight.w700),
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
                               ),
                               SvgPicture.asset(
                                 'assets/icons/star_rating.svg',
@@ -82,19 +73,11 @@ class ProductsReview extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                              height: 72,
-                              width: 72,
-                              child: Image.asset(
-                                  'assets/mock-files/product1.png')),
+                          SizedBox(height: 72, width: 72, child: Image.asset('assets/mock-files/product1.png')),
                           SizedBox(
                             width: 16,
                           ),
-                          SizedBox(
-                              height: 72,
-                              width: 72,
-                              child: Image.asset(
-                                  'assets/mock-files/product1-2.png')),
+                          SizedBox(height: 72, width: 72, child: Image.asset('assets/mock-files/product1-1-1.png')),
                         ],
                       ),
                       SizedBox(
@@ -105,12 +88,11 @@ class ProductsReview extends StatelessWidget {
                         children: [
                           Text(
                             "December 10, 2016",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 10,
-                                      color: Colors.grey,
-                                    ),
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
                           ),
                         ],
                       ),
@@ -128,8 +110,7 @@ class ProductsReview extends StatelessWidget {
                             height: 48,
                             width: 48,
                             child: CircleAvatar(
-                              backgroundImage:
-                                  AssetImage('assets/mock-files/laurap.png'),
+                              backgroundImage: AssetImage('assets/mock-files/laurap.png'),
                             ),
                           ),
                           SizedBox(
@@ -139,10 +120,7 @@ class ProductsReview extends StatelessWidget {
                             children: [
                               Text(
                                 "Laura Octavian",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(fontWeight: FontWeight.w700),
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
                               ),
                               SvgPicture.asset(
                                 'assets/icons/star_rating.svg',
@@ -169,12 +147,11 @@ class ProductsReview extends StatelessWidget {
                         children: [
                           Text(
                             "December 10, 2016",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 10,
-                                      color: Colors.grey,
-                                    ),
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
                           ),
                         ],
                       ),
@@ -192,8 +169,7 @@ class ProductsReview extends StatelessWidget {
                             height: 48,
                             width: 48,
                             child: CircleAvatar(
-                              backgroundImage:
-                                  AssetImage('assets/mock-files/jhonsonp.png'),
+                              backgroundImage: AssetImage('assets/mock-files/jhonsonp.png'),
                             ),
                           ),
                           SizedBox(
@@ -203,10 +179,7 @@ class ProductsReview extends StatelessWidget {
                             children: [
                               Text(
                                 "Jhonson Bridge",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(fontWeight: FontWeight.w700),
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
                               ),
                               SvgPicture.asset(
                                 'assets/icons/full-star-rating.svg',
@@ -233,12 +206,11 @@ class ProductsReview extends StatelessWidget {
                         children: [
                           Text(
                             "December 10, 2016",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 10,
-                                      color: Colors.grey,
-                                    ),
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
                           ),
                         ],
                       ),
@@ -256,8 +228,7 @@ class ProductsReview extends StatelessWidget {
                             height: 48,
                             width: 48,
                             child: CircleAvatar(
-                              backgroundImage:
-                                  AssetImage('assets/mock-files/jhonsonp.png'),
+                              backgroundImage: AssetImage('assets/mock-files/jhonsonp.png'),
                             ),
                           ),
                           SizedBox(
@@ -267,10 +238,7 @@ class ProductsReview extends StatelessWidget {
                             children: [
                               Text(
                                 "Griffin Rod",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(fontWeight: FontWeight.w700),
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
                               ),
                               SvgPicture.asset(
                                 'assets/icons/full-star-rating.svg',
@@ -292,19 +260,11 @@ class ProductsReview extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                              height: 72,
-                              width: 72,
-                              child: Image.asset(
-                                  'assets/mock-files/product1.png')),
+                          SizedBox(height: 72, width: 72, child: Image.asset('assets/mock-files/product1.png')),
                           SizedBox(
                             width: 16,
                           ),
-                          SizedBox(
-                              height: 72,
-                              width: 72,
-                              child: Image.asset(
-                                  'assets/mock-files/product1-2.png')),
+                          SizedBox(height: 72, width: 72, child: Image.asset('assets/mock-files/product1-1-1.png')),
                         ],
                       ),
                       SizedBox(
@@ -315,12 +275,11 @@ class ProductsReview extends StatelessWidget {
                         children: [
                           Text(
                             "December 10, 2016",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 10,
-                                      color: Colors.grey,
-                                    ),
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
                           ),
                         ],
                       ),
@@ -334,9 +293,7 @@ class ProductsReview extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AddReview()));
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AddReview()));
               },
               child: Container(
                 height: 57,

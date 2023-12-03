@@ -25,7 +25,7 @@ class CategoryComponent extends StatelessWidget {
               fixedSize: const Size(70, 70),
             ),
             onPressed: () => context.vRouter.to('/search', historyState: {
-              'category_id': categoryModel.id,
+              'category_id': categoryModel.slug,
             }),
             child: SvgPicture.asset(
               categoryModel.icon,

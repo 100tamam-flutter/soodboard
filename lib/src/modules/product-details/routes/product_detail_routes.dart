@@ -8,7 +8,7 @@ List<VRouteElement> productDetailRoutes = [
     onSystemPop: (vRedirector) async => (vRedirector.historyCanBack()) ? vRedirector.historyBack() : vRedirector.pop(),
     stackedRoutes: [
       VWidget(
-        path: '/product_detail',
+        path: '/product_detail/:id',
         widget: const ProductDetailsPage(),
       ),
     ],

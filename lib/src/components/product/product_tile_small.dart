@@ -10,7 +10,7 @@ class ProductTileSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.vRouter.to('/product_detail'),
+      onTap: () => context.vRouter.to('/product_detail/${productModel.id}'),
       child: Container(
         height: 238,
         width: 141,
@@ -24,7 +24,14 @@ class ProductTileSmall extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(productModel.image),
+            SizedBox(
+              height: 100,
+              width: 141 - 32,
+              child: Image.asset(
+                productModel.image,
+                fit: BoxFit.cover,
+              ),
+            ),
             const SizedBox(
               height: 8,
             ),

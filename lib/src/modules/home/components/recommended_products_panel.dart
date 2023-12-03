@@ -23,7 +23,7 @@ class RecommendedProductsPanel extends StatelessWidget {
                   height: 270,
                   width: MediaQuery.sizeOf(context).width,
                   child: Image.asset(
-                    "assets/products/shoes2.png",
+                    "assets/mock-files/banners/shoes2.png",
                     fit: BoxFit.cover,
                   ),
                 ),

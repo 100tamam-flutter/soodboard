@@ -47,8 +47,10 @@ flutter:
   assets:
     - assets/mock-data/
     - assets/mock-files/
+    - assets/mock-files/products/
+    - assets/mock-files/banners/
+    - assets/mock-files/users/
     - assets/icons/
-    - assets/products/
 
 
   fonts:
