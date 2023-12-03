@@ -54,6 +54,7 @@ class _AccountPage extends StatelessWidget {
                 onTap: () => context.vRouter.to('/profile'),
               ),
               ListTile(
+                onTap: () => context.vRouter.to('/orders'),
                 leading: SvgPicture.asset('assets/icons/bag.svg'),
                 minVerticalPadding: 16,
                 title: Text(
@@ -62,6 +63,7 @@ class _AccountPage extends StatelessWidget {
                 ),
               ),
               ListTile(
+                onTap: () => context.vRouter.to('/addresses'),
                 leading: SvgPicture.asset('assets/icons/Location.svg'),
                 minVerticalPadding: 16,
                 title: Text(
@@ -70,6 +72,7 @@ class _AccountPage extends StatelessWidget {
                 ),
               ),
               ListTile(
+                onTap: () => context.vRouter.to('/payments'),
                 leading: SvgPicture.asset('assets/icons/Credit_Card.svg'),
                 minVerticalPadding: 16,
                 title: Text(

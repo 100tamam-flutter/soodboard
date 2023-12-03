@@ -1,3 +1,6 @@
+import 'package:soodboard/src/modules/profile/pages/addresses_page.dart';
+import 'package:soodboard/src/modules/profile/pages/orders_page.dart';
+import 'package:soodboard/src/modules/profile/pages/payments_page.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../pages/birthday_page.dart';
@@ -40,6 +43,18 @@ List<VRouteElement> profileRoutes = [
       VWidget(
         path: '/change_password',
         widget: const ChangePassword(),
+      ),
+      VWidget(
+        path: '/orders',
+        widget: const OrdersPage(),
+      ),
+      VWidget(
+        path: '/addresses',
+        widget: const AddressesPage(),
+      ),
+      VWidget(
+        path: '/payments',
+        widget: const PaymentsPage(),
       ),
     ],
   ),
