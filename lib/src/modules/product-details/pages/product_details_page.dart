@@ -82,7 +82,7 @@ class _ProductDetails extends StatelessWidget {
                           ProductMainInfoPanel(
                             productDetail: provider.productDetail,
                           ),
-                          if(provider.productDetail.sizes.length > 1)
+                          if (provider.productDetail.sizes.length > 1)
                             Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -120,6 +120,7 @@ class _ProductDetails extends StatelessWidget {
                               productRating: provider.productDetail.rating,
                               reviewsNumber: provider.reviews.length,
                               firstReview: provider.reviews.first,
+                              openReviews: staticProvider.openReviews,
                             ),
                           const SizedBox(
                             height: 25,
