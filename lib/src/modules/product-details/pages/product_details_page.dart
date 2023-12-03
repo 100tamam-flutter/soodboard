@@ -48,16 +48,16 @@ class _ProductDetails extends StatelessWidget {
           provider.loadingProductDetail ? 'Loading Data' : provider.productDetail.title,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset("assets/icons/Search_2.svg"),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset("assets/icons/More.svg"),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {},
+        //     icon: SvgPicture.asset("assets/icons/Search_2.svg"),
+        //   ),
+        //   IconButton(
+        //     onPressed: () {},
+        //     icon: SvgPicture.asset("assets/icons/More.svg"),
+        //   ),
+        // ],
       ),
       body: provider.isLoading
           ? const Center(
