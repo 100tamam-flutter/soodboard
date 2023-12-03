@@ -94,4 +94,8 @@ class ProductDetailProvider extends SafeProvider with ErrorHandler {
     cartProvider.addToCart(productDetail);
     context.vRouter.to('/cart');
   }
+
+  void openReviews() {
+    context.vRouter.to('/reviews/$productId');
+  }
 }

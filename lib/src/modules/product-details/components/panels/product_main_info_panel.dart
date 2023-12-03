@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:soodboard/src/modules/product-details/models/product_detail_model.dart';
 
 class ProductMainInfoPanel extends StatelessWidget {
@@ -27,12 +26,12 @@ class ProductMainInfoPanel extends StatelessWidget {
                   maxLines: 2,
                 ),
               ),
-              InkWell(
-                onTap: () {},
-                child: SvgPicture.asset(
-                  'assets/icons/Add Favorite Icon.svg',
-                ),
-              )
+              // InkWell(
+              //   onTap: () {},
+              //   child: SvgPicture.asset(
+              //     'assets/icons/Add Favorite Icon.svg',
+              //   ),
+              // )
             ],
           ),
           const SizedBox(
