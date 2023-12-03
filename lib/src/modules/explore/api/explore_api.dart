@@ -17,11 +17,11 @@ class ExploreAPIMock implements ExploreAPI {
   @override
   Future<List<CategoryModel>> getCategories() async {
     // Simulate API request delay
-    await Future.delayed(
-      const Duration(
-        seconds: 1,
-      ),
-    );
+    // await Future.delayed(
+    //   const Duration(
+    //     seconds: 1,
+    //   ),
+    // );
 
     final response =
     await rootBundle.loadString('assets/mock-data/categories.json');
