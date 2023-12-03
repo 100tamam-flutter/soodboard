@@ -9,5 +9,15 @@ class GenderProvider extends SafeProvider with ErrorHandler {
   GenderProvider(
     this.context,
     this.gender,
-  );
+  ) {
+    genderValue = gender;
+  }
+
+  List<String> genders = ['male', 'female'];
+  late String genderValue;
+
+  changeValue(String? newGender) {
+    genderValue = newGender!;
+    notifyListeners();
+  }
 }

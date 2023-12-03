@@ -19,13 +19,21 @@ class SearchPage extends StatelessWidget {
   }
 }
 
-class _SearchPage extends StatelessWidget {
+class _SearchPage extends StatefulWidget {
   const _SearchPage({Key? key}) : super(key: key);
+
+  @override
+  State<_SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<_SearchPage> {
+  final gridKey = GlobalKey<AnimatedGridState>();
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SearchProvider>();
     final staticProvider = context.read<SearchProvider>();
+    staticProvider.setGridKey(gridKey);
     return Scaffold(
       body: Column(
         children: [
@@ -39,30 +47,36 @@ class _SearchPage extends StatelessWidget {
             openCategories: staticProvider.openCategories,
             categorySelected: provider.selectedCategory != null,
           ),
-          if (provider.loadingProducts)
-            const Expanded(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            )
-          else
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.56,
+          Expanded(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                AnimatedGrid(
+                  key: gridKey,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.56,
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  initialItemCount: provider.products.length,
+                  itemBuilder: (context, index, animation) {
+                    return ScaleTransition(
+                      scale: animation,
+                      child: Center(
+                        child: ProductTileHalfWidth(
+                          productModel: provider.products[index],
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                itemCount: provider.products.length,
-                itemBuilder: (context, index) {
-                  return Center(
-                    child: ProductTileHalfWidth(
-                      productModel: provider.products[index],
-                    ),
-                  );
-                },
-              ),
+                if (provider.loadingProducts)
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+              ],
             ),
+          ),
         ],
       ),
     );
