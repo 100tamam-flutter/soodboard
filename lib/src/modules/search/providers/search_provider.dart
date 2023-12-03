@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:soodboard/src/core/localization.dart';
 import 'package:soodboard/src/models/product_model.dart';
 import 'package:soodboard/src/modules/explore/api/explore_api.dart';
 import 'package:soodboard/src/modules/search/api/search_api.dart';
 
+import '../../../components/product/product_tile_half_width.dart';
 import '../../../core/providers/safe_provider.dart';
 import '../../../models/error_template.dart';
 import '../../../utils/error_handler.dart';
@@ -20,7 +23,7 @@ class SearchProvider extends SafeProvider with ErrorHandler {
   final SearchApi _favoriteProductsApi = SearchApiMock();
   final ExploreAPI _exploreAPI = ExploreAPIMock();
 
-  bool loadingProducts = true;
+  bool loadingProducts = false;
   bool loadingCategories = false;
   late List<CategoryModel> categories = [];
 
@@ -28,10 +31,25 @@ class SearchProvider extends SafeProvider with ErrorHandler {
 
   final String? categoryId;
 
-  void changeSearchText(String newSearchText) {
-    searchText = newSearchText;
-    getProducts();
+  GlobalKey<AnimatedGridState>? gridKey;
+
+  setGridKey(GlobalKey<AnimatedGridState> newKey) {
+    gridKey = newKey;
   }
+
+  void changeSearchText(String newSearchText) {
+    // Cancel the previous timer (if any)
+    _debounceTimer?.cancel();
+    // Start a new timer
+    _debounceTimer = Timer(const Duration(milliseconds: 500), () {
+      // This function will be called after a 1-second delay
+      searchText = newSearchText;
+      getProducts();
+    });
+  }
+
+  Timer? _debounceTimer;
+  List<int> processes = [];
 
   Future<void> initProducts() async {
     getProducts();
@@ -39,15 +57,48 @@ class SearchProvider extends SafeProvider with ErrorHandler {
   }
 
   Future<void> getProducts() async {
+    final previousItemsLength = products.length;
+    final List<ProductModel> copyOfProducts = List.from(products);
+
+    for (int i = previousItemsLength - 1; i >= 0; i--) {
+      gridKey!.currentState!.removeItem(
+        i,
+        (context, animation) => ScaleTransition(
+          scale: animation,
+          child: Center(
+            child: ProductTileHalfWidth(
+              productModel: copyOfProducts[i],
+            ),
+          ),
+        ),
+      );
+
+      // Remove item from the original list
+      products.removeAt(i);
+      notifyListeners();
+    }
     loadingProducts = true;
     notifyListeners();
     try {
-      products = await _favoriteProductsApi.searchProducts(searchText: searchText);
+      processes.add(0);
+      final newProducts = await _favoriteProductsApi.searchProducts(searchText: searchText);
+      processes.removeLast();
+      if (processes.isEmpty) {
+        // only the last process can modify the list
+        loadingProducts = false;
+        notifyListeners();
+        for (int i = 0; i < newProducts.length; i++) {
+          products.add(newProducts[i]);
+          notifyListeners();
+          gridKey!.currentState!.insertItem(i, duration: const Duration(milliseconds: 350));
+          await Future.delayed(const Duration(milliseconds: 100));
+        }
+      }
     } on ApiError catch (e) {
       showError(context, e);
+      loadingProducts = false;
+      notifyListeners();
     }
-    loadingProducts = false;
-    notifyListeners();
   }
 
   Future<void> getCategories() async {

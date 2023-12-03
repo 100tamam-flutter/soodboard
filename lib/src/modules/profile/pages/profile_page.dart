@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/animated_sliver_list_view.dart';
 import 'package:vrouter/vrouter.dart';
+
 import '../providers/profile_provider.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -38,178 +40,174 @@ class _ProfilePage extends StatelessWidget {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : ListView(
-              children: [
-                const Divider(
-                  color: Color(0xFFEBF0FF),
-                ),
-                ListTile(
-                  leading: CircleAvatar(
-                    radius: 36,
-                    backgroundImage: AssetImage(provider.profileDetail.avatar.file),
-                  ),
-                  minVerticalPadding: 24,
-                  title: Text(
-                    '${provider.profileDetail.firstName} ${provider.profileDetail.lastName}',
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  subtitle: Text(
-                    provider.profileDetail.username,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(color: const Color(0xFF9098B1)),
-                  ),
-                  onTap: () => context.vRouter.to(
-                    'change_name',
-                    historyState: {
-                      "first_name": provider.profileDetail.firstName,
-                      "last_name": provider.profileDetail.lastName,
-                    },
-                  ),
-                ),
-                ListTile(
-                  onTap: () => context.vRouter.to(
-                    'gender',
-                    historyState: {
-                      "gender": provider.profileDetail.gender,
-                    },
-                  ),
-                  leading: SvgPicture.asset('assets/icons/Gender.svg'),
-                  minVerticalPadding: 16,
-                  title: Row(
-                    children: <Widget>[
-                      Text(
-                        'Gender',
+          : CustomScrollView(
+              key: UniqueKey(),
+              slivers: [
+                AnimatedSliverListView(
+                  key: UniqueKey(),
+                  transitionType: TransitionType.slide,
+                  delay: const Duration(milliseconds: 100),
+                  children: [
+                    const Divider(
+                      color: Color(0xFFEBF0FF),
+                    ),
+                    ListTile(
+                      leading: CircleAvatar(
+                        radius: 36,
+                        backgroundImage: AssetImage(provider.profileDetail.avatar.file),
+                      ),
+                      minVerticalPadding: 24,
+                      title: Text(
+                        '${provider.profileDetail.firstName} ${provider.profileDetail.lastName}',
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
-                      Expanded(child: Container()),
-                      Text(
-                        provider.profileDetail.gender,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: Color(0xFF9098B1)),
+                      subtitle: Text(
+                        provider.profileDetail.username,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFF9098B1)),
                       ),
-                      const SizedBox(
-                        width: 16,
+                      onTap: () => context.vRouter.to(
+                        '/change_name',
+                        historyState: {
+                          "first_name": provider.profileDetail.firstName,
+                          "last_name": provider.profileDetail.lastName,
+                        },
                       ),
-                      SvgPicture.asset('assets/icons/Right.svg')
-                    ],
-                  ),
-                ),
-                ListTile(
-                    leading: SvgPicture.asset('assets/icons/Date.svg'),
-                    minVerticalPadding: 16,
-                    title: Row(children: <Widget>[
-                      Text(
-                        'birthday',
-                        style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    ListTile(
+                      onTap: () => context.vRouter.to(
+                        '/gender',
+                        historyState: {
+                          "gender": provider.profileDetail.gender,
+                        },
                       ),
-                      Expanded(child: Container()),
-                      Text(
-                        provider.profileDetail.birthDate.toString(),
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: Color(0xFF9098B1)),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      SvgPicture.asset('assets/icons/Right.svg')
-                    ],
-                    ),
-                  onTap: () => context.vRouter.to(
-                    'birth_date',
-                    historyState: {
-                      "birth_date": provider.profileDetail.birthDate.toString(),
-                    },
-                  ),
-                ),
-                ListTile(
-                  leading: SvgPicture.asset('assets/icons/Message.svg'),
-                  minVerticalPadding: 16,
-                  title: Row(children: <Widget>[
-                    Text(
-                      'Email',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                    Expanded(child: Container()),
-                    Text(
-                      provider.profileDetail.email.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: Color(0xFF9098B1)),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    SvgPicture.asset('assets/icons/Right.svg')
-                  ],
-                  ),
-                  onTap: () => context.vRouter.to(
-                    'email',
-                    historyState: {
-                      "email": provider.profileDetail.email.toString(),
-                    },
-                  ),
-                ),
-                ListTile(
-                  leading: SvgPicture.asset('assets/icons/Phone.svg'),
-                  minVerticalPadding: 16,
-                  title: Row(children: <Widget>[
-                    Text(
-                      'PhoneNumber',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                    Expanded(child: Container()),
-                    Text(
-                      provider.profileDetail.phoneNumber.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: Color(0xFF9098B1)),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    SvgPicture.asset('assets/icons/Right.svg')
-                  ],
-                  ),
-                  onTap: () => context.vRouter.to(
-                    'phone_number',
-                    historyState: {
-                      "phone_number": provider.profileDetail.phoneNumber.toString(),
-                    },
-                  ),
-                ),
-
-                ListTile(
-                  leading: SvgPicture.asset('assets/icons/Password.svg'),
-                  minVerticalPadding: 16,
-                  title: Row(children: <Widget>[
-                    Text(
-                      'Change Password',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                    Expanded(child: Container()),
-                    Text(
-                      '..........',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: Color(0xFF9098B1),
+                      leading: SvgPicture.asset('assets/icons/Gender.svg'),
+                      minVerticalPadding: 16,
+                      title: Row(
+                        children: <Widget>[
+                          Text(
+                            'Gender',
+                            style: Theme.of(context).textTheme.labelLarge,
                           ),
+                          Expanded(child: Container()),
+                          Text(
+                            provider.profileDetail.gender,
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFF9098B1)),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          SvgPicture.asset('assets/icons/Right.svg')
+                        ],
+                      ),
                     ),
-                    const SizedBox(
-                      width: 16,
+                    ListTile(
+                      leading: SvgPicture.asset('assets/icons/Date.svg'),
+                      minVerticalPadding: 16,
+                      title: Row(
+                        children: <Widget>[
+                          Text(
+                            'birthday',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          Expanded(child: Container()),
+                          Text(
+                            provider.profileDetail.birthDate.toString(),
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFF9098B1)),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          SvgPicture.asset('assets/icons/Right.svg')
+                        ],
+                      ),
+                      onTap: () => context.vRouter.to(
+                        '/birth_date',
+                        historyState: {
+                          "birth_date": provider.profileDetail.birthDate.toString(),
+                        },
+                      ),
                     ),
-                    SvgPicture.asset('assets/icons/Right.svg')
+                    ListTile(
+                      leading: SvgPicture.asset('assets/icons/email.svg'),
+                      minVerticalPadding: 16,
+                      title: Row(
+                        children: <Widget>[
+                          Text(
+                            'Email',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          Expanded(child: Container()),
+                          Text(
+                            provider.profileDetail.email.toString(),
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFF9098B1)),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          SvgPicture.asset('assets/icons/Right.svg')
+                        ],
+                      ),
+                      onTap: () => context.vRouter.to(
+                        '/email',
+                        historyState: {
+                          "email": provider.profileDetail.email.toString(),
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset('assets/icons/Phone.svg'),
+                      minVerticalPadding: 16,
+                      title: Row(
+                        children: <Widget>[
+                          Text(
+                            'PhoneNumber',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          Expanded(child: Container()),
+                          Text(
+                            provider.profileDetail.phoneNumber.toString(),
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFF9098B1)),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          SvgPicture.asset('assets/icons/Right.svg')
+                        ],
+                      ),
+                      onTap: () => context.vRouter.to(
+                        '/phone_number',
+                        historyState: {
+                          "phone_number": provider.profileDetail.phoneNumber.toString(),
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset('assets/icons/passphrase.svg'),
+                      minVerticalPadding: 16,
+                      title: Row(
+                        children: <Widget>[
+                          Text(
+                            'Change Password',
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          Expanded(child: Container()),
+                          Text(
+                            '..........',
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: Color(0xFF9098B1),
+                                ),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          SvgPicture.asset('assets/icons/Right.svg')
+                        ],
+                      ),
+                      onTap: () => context.vRouter.to(
+                        '/change_password',
+                      ),
+                    ),
                   ],
-                  ),
-                  onTap: () => context.vRouter.to(
-                    'change_password',
-                  ),
                 ),
               ],
             ),

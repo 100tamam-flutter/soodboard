@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soodboard/src/components/animated_sliver_list_view.dart';
 import 'package:soodboard/src/components/product/products_horizontal_listview.dart';
 import 'package:soodboard/src/modules/home/components/categories_panel.dart';
 import 'package:soodboard/src/modules/home/components/home_banner_slidebar_component.dart';
@@ -42,27 +43,27 @@ class _HomeScreen extends StatelessWidget {
                     pinned: false,
                     collapsedHeight: 90,
                   ),
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        const SizedBox(height: 16),
-                        HomeBannerSlideBarComponent(bannerModels: provider.banners),
-                        const SizedBox(height: 24),
-                        CategoriesPanel(categories: provider.categories),
-                        const SizedBox(height: 24),
-                        ProductsHorizontalListView(
-                          products: provider.flashSaleProducts,
-                          title: "Flash Sale",
-                        ),
-                        const SizedBox(height: 24),
-                        ProductsHorizontalListView(
-                          products: provider.megaSaleProducts,
-                          title: "Mega Sale",
-                        ),
-                        const SizedBox(height: 9),
-                        RecommendedProductsPanel(products: provider.recommendedProducts),
-                      ],
-                    ),
+                  AnimatedSliverListView(
+                    delay: const Duration(milliseconds: 100),
+                    transitionType: TransitionType.slide,
+                    children: [
+                      const SizedBox(height: 16),
+                      HomeBannerSlideBarComponent(bannerModels: provider.banners),
+                      const SizedBox(height: 24),
+                      CategoriesPanel(categories: provider.categories),
+                      const SizedBox(height: 24),
+                      ProductsHorizontalListView(
+                        products: provider.flashSaleProducts,
+                        title: "Flash Sale",
+                      ),
+                      const SizedBox(height: 24),
+                      ProductsHorizontalListView(
+                        products: provider.megaSaleProducts,
+                        title: "Mega Sale",
+                      ),
+                      const SizedBox(height: 9),
+                      RecommendedProductsPanel(products: provider.recommendedProducts),
+                    ],
                   ),
                 ],
               ),

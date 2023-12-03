@@ -11,7 +11,7 @@ class ExploreProvider extends SafeProvider with ErrorHandler {
   final BuildContext context;
 
   ExploreProvider(this.context) {
-    initcategories();
+    initCategories();
   }
 
   late List<CategoryModel> categories = [];
@@ -19,11 +19,11 @@ class ExploreProvider extends SafeProvider with ErrorHandler {
 
   bool loadingCategories = true;
 
-  Future<void> initcategories() async {
-    getcategories();
+  Future<void> initCategories() async {
+    getCategories();
   }
 
-  Future<void> getcategories() async {
+  Future<void> getCategories() async {
     loadingCategories = true;
     notifyListeners();
     try {
