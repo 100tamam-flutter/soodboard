@@ -61,7 +61,7 @@ class _FavoriteProductsPageState extends State<_FavoriteProductsPage> {
                 ),
                 itemBuilder: (context, index, animation) {
                   return ScaleTransition(
-                    scale: animation,
+                    scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
                     child: Center(
                       child: ProductTileHalfWidth(
                         productModel: provider.products[index],

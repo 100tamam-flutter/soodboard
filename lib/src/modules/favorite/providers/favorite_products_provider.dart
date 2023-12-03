@@ -39,7 +39,7 @@ class FavoriteProductsProvider extends SafeProvider with ErrorHandler {
       gridKey!.currentState!.removeItem(
         i,
         (context, animation) => ScaleTransition(
-          scale: animation,
+          scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
           child: Center(
             child: ProductTileHalfWidth(
               productModel: copyOfProducts[i],
@@ -108,7 +108,7 @@ class FavoriteProductsProvider extends SafeProvider with ErrorHandler {
       gridKey!.currentState!.removeItem(
         index,
         (context, animation) => ScaleTransition(
-          scale: animation,
+          scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
           child: Center(
             child: ProductTileHalfWidth(
               productModel: copyOfProducts[index],

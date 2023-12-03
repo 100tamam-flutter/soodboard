@@ -46,7 +46,7 @@ class _AnimatedSliverListViewState extends State<AnimatedSliverListView> {
     switch (widget.transitionType) {
       case TransitionType.fade:
         return FadeTransition(
-          opacity: animation,
+          opacity: CurvedAnimation(parent: animation, curve: Curves.ease),
           child: _list[index],
         );
       case TransitionType.slide:
@@ -54,17 +54,17 @@ class _AnimatedSliverListViewState extends State<AnimatedSliverListView> {
           position: Tween<Offset>(
             begin: const Offset(0.3, 0.0), // start from right
             end: Offset.zero, // end at the original position
-          ).animate(animation),
+          ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutBack)),
           child: _list[index],
         );
       case TransitionType.scale:
         return ScaleTransition(
-          scale: animation,
+          scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
           child: _list[index],
         );
       case TransitionType.rotation:
         return RotationTransition(
-          turns: animation,
+          turns: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
           child: _list[index],
         );
     }
