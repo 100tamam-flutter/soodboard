@@ -1,6 +1,16 @@
 # Soodboard - Flutter E-Commerce App Demo
+<div style="display: flex; justify-content: center;">
+<img src="screenshots/soodboard.gif" width="300">
+</div>
 
 ## Overview
+<div style="display: flex; justify-content: space-between;">
+  <img src="screenshots/1.jpg" width="200">
+  <img src="screenshots/2.jpg" width="200">
+  <img src="screenshots/3.jpg" width="200">
+  <img src="screenshots/4.jpg" width="200">
+  <img src="screenshots/5.jpg" width="200">
+</div>
 
 Soodboard is a collaborative effort by a dedicated team using the Scrum framework to develop a Flutter E-Commerce App. This project serves as a demonstration of various Flutter packages and best practices in mobile application development. Featuring a meticulously designed Figma UI, mock APIs for simulating real-world interactions, and following the MVC (Model-View-Controller) architecture, Soodboard is a testament to effective teamwork and modern development methodologies.
 
