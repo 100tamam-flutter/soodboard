@@ -1,4 +1,9 @@
 # Soodboard - Flutter E-Commerce App Demo
+![home screen](screenshots/1.jpg)
+![product screen](screenshots/2.jpg)
+![explore screen](screenshots/3.jpg)
+![cart screen](screenshots/4.jpg)
+![account screen](screenshots/5.jpg)
 
 ## Overview
 
