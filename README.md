@@ -1,6 +1,6 @@
 # Soodboard - Flutter E-Commerce App Demo
 <div style="display: flex; justify-content: center;">
-<img src="screenshots/soodboard.gif" width="200">
+<img src="screenshots/soodboard.gif" width="300">
 </div>
 
 ## Overview
